@@ -25,9 +25,9 @@
     "typescript": "^5.4.5"
   },
   "exports": {
-    "./models/ListFilter": {
-      "types": "./dist/models/ListFilter.d.ts",
-      "default": "./dist/models/ListFilter.js"
+    "./models/List": {
+      "types": "./dist/models/List.d.ts",
+      "default": "./dist/models/List.js"
     },
     "./models": {
       "types": "./dist/models/index.d.ts",

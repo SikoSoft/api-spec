@@ -32,3 +32,23 @@ export interface ListFilter {
   includeAll: boolean;
   time: TimeContext;
 }
+
+export enum ListSortProperty {
+  OCCURRED_AT = "occurredAt",
+  CREATED_AT = "createdAt",
+}
+
+export enum ListSortDirection {
+  ASC = "asc",
+  DESC = "desc",
+}
+
+export interface ListSort {
+  property: ListSortProperty;
+  direction: ListSortDirection;
+}
+
+export interface ListConfig {
+  filter: ListFilter;
+  sort: ListSort;
+}
