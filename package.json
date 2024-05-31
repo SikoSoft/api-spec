@@ -1,0 +1,37 @@
+{
+  "name": "api-spec",
+  "version": "1.0.0",
+  "description": "The contract between gapi and activity-logger.",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "tsc",
+    "watch": "tsc --w",
+    "start": "npm-run-all --parallel start:host watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SikoSoft/api-spec.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SikoSoft/api-spec/issues"
+  },
+  "homepage": "https://github.com/SikoSoft/api-spec#readme",
+  "devDependencies": {
+    "rimraf": "^5.0.5",
+    "typescript": "^5.4.5"
+  },
+  "exports": {
+    "./models/ListFilter": {
+      "types": "./dist/models/ListFilter.d.ts",
+      "default": "./dist/models/ListFilter.js"
+    },
+    "./models": {
+      "types": "./dist/models/index.d.ts",
+      "default": "./dist/models/index.js"
+    }
+  }
+}
