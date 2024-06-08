@@ -26,11 +26,23 @@ export interface RangeContext {
 
 export type TimeContext = AllTimeContext | ExactDateContext | RangeContext;
 
+export enum TextType {
+  CONTAINS = "contains",
+  BEGINS_WITH = "beginsWith",
+  ENDS_WITH = "endsWith",
+}
+
+export interface TextContext {
+  type: TextType;
+  subStr: string;
+}
+
 export interface ListFilter {
   tagging: Record<ListFilterType, string[]>;
   includeUntagged: boolean;
   includeAll: boolean;
   time: TimeContext;
+  text: TextContext[];
 }
 
 export enum ListSortProperty {
