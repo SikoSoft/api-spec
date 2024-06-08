@@ -9,6 +9,12 @@ export var ListFilterTimeType;
     ListFilterTimeType["EXACT_DATE"] = "exactDate";
     ListFilterTimeType["RANGE"] = "range";
 })(ListFilterTimeType || (ListFilterTimeType = {}));
+export var TextType;
+(function (TextType) {
+    TextType["CONTAINS"] = "contains";
+    TextType["BEGINS_WITH"] = "beginsWith";
+    TextType["ENDS_WITH"] = "endsWith";
+})(TextType || (TextType = {}));
 export var ListSortProperty;
 (function (ListSortProperty) {
     ListSortProperty["OCCURRED_AT"] = "occurredAt";

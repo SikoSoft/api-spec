@@ -20,11 +20,21 @@ export interface RangeContext {
     end: string;
 }
 export type TimeContext = AllTimeContext | ExactDateContext | RangeContext;
+export declare enum TextType {
+    CONTAINS = "contains",
+    BEGINS_WITH = "beginsWith",
+    ENDS_WITH = "endsWith"
+}
+export interface TextContext {
+    type: TextType;
+    subStr: string;
+}
 export interface ListFilter {
     tagging: Record<ListFilterType, string[]>;
     includeUntagged: boolean;
     includeAll: boolean;
     time: TimeContext;
+    text: TextContext[];
 }
 export declare enum ListSortProperty {
     OCCURRED_AT = "occurredAt",
