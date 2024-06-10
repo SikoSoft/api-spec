@@ -22,7 +22,7 @@ export interface RangeContext {
 export type TimeContext = AllTimeContext | ExactDateContext | RangeContext;
 export declare enum TextType {
     CONTAINS = "contains",
-    BEGINS_WITH = "beginsWith",
+    STARTS_WITH = "startsWith",
     ENDS_WITH = "endsWith"
 }
 export interface TextContext {

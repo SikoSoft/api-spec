@@ -12,7 +12,7 @@ export var ListFilterTimeType;
 export var TextType;
 (function (TextType) {
     TextType["CONTAINS"] = "contains";
-    TextType["BEGINS_WITH"] = "beginsWith";
+    TextType["STARTS_WITH"] = "startsWith";
     TextType["ENDS_WITH"] = "endsWith";
 })(TextType || (TextType = {}));
 export var ListSortProperty;
