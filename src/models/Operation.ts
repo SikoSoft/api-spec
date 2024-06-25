@@ -1,7 +1,12 @@
 export enum OperationType {
+  DELETE = "delete",
   REPLACE_TAGS = "replaceTags",
   ADD_TAGS = "addTags",
   REMOVE_TAGS = "removeTags",
+}
+
+export interface DeleteOperation {
+  type: OperationType.DELETE;
 }
 
 export interface ReplaceTagsOperation {
@@ -20,6 +25,7 @@ export interface RemoveTagsOperation {
 }
 
 export type Operation =
+  | DeleteOperation
   | ReplaceTagsOperation
   | AddTagsOperation
   | RemoveTagsOperation;
