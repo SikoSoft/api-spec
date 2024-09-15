@@ -19,6 +19,7 @@ export var ListSortProperty;
 (function (ListSortProperty) {
     ListSortProperty["OCCURRED_AT"] = "occurredAt";
     ListSortProperty["CREATED_AT"] = "createdAt";
+    ListSortProperty["DESC"] = "desc";
 })(ListSortProperty || (ListSortProperty = {}));
 export var ListSortDirection;
 (function (ListSortDirection) {

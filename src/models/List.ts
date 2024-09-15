@@ -48,6 +48,7 @@ export interface ListFilter {
 export enum ListSortProperty {
   OCCURRED_AT = "occurredAt",
   CREATED_AT = "createdAt",
+  DESC = "desc",
 }
 
 export enum ListSortDirection {
@@ -61,6 +62,8 @@ export interface ListSort {
 }
 
 export interface ListConfig {
+  name: string;
+  id: string;
   filter: ListFilter;
   sort: ListSort;
 }
