@@ -67,3 +67,20 @@ export interface ListConfig {
   filter: ListFilter;
   sort: ListSort;
 }
+
+export enum ListContextType {
+  BEFORE = "before",
+  AFTER = "after",
+}
+
+export enum ListContextUnit {
+  MINUTE = "minute",
+  HOUR = "hour",
+  DAY = "day",
+}
+
+export interface ListContext {
+  type: ListContextType;
+  quantity: number;
+  unit: ListContextUnit;
+}

@@ -26,4 +26,15 @@ export var ListSortDirection;
     ListSortDirection["ASC"] = "asc";
     ListSortDirection["DESC"] = "desc";
 })(ListSortDirection || (ListSortDirection = {}));
+export var ListContextType;
+(function (ListContextType) {
+    ListContextType["BEFORE"] = "before";
+    ListContextType["AFTER"] = "after";
+})(ListContextType || (ListContextType = {}));
+export var ListContextUnit;
+(function (ListContextUnit) {
+    ListContextUnit["MINUTE"] = "minute";
+    ListContextUnit["HOUR"] = "hour";
+    ListContextUnit["DAY"] = "day";
+})(ListContextUnit || (ListContextUnit = {}));
 //# sourceMappingURL=List.js.map
