@@ -29,8 +29,9 @@ export interface TextContext {
     type: TextType;
     subStr: string;
 }
+export type TaggingContext = Record<ListFilterType, string[]>;
 export interface ListFilter {
-    tagging: Record<ListFilterType, string[]>;
+    tagging: TaggingContext;
     includeUntagged: boolean;
     includeAll: boolean;
     time: TimeContext;
