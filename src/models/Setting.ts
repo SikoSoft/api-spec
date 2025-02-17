@@ -6,6 +6,12 @@ export enum SettingType {
   TEXT = "text",
 }
 
+export interface SettingTypeConfig {
+  [SettingType.TOGGLE]: boolean;
+  [SettingType.NUMBER]: number;
+  [SettingType.TEXT]: string;
+}
+
 export enum SettingName {
   PAGINATION_TYPE = "paginationType",
   PAGINATION_PAGE_SIZE = "paginationPageSize",
@@ -18,5 +24,7 @@ export interface SettingConfig {
 
 export interface Settings {
   listConfig: ListConfig;
-  settings: { [Property in keyof SettingConfig]: SettingConfig[Property] };
+  settings: {
+    [Property in keyof SettingConfig]: SettingTypeConfig[SettingConfig[Property]];
+  };
 }
