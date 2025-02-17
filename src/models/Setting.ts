@@ -6,8 +6,18 @@ export enum SettingType {
   TEXT = "text",
 }
 
-export interface Setting {
-  name: string;
+export enum SettingName {
+  PAGINATION_TYPE = "paginationType",
+  PAGINATION_PAGE_SIZE = "paginationPageSize",
+}
+
+export interface SettingConfig {
+  [SettingName.PAGINATION_TYPE]: SettingType.TEXT;
+  [SettingName.PAGINATION_PAGE_SIZE]: SettingType.NUMBER;
+}
+
+export interface Setting<SettingName> {
+  name: SettingName;
   type: SettingType;
 }
 
@@ -25,5 +35,5 @@ export interface TextSetting extends Setting {
 
 export interface Settings {
   listConfig: ListConfig;
-  settings: Setting[];
+  settings: { [Property in keyof SettingConfig]: SettingConfig[Property] };
 }
