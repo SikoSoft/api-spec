@@ -17,14 +17,21 @@ export enum SettingName {
   PAGINATION_PAGE_SIZE = "paginationPageSize",
 }
 
-export interface SettingConfig {
-  [SettingName.PAGINATION_TYPE]: SettingType.TEXT;
-  [SettingName.PAGINATION_PAGE_SIZE]: SettingType.NUMBER;
+export enum PaginationType {
+  LAZY = "lazy",
+  NAVIGATION = "navigation",
 }
 
-export interface Settings {
-  listConfig: ListConfig;
-  settings: {
-    [Property in keyof SettingConfig]: SettingTypeConfig[SettingConfig[Property]];
-  };
+export interface SettingConfig {
+  [SettingName.PAGINATION_TYPE]: PaginationType;
+  [SettingName.PAGINATION_PAGE_SIZE]: number;
 }
+
+export type Settings = {
+  [Property in keyof SettingConfig]: SettingConfig[Property];
+};
+
+export const defaultSettings: Settings = {
+  paginationType: PaginationType.LAZY,
+  paginationPageSize: 10,
+};
