@@ -4,6 +4,10 @@ export enum SettingType {
   TEXT = "text",
 }
 
+export enum SettingGroup {
+  PAGINATION = "pagination",
+}
+
 export interface SettingTypeConfig {
   [SettingType.TOGGLE]: boolean;
   [SettingType.NUMBER]: number;
@@ -32,15 +36,17 @@ export type SettingsConfig = {
   [SettingName.PAGINATION_TYPE]: {
     value: PaginationType;
     control: SettingType.TEXT;
+    group: SettingGroup.PAGINATION;
   };
   [SettingName.PAGINATION_PAGE_SIZE]: {
     value: number;
     control: SettingType.NUMBER;
+    group: SettingGroup.PAGINATION;
   };
 };
 
 export type Setting = {
-  [K in keyof SettingsConfig]: { name: K; value: SettingsConfig[K] };
+  [K in keyof SettingsConfig]: { name: K; value: SettingsConfig[K]["value"] };
 }[keyof SettingsConfig];
 
 export type Settings = {

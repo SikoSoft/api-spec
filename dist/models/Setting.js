@@ -4,6 +4,10 @@ export var SettingType;
     SettingType["NUMBER"] = "number";
     SettingType["TEXT"] = "text";
 })(SettingType || (SettingType = {}));
+export var SettingGroup;
+(function (SettingGroup) {
+    SettingGroup["PAGINATION"] = "pagination";
+})(SettingGroup || (SettingGroup = {}));
 export var SettingName;
 (function (SettingName) {
     SettingName["PAGINATION_TYPE"] = "paginationType";
