@@ -21,16 +21,30 @@ export enum PaginationType {
 }
 
 export interface SettingConfig {
-  [SettingName.PAGINATION_TYPE]: PaginationType;
-  [SettingName.PAGINATION_PAGE_SIZE]: number;
+  valueType: any;
+  controlType: SettingType;
 }
 
+export type PaginationIndex = keyof typeof PaginationType;
+export type PaginationValue = (typeof PaginationType)[PaginationIndex];
+
+export type SettingsConfig = {
+  [SettingName.PAGINATION_TYPE]: {
+    value: PaginationType;
+    control: SettingType.TEXT;
+  };
+  [SettingName.PAGINATION_PAGE_SIZE]: {
+    value: number;
+    control: SettingType.NUMBER;
+  };
+};
+
 export type Setting = {
-  [K in keyof SettingConfig]: { name: K; value: SettingConfig[K] };
-}[keyof SettingConfig];
+  [K in keyof SettingsConfig]: { name: K; value: SettingsConfig[K] };
+}[keyof SettingsConfig];
 
 export type Settings = {
-  [Property in keyof SettingConfig]: SettingConfig[Property];
+  [Property in keyof SettingsConfig]: SettingsConfig[Property];
 };
 
 export const defaultSettings: Settings = {
