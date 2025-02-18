@@ -44,7 +44,7 @@ export type Setting = {
 }[keyof SettingsConfig];
 
 export type Settings = {
-  [Property in keyof SettingsConfig]: SettingsConfig[Property];
+  [Property in keyof SettingsConfig]: SettingsConfig[Property]["value"];
 };
 
 export const defaultSettings: Settings = {
