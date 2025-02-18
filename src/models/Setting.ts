@@ -1,5 +1,3 @@
-import { ListConfig } from "./List";
-
 export enum SettingType {
   TOGGLE = "toggle",
   NUMBER = "number",
@@ -26,6 +24,10 @@ export interface SettingConfig {
   [SettingName.PAGINATION_TYPE]: PaginationType;
   [SettingName.PAGINATION_PAGE_SIZE]: number;
 }
+
+export type Setting = {
+  [K in keyof SettingConfig]: { name: K; value: SettingConfig[K] };
+}[keyof SettingConfig];
 
 export type Settings = {
   [Property in keyof SettingConfig]: SettingConfig[Property];
