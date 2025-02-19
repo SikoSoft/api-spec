@@ -1,5 +1,5 @@
 export declare enum SettingType {
-    TOGGLE = "toggle",
+    BOOLEAN = "boolean",
     NUMBER = "number",
     TEXT = "text"
 }
@@ -7,7 +7,7 @@ export declare enum SettingGroup {
     PAGINATION = "pagination"
 }
 export interface SettingTypeConfig {
-    [SettingType.TOGGLE]: boolean;
+    [SettingType.BOOLEAN]: boolean;
     [SettingType.NUMBER]: number;
     [SettingType.TEXT]: string;
 }

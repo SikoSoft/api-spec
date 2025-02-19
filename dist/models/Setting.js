@@ -1,6 +1,6 @@
 export var SettingType;
 (function (SettingType) {
-    SettingType["TOGGLE"] = "toggle";
+    SettingType["BOOLEAN"] = "boolean";
     SettingType["NUMBER"] = "number";
     SettingType["TEXT"] = "text";
 })(SettingType || (SettingType = {}));
