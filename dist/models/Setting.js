@@ -18,6 +18,18 @@ export var PaginationType;
     PaginationType["LAZY"] = "lazy";
     PaginationType["NAVIGATION"] = "navigation";
 })(PaginationType || (PaginationType = {}));
+export const settingsConfig = {
+    [SettingName.PAGINATION_TYPE]: {
+        default: PaginationType.LAZY,
+        control: SettingType.TEXT,
+        group: SettingGroup.PAGINATION,
+    },
+    [SettingName.PAGINATION_PAGE_SIZE]: {
+        default: 10,
+        control: SettingType.NUMBER,
+        group: SettingGroup.PAGINATION,
+    },
+};
 export const defaultSettings = {
     paginationType: PaginationType.LAZY,
     paginationPageSize: 10,
