@@ -34,23 +34,36 @@ export type PaginationValue = (typeof PaginationType)[PaginationIndex];
 
 export type SettingsConfig = {
   [SettingName.PAGINATION_TYPE]: {
-    value: PaginationType;
+    default: PaginationType;
     control: SettingType.TEXT;
     group: SettingGroup.PAGINATION;
   };
   [SettingName.PAGINATION_PAGE_SIZE]: {
-    value: number;
+    default: number;
     control: SettingType.NUMBER;
     group: SettingGroup.PAGINATION;
   };
 };
 
+export const settingsConfig: SettingsConfig = {
+  [SettingName.PAGINATION_TYPE]: {
+    default: PaginationType.LAZY,
+    control: SettingType.TEXT,
+    group: SettingGroup.PAGINATION,
+  },
+  [SettingName.PAGINATION_PAGE_SIZE]: {
+    default: 10,
+    control: SettingType.NUMBER,
+    group: SettingGroup.PAGINATION,
+  },
+};
+
 export type Setting = {
-  [K in keyof SettingsConfig]: { name: K; value: SettingsConfig[K]["value"] };
+  [K in keyof SettingsConfig]: { name: K; value: SettingsConfig[K]["default"] };
 }[keyof SettingsConfig];
 
 export type Settings = {
-  [Property in keyof SettingsConfig]: SettingsConfig[Property]["value"];
+  [Property in keyof SettingsConfig]: SettingsConfig[Property]["default"];
 };
 
 export const defaultSettings: Settings = {
