@@ -1,9 +1,9 @@
-export var SettingType;
-(function (SettingType) {
-    SettingType["BOOLEAN"] = "boolean";
-    SettingType["NUMBER"] = "number";
-    SettingType["TEXT"] = "text";
-})(SettingType || (SettingType = {}));
+export var ControlType;
+(function (ControlType) {
+    ControlType["BOOLEAN"] = "boolean";
+    ControlType["NUMBER"] = "number";
+    ControlType["TEXT"] = "text";
+})(ControlType || (ControlType = {}));
 export var SettingGroup;
 (function (SettingGroup) {
     SettingGroup["PAGINATION"] = "pagination";
@@ -20,13 +20,17 @@ export var PaginationType;
 })(PaginationType || (PaginationType = {}));
 export const settingsConfig = {
     [SettingName.PAGINATION_TYPE]: {
-        default: PaginationType.LAZY,
-        control: SettingType.TEXT,
+        name: SettingName.PAGINATION_TYPE,
+        value: PaginationType.LAZY,
+        control: {
+            type: ControlType.TEXT,
+        },
         group: SettingGroup.PAGINATION,
     },
     [SettingName.PAGINATION_PAGE_SIZE]: {
-        default: 10,
-        control: SettingType.NUMBER,
+        name: SettingName.PAGINATION_PAGE_SIZE,
+        value: 10,
+        control: { type: ControlType.NUMBER, min: 1, max: 100, step: 1 },
         group: SettingGroup.PAGINATION,
     },
 };

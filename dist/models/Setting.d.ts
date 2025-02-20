@@ -1,4 +1,4 @@
-export declare enum SettingType {
+export declare enum ControlType {
     BOOLEAN = "boolean",
     NUMBER = "number",
     TEXT = "text"
@@ -7,9 +7,9 @@ export declare enum SettingGroup {
     PAGINATION = "pagination"
 }
 export interface SettingTypeConfig {
-    [SettingType.BOOLEAN]: boolean;
-    [SettingType.NUMBER]: number;
-    [SettingType.TEXT]: string;
+    [ControlType.BOOLEAN]: boolean;
+    [ControlType.NUMBER]: number;
+    [ControlType.TEXT]: string;
 }
 export declare enum SettingName {
     PAGINATION_TYPE = "paginationType",
@@ -19,32 +19,36 @@ export declare enum PaginationType {
     LAZY = "lazy",
     NAVIGATION = "navigation"
 }
-export interface SettingConfig {
-    valueType: any;
-    controlType: SettingType;
-}
 export type PaginationIndex = keyof typeof PaginationType;
 export type PaginationValue = (typeof PaginationType)[PaginationIndex];
+export interface BooleanControl {
+    type: ControlType.BOOLEAN;
+}
+export interface NumberControl {
+    type: ControlType.NUMBER;
+    min?: number;
+    max?: number;
+    step?: number;
+}
+export interface TextControl {
+    type: ControlType.TEXT;
+}
+export type Control = BooleanControl | NumberControl | TextControl;
+export interface SettingConfig {
+    name: SettingName;
+    value: any;
+    control: Control;
+    group: SettingGroup;
+}
 export type SettingsConfig = {
-    [SettingName.PAGINATION_TYPE]: {
-        default: PaginationType;
-        control: SettingType.TEXT;
-        group: SettingGroup.PAGINATION;
-    };
-    [SettingName.PAGINATION_PAGE_SIZE]: {
-        default: number;
-        control: SettingType.NUMBER;
-        group: SettingGroup.PAGINATION;
-    };
+    [SettingName.PAGINATION_TYPE]: SettingConfig;
+    [SettingName.PAGINATION_PAGE_SIZE]: SettingConfig;
 };
 export declare const settingsConfig: SettingsConfig;
 export type Setting = {
-    [K in keyof SettingsConfig]: {
-        name: K;
-        value: SettingsConfig[K]["default"];
-    };
+    [K in keyof SettingsConfig]: SettingsConfig[K];
 }[keyof SettingsConfig];
 export type Settings = {
-    [Property in keyof SettingsConfig]: SettingsConfig[Property]["default"];
+    [Property in keyof SettingsConfig]: SettingsConfig[Property]["value"];
 };
 export declare const defaultSettings: Settings;
