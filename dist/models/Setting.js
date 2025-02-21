@@ -3,6 +3,7 @@ export var ControlType;
     ControlType["BOOLEAN"] = "boolean";
     ControlType["NUMBER"] = "number";
     ControlType["TEXT"] = "text";
+    ControlType["SELECT"] = "select";
 })(ControlType || (ControlType = {}));
 export var SettingGroup;
 (function (SettingGroup) {
@@ -23,7 +24,8 @@ export const settingsConfig = {
         name: SettingName.PAGINATION_TYPE,
         value: PaginationType.LAZY,
         control: {
-            type: ControlType.TEXT,
+            type: ControlType.SELECT,
+            options: [PaginationType.LAZY, PaginationType.NAVIGATION],
         },
         group: SettingGroup.PAGINATION,
     },

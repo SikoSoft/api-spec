@@ -1,7 +1,8 @@
 export declare enum ControlType {
     BOOLEAN = "boolean",
     NUMBER = "number",
-    TEXT = "text"
+    TEXT = "text",
+    SELECT = "select"
 }
 export declare enum SettingGroup {
     PAGINATION = "pagination"
@@ -10,6 +11,7 @@ export interface SettingTypeConfig {
     [ControlType.BOOLEAN]: boolean;
     [ControlType.NUMBER]: number;
     [ControlType.TEXT]: string;
+    [ControlType.SELECT]: string;
 }
 export declare enum SettingName {
     PAGINATION_TYPE = "paginationType",
@@ -33,7 +35,11 @@ export interface NumberControl {
 export interface TextControl {
     type: ControlType.TEXT;
 }
-export type Control = BooleanControl | NumberControl | TextControl;
+export interface SelectControl {
+    type: ControlType.SELECT;
+    options: any[];
+}
+export type Control = BooleanControl | NumberControl | TextControl | SelectControl;
 export interface SettingConfig {
     name: SettingName;
     value: any;
