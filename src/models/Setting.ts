@@ -2,6 +2,7 @@ export enum ControlType {
   BOOLEAN = "boolean",
   NUMBER = "number",
   TEXT = "text",
+  SELECT = "select",
 }
 
 export enum SettingGroup {
@@ -12,6 +13,7 @@ export interface SettingTypeConfig {
   [ControlType.BOOLEAN]: boolean;
   [ControlType.NUMBER]: number;
   [ControlType.TEXT]: string;
+  [ControlType.SELECT]: string;
 }
 
 export enum SettingName {
@@ -42,7 +44,16 @@ export interface TextControl {
   type: ControlType.TEXT;
 }
 
-export type Control = BooleanControl | NumberControl | TextControl;
+export interface SelectControl {
+  type: ControlType.SELECT;
+  options: any[];
+}
+
+export type Control =
+  | BooleanControl
+  | NumberControl
+  | TextControl
+  | SelectControl;
 
 export interface SettingConfig {
   name: SettingName;
@@ -61,7 +72,8 @@ export const settingsConfig: SettingsConfig = {
     name: SettingName.PAGINATION_TYPE,
     value: PaginationType.LAZY,
     control: {
-      type: ControlType.TEXT,
+      type: ControlType.SELECT,
+      options: [PaginationType.LAZY, PaginationType.NAVIGATION],
     },
     group: SettingGroup.PAGINATION,
   },
