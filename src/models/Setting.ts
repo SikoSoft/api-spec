@@ -62,9 +62,19 @@ export interface SettingConfig {
   group: SettingGroup;
 }
 
+export interface PaginationSettingConfig extends SettingConfig {
+  name: SettingName.PAGINATION_TYPE;
+  value: PaginationType;
+}
+
+export interface PaginationPageSizeSettingConfig extends SettingConfig {
+  name: SettingName.PAGINATION_PAGE_SIZE;
+  value: number;
+}
+
 export type SettingsConfig = {
-  [SettingName.PAGINATION_TYPE]: SettingConfig;
-  [SettingName.PAGINATION_PAGE_SIZE]: SettingConfig;
+  [SettingName.PAGINATION_TYPE]: PaginationSettingConfig;
+  [SettingName.PAGINATION_PAGE_SIZE]: PaginationPageSizeSettingConfig;
 };
 
 export const settingsConfig: SettingsConfig = {
@@ -85,9 +95,8 @@ export const settingsConfig: SettingsConfig = {
   },
 };
 
-// name: K; value: SettingsConfig[K]["value"]
 export type Setting = {
-  [K in keyof SettingsConfig]: SettingsConfig[K];
+  [K in keyof SettingsConfig]: Partial<SettingsConfig[K]>;
 }[keyof SettingsConfig];
 
 export type Settings = {
@@ -95,6 +104,6 @@ export type Settings = {
 };
 
 export const defaultSettings: Settings = {
-  paginationType: PaginationType.LAZY,
-  paginationPageSize: 10,
+  [SettingName.PAGINATION_TYPE]: PaginationType.LAZY,
+  [SettingName.PAGINATION_PAGE_SIZE]: 10,
 };
