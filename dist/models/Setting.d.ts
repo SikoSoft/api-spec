@@ -46,13 +46,21 @@ export interface SettingConfig {
     control: Control;
     group: SettingGroup;
 }
+export interface PaginationSettingConfig extends SettingConfig {
+    name: SettingName.PAGINATION_TYPE;
+    value: PaginationType;
+}
+export interface PaginationPageSizeSettingConfig extends SettingConfig {
+    name: SettingName.PAGINATION_PAGE_SIZE;
+    value: number;
+}
 export type SettingsConfig = {
-    [SettingName.PAGINATION_TYPE]: SettingConfig;
-    [SettingName.PAGINATION_PAGE_SIZE]: SettingConfig;
+    [SettingName.PAGINATION_TYPE]: PaginationSettingConfig;
+    [SettingName.PAGINATION_PAGE_SIZE]: PaginationPageSizeSettingConfig;
 };
 export declare const settingsConfig: SettingsConfig;
 export type Setting = {
-    [K in keyof SettingsConfig]: SettingsConfig[K];
+    [K in keyof SettingsConfig]: Partial<SettingsConfig[K]>;
 }[keyof SettingsConfig];
 export type Settings = {
     [Property in keyof SettingsConfig]: SettingsConfig[Property]["value"];

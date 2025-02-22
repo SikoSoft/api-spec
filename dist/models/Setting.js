@@ -37,7 +37,7 @@ export const settingsConfig = {
     },
 };
 export const defaultSettings = {
-    paginationType: PaginationType.LAZY,
-    paginationPageSize: 10,
+    [SettingName.PAGINATION_TYPE]: PaginationType.LAZY,
+    [SettingName.PAGINATION_PAGE_SIZE]: 10,
 };
 //# sourceMappingURL=Setting.js.map
