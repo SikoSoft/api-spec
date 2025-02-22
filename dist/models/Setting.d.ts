@@ -40,22 +40,21 @@ export interface SelectControl {
     options: any[];
 }
 export type Control = BooleanControl | NumberControl | TextControl | SelectControl;
-export interface SettingConfig {
-    name: SettingName;
-    value: any;
-    control: Control;
-    group: SettingGroup;
-}
-export interface PaginationSettingConfig extends SettingConfig {
+export interface PaginationTypeSettingConfig {
     name: SettingName.PAGINATION_TYPE;
     value: PaginationType;
+    control: SelectControl;
+    group: SettingGroup.PAGINATION;
 }
-export interface PaginationPageSizeSettingConfig extends SettingConfig {
+export interface PaginationPageSizeSettingConfig {
     name: SettingName.PAGINATION_PAGE_SIZE;
     value: number;
+    control: NumberControl;
+    group: SettingGroup.PAGINATION;
 }
+export type SettingConfig = PaginationTypeSettingConfig | PaginationPageSizeSettingConfig;
 export type SettingsConfig = {
-    [SettingName.PAGINATION_TYPE]: PaginationSettingConfig;
+    [SettingName.PAGINATION_TYPE]: PaginationTypeSettingConfig;
     [SettingName.PAGINATION_PAGE_SIZE]: PaginationPageSizeSettingConfig;
 };
 export declare const settingsConfig: SettingsConfig;
