@@ -55,14 +55,35 @@ export type Control =
   | TextControl
   | SelectControl;
 
-export interface PaginationTypeSettingConfig {
+export interface BooleanSettingConfig {
+  name: SettingName;
+  value: boolean;
+  control: BooleanControl;
+  group: SettingGroup;
+}
+
+export interface NumberSettingConfig {
+  name: SettingName;
+  value: number;
+  control: NumberControl;
+  group: SettingGroup;
+}
+
+export interface TextSettingConfig {
+  name: SettingName;
+  value: string;
+  control: TextControl | SelectControl;
+  group: SettingGroup;
+}
+
+export interface PaginationTypeSettingConfig extends TextSettingConfig {
   name: SettingName.PAGINATION_TYPE;
   value: PaginationType;
   control: SelectControl;
   group: SettingGroup.PAGINATION;
 }
 
-export interface PaginationPageSizeSettingConfig {
+export interface PaginationPageSizeSettingConfig extends NumberSettingConfig {
   name: SettingName.PAGINATION_PAGE_SIZE;
   value: number;
   control: NumberControl;
