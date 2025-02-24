@@ -8,11 +8,13 @@ export var ControlType;
 export var SettingGroup;
 (function (SettingGroup) {
     SettingGroup["PAGINATION"] = "pagination";
+    SettingGroup["LEXICOLOGY"] = "lexicology";
 })(SettingGroup || (SettingGroup = {}));
 export var SettingName;
 (function (SettingName) {
     SettingName["PAGINATION_TYPE"] = "paginationType";
     SettingName["PAGINATION_PAGE_SIZE"] = "paginationPageSize";
+    SettingName["ENTITY_NAME"] = "entityName";
 })(SettingName || (SettingName = {}));
 export var PaginationType;
 (function (PaginationType) {
@@ -35,9 +37,16 @@ export const settingsConfig = {
         control: { type: ControlType.NUMBER, min: 1, max: 100, step: 1 },
         group: SettingGroup.PAGINATION,
     },
+    [SettingName.ENTITY_NAME]: {
+        name: SettingName.ENTITY_NAME,
+        value: "action",
+        control: { type: ControlType.TEXT },
+        group: SettingGroup.LEXICOLOGY,
+    },
 };
 export const defaultSettings = {
     [SettingName.PAGINATION_TYPE]: PaginationType.LAZY,
     [SettingName.PAGINATION_PAGE_SIZE]: 10,
+    [SettingName.ENTITY_NAME]: "action",
 };
 //# sourceMappingURL=Setting.js.map

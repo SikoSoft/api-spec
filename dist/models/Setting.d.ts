@@ -5,7 +5,8 @@ export declare enum ControlType {
     SELECT = "select"
 }
 export declare enum SettingGroup {
-    PAGINATION = "pagination"
+    PAGINATION = "pagination",
+    LEXICOLOGY = "lexicology"
 }
 export interface SettingTypeConfig {
     [ControlType.BOOLEAN]: boolean;
@@ -15,7 +16,8 @@ export interface SettingTypeConfig {
 }
 export declare enum SettingName {
     PAGINATION_TYPE = "paginationType",
-    PAGINATION_PAGE_SIZE = "paginationPageSize"
+    PAGINATION_PAGE_SIZE = "paginationPageSize",
+    ENTITY_NAME = "entityName"
 }
 export declare enum PaginationType {
     LAZY = "lazy",
@@ -70,10 +72,17 @@ export interface PaginationPageSizeSettingConfig extends NumberSettingConfig {
     control: NumberControl;
     group: SettingGroup.PAGINATION;
 }
-export type SettingConfig = PaginationTypeSettingConfig | PaginationPageSizeSettingConfig;
+export interface EntityNameSettingConfig extends TextSettingConfig {
+    name: SettingName.ENTITY_NAME;
+    value: string;
+    control: TextControl;
+    group: SettingGroup.LEXICOLOGY;
+}
+export type SettingConfig = PaginationTypeSettingConfig | PaginationPageSizeSettingConfig | EntityNameSettingConfig;
 export type SettingsConfig = {
     [SettingName.PAGINATION_TYPE]: PaginationTypeSettingConfig;
     [SettingName.PAGINATION_PAGE_SIZE]: PaginationPageSizeSettingConfig;
+    [SettingName.ENTITY_NAME]: EntityNameSettingConfig;
 };
 export declare const settingsConfig: SettingsConfig;
 export type Setting = {
