@@ -1,3 +1,5 @@
+import { Setting } from ".";
+
 export enum ControlType {
   BOOLEAN = "boolean",
   NUMBER = "number",
@@ -7,6 +9,7 @@ export enum ControlType {
 
 export enum SettingGroup {
   PAGINATION = "pagination",
+  LEXICOLOGY = "lexicology",
 }
 
 export interface SettingTypeConfig {
@@ -19,6 +22,7 @@ export interface SettingTypeConfig {
 export enum SettingName {
   PAGINATION_TYPE = "paginationType",
   PAGINATION_PAGE_SIZE = "paginationPageSize",
+  ENTITY_NAME = "entityName",
 }
 
 export enum PaginationType {
@@ -90,13 +94,22 @@ export interface PaginationPageSizeSettingConfig extends NumberSettingConfig {
   group: SettingGroup.PAGINATION;
 }
 
+export interface EntityNameSettingConfig extends TextSettingConfig {
+  name: SettingName.ENTITY_NAME;
+  value: string;
+  control: TextControl;
+  group: SettingGroup.LEXICOLOGY;
+}
+
 export type SettingConfig =
   | PaginationTypeSettingConfig
-  | PaginationPageSizeSettingConfig;
+  | PaginationPageSizeSettingConfig
+  | EntityNameSettingConfig;
 
 export type SettingsConfig = {
   [SettingName.PAGINATION_TYPE]: PaginationTypeSettingConfig;
   [SettingName.PAGINATION_PAGE_SIZE]: PaginationPageSizeSettingConfig;
+  [SettingName.ENTITY_NAME]: EntityNameSettingConfig;
 };
 
 export const settingsConfig: SettingsConfig = {
@@ -115,6 +128,12 @@ export const settingsConfig: SettingsConfig = {
     control: { type: ControlType.NUMBER, min: 1, max: 100, step: 1 },
     group: SettingGroup.PAGINATION,
   },
+  [SettingName.ENTITY_NAME]: {
+    name: SettingName.ENTITY_NAME,
+    value: "action",
+    control: { type: ControlType.TEXT },
+    group: SettingGroup.LEXICOLOGY,
+  },
 };
 
 export type Setting = {
@@ -128,4 +147,5 @@ export type Settings = {
 export const defaultSettings: Settings = {
   [SettingName.PAGINATION_TYPE]: PaginationType.LAZY,
   [SettingName.PAGINATION_PAGE_SIZE]: 10,
+  [SettingName.ENTITY_NAME]: "action",
 };
