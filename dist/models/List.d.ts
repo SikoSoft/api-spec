@@ -1,3 +1,4 @@
+import { Settings } from "./Setting";
 export declare enum ListFilterType {
     CONTAINS_ONE_OF = "containsOneOf",
     CONTAINS_ALL_OF = "containsAllOf"
@@ -56,6 +57,7 @@ export interface ListConfig {
     id: string;
     filter: ListFilter;
     sort: ListSort;
+    setting: Settings;
 }
 export declare enum ListContextType {
     BEFORE = "before",
