@@ -137,7 +137,10 @@ export const settingsConfig: SettingsConfig = {
 };
 
 export type Setting = {
-  [K in keyof SettingsConfig]: Partial<SettingsConfig[K]> & { name: K };
+  [K in keyof SettingsConfig]: Partial<SettingsConfig[K]> & {
+    name: K;
+    value: SettingsConfig[K]["value"];
+  };
 }[keyof SettingsConfig];
 
 export type Settings = {
