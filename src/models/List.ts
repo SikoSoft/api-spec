@@ -32,6 +32,7 @@ export enum TextType {
   CONTAINS = "contains",
   STARTS_WITH = "startsWith",
   ENDS_WITH = "endsWith",
+  EQUALS = "equals",
 }
 
 export interface TextContext {
