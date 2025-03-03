@@ -24,7 +24,8 @@ export type TimeContext = AllTimeContext | ExactDateContext | RangeContext;
 export declare enum TextType {
     CONTAINS = "contains",
     STARTS_WITH = "startsWith",
-    ENDS_WITH = "endsWith"
+    ENDS_WITH = "endsWith",
+    EQUALS = "equals"
 }
 export interface TextContext {
     type: TextType;

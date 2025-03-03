@@ -14,6 +14,7 @@ export var TextType;
     TextType["CONTAINS"] = "contains";
     TextType["STARTS_WITH"] = "startsWith";
     TextType["ENDS_WITH"] = "endsWith";
+    TextType["EQUALS"] = "equals";
 })(TextType || (TextType = {}));
 export var ListSortProperty;
 (function (ListSortProperty) {
