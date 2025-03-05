@@ -21,7 +21,8 @@ export declare enum SettingName {
 }
 export declare enum PaginationType {
     LAZY = "lazy",
-    NAVIGATION = "navigation"
+    NAVIGATION = "navigation",
+    MORE_BUTTON = "moreButton"
 }
 export type PaginationIndex = keyof typeof PaginationType;
 export type PaginationValue = (typeof PaginationType)[PaginationIndex];

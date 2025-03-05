@@ -20,6 +20,7 @@ export var PaginationType;
 (function (PaginationType) {
     PaginationType["LAZY"] = "lazy";
     PaginationType["NAVIGATION"] = "navigation";
+    PaginationType["MORE_BUTTON"] = "moreButton";
 })(PaginationType || (PaginationType = {}));
 export const settingsConfig = {
     [SettingName.PAGINATION_TYPE]: {
@@ -27,7 +28,7 @@ export const settingsConfig = {
         value: PaginationType.LAZY,
         control: {
             type: ControlType.SELECT,
-            options: [PaginationType.LAZY, PaginationType.NAVIGATION],
+            options: Object.values(PaginationType),
         },
         group: SettingGroup.PAGINATION,
     },
