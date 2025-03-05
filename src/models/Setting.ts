@@ -28,6 +28,7 @@ export enum SettingName {
 export enum PaginationType {
   LAZY = "lazy",
   NAVIGATION = "navigation",
+  MORE_BUTTON = "moreButton",
 }
 
 export type PaginationIndex = keyof typeof PaginationType;
@@ -118,7 +119,7 @@ export const settingsConfig: SettingsConfig = {
     value: PaginationType.LAZY,
     control: {
       type: ControlType.SELECT,
-      options: [PaginationType.LAZY, PaginationType.NAVIGATION],
+      options: Object.values(PaginationType),
     },
     group: SettingGroup.PAGINATION,
   },
