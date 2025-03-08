@@ -14,7 +14,8 @@ export var SettingName;
 (function (SettingName) {
     SettingName["PAGINATION_TYPE"] = "paginationType";
     SettingName["PAGINATION_PAGE_SIZE"] = "paginationPageSize";
-    SettingName["ENTITY_NAME"] = "entityName";
+    SettingName["ENTITY_NAME_SINGULAR"] = "entityNameSingular";
+    SettingName["ENTITY_NAME_PLURAL"] = "entityNamePlural";
 })(SettingName || (SettingName = {}));
 export var PaginationType;
 (function (PaginationType) {
@@ -38,8 +39,14 @@ export const settingsConfig = {
         control: { type: ControlType.NUMBER, min: 1, max: 100, step: 1 },
         group: SettingGroup.PAGINATION,
     },
-    [SettingName.ENTITY_NAME]: {
-        name: SettingName.ENTITY_NAME,
+    [SettingName.ENTITY_NAME_SINGULAR]: {
+        name: SettingName.ENTITY_NAME_SINGULAR,
+        value: "action",
+        control: { type: ControlType.TEXT },
+        group: SettingGroup.LEXICOLOGY,
+    },
+    [SettingName.ENTITY_NAME_PLURAL]: {
+        name: SettingName.ENTITY_NAME_PLURAL,
         value: "action",
         control: { type: ControlType.TEXT },
         group: SettingGroup.LEXICOLOGY,
@@ -48,6 +55,7 @@ export const settingsConfig = {
 export const defaultSettings = {
     [SettingName.PAGINATION_TYPE]: PaginationType.LAZY,
     [SettingName.PAGINATION_PAGE_SIZE]: 10,
-    [SettingName.ENTITY_NAME]: "action",
+    [SettingName.ENTITY_NAME_SINGULAR]: "action",
+    [SettingName.ENTITY_NAME_PLURAL]: "actions",
 };
 //# sourceMappingURL=Setting.js.map

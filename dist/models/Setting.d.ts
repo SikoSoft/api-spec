@@ -17,7 +17,8 @@ export interface SettingTypeConfig {
 export declare enum SettingName {
     PAGINATION_TYPE = "paginationType",
     PAGINATION_PAGE_SIZE = "paginationPageSize",
-    ENTITY_NAME = "entityName"
+    ENTITY_NAME_SINGULAR = "entityNameSingular",
+    ENTITY_NAME_PLURAL = "entityNamePlural"
 }
 export declare enum PaginationType {
     LAZY = "lazy",
@@ -73,17 +74,24 @@ export interface PaginationPageSizeSettingConfig extends NumberSettingConfig {
     control: NumberControl;
     group: SettingGroup.PAGINATION;
 }
-export interface EntityNameSettingConfig extends TextSettingConfig {
-    name: SettingName.ENTITY_NAME;
+export interface EntityNameSingularSettingConfig extends TextSettingConfig {
+    name: SettingName.ENTITY_NAME_SINGULAR;
     value: string;
     control: TextControl;
     group: SettingGroup.LEXICOLOGY;
 }
-export type SettingConfig = PaginationTypeSettingConfig | PaginationPageSizeSettingConfig | EntityNameSettingConfig;
+export interface EntityNamePluralSettingConfig extends TextSettingConfig {
+    name: SettingName.ENTITY_NAME_PLURAL;
+    value: string;
+    control: TextControl;
+    group: SettingGroup.LEXICOLOGY;
+}
+export type SettingConfig = PaginationTypeSettingConfig | PaginationPageSizeSettingConfig | EntityNameSingularSettingConfig | EntityNamePluralSettingConfig;
 export type SettingsConfig = {
     [SettingName.PAGINATION_TYPE]: PaginationTypeSettingConfig;
     [SettingName.PAGINATION_PAGE_SIZE]: PaginationPageSizeSettingConfig;
-    [SettingName.ENTITY_NAME]: EntityNameSettingConfig;
+    [SettingName.ENTITY_NAME_SINGULAR]: EntityNameSingularSettingConfig;
+    [SettingName.ENTITY_NAME_PLURAL]: EntityNamePluralSettingConfig;
 };
 export declare const settingsConfig: SettingsConfig;
 export type Setting = {
