@@ -1,6 +1,6 @@
 {
   "name": "api-spec",
-  "version": "1.13.0",
+  "version": "1.13.1",
   "description": "The contract between gapi and activity-logger.",
   "main": "dist/index.js",
   "module": "dist/index.js",
