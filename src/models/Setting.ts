@@ -10,6 +10,7 @@ export enum ControlType {
 export enum SettingGroup {
   PAGINATION = "pagination",
   LEXICOLOGY = "lexicology",
+  AUTO_COMPLETE = "autoComplete",
 }
 
 export interface SettingTypeConfig {
@@ -24,12 +25,19 @@ export enum SettingName {
   PAGINATION_PAGE_SIZE = "paginationPageSize",
   ENTITY_NAME_SINGULAR = "entityNameSingular",
   ENTITY_NAME_PLURAL = "entityNamePlural",
+  TAG_SUGGESTIONS = "tagSuggestions",
 }
 
 export enum PaginationType {
   LAZY = "lazy",
   NAVIGATION = "navigation",
   MORE_BUTTON = "moreButton",
+}
+
+export enum TagSuggestions {
+  DISABLED = "disabled",
+  ONLY_IN_LIST = "onlyInList",
+  ALL = "all",
 }
 
 export type PaginationIndex = keyof typeof PaginationType;
@@ -110,17 +118,26 @@ export interface EntityNamePluralSettingConfig extends TextSettingConfig {
   group: SettingGroup.LEXICOLOGY;
 }
 
+export interface TagSuggestionsSettingConfig extends TextSettingConfig {
+  name: SettingName.TAG_SUGGESTIONS;
+  value: TagSuggestions;
+  control: SelectControl;
+  group: SettingGroup.AUTO_COMPLETE;
+}
+
 export type SettingConfig =
   | PaginationTypeSettingConfig
   | PaginationPageSizeSettingConfig
   | EntityNameSingularSettingConfig
-  | EntityNamePluralSettingConfig;
+  | EntityNamePluralSettingConfig
+  | TagSuggestionsSettingConfig;
 
 export type SettingsConfig = {
   [SettingName.PAGINATION_TYPE]: PaginationTypeSettingConfig;
   [SettingName.PAGINATION_PAGE_SIZE]: PaginationPageSizeSettingConfig;
   [SettingName.ENTITY_NAME_SINGULAR]: EntityNameSingularSettingConfig;
   [SettingName.ENTITY_NAME_PLURAL]: EntityNamePluralSettingConfig;
+  [SettingName.TAG_SUGGESTIONS]: TagSuggestionsSettingConfig;
 };
 
 export const settingsConfig: SettingsConfig = {
@@ -151,6 +168,15 @@ export const settingsConfig: SettingsConfig = {
     control: { type: ControlType.TEXT },
     group: SettingGroup.LEXICOLOGY,
   },
+  [SettingName.TAG_SUGGESTIONS]: {
+    name: SettingName.TAG_SUGGESTIONS,
+    value: TagSuggestions.DISABLED,
+    control: {
+      type: ControlType.SELECT,
+      options: Object.values(TagSuggestions),
+    },
+    group: SettingGroup.AUTO_COMPLETE,
+  },
 };
 
 export type Setting = {
@@ -169,4 +195,5 @@ export const defaultSettings: Settings = {
   [SettingName.PAGINATION_PAGE_SIZE]: 10,
   [SettingName.ENTITY_NAME_SINGULAR]: "action",
   [SettingName.ENTITY_NAME_PLURAL]: "actions",
+  [SettingName.TAG_SUGGESTIONS]: TagSuggestions.DISABLED,
 };
