@@ -6,7 +6,8 @@ export declare enum ControlType {
 }
 export declare enum SettingGroup {
     PAGINATION = "pagination",
-    LEXICOLOGY = "lexicology"
+    LEXICOLOGY = "lexicology",
+    AUTO_COMPLETE = "autoComplete"
 }
 export interface SettingTypeConfig {
     [ControlType.BOOLEAN]: boolean;
@@ -18,12 +19,18 @@ export declare enum SettingName {
     PAGINATION_TYPE = "paginationType",
     PAGINATION_PAGE_SIZE = "paginationPageSize",
     ENTITY_NAME_SINGULAR = "entityNameSingular",
-    ENTITY_NAME_PLURAL = "entityNamePlural"
+    ENTITY_NAME_PLURAL = "entityNamePlural",
+    TAG_SUGGESTIONS = "tagSuggestions"
 }
 export declare enum PaginationType {
     LAZY = "lazy",
     NAVIGATION = "navigation",
     MORE_BUTTON = "moreButton"
+}
+export declare enum TagSuggestions {
+    DISABLED = "disabled",
+    ONLY_IN_LIST = "onlyInList",
+    ALL = "all"
 }
 export type PaginationIndex = keyof typeof PaginationType;
 export type PaginationValue = (typeof PaginationType)[PaginationIndex];
@@ -86,12 +93,19 @@ export interface EntityNamePluralSettingConfig extends TextSettingConfig {
     control: TextControl;
     group: SettingGroup.LEXICOLOGY;
 }
-export type SettingConfig = PaginationTypeSettingConfig | PaginationPageSizeSettingConfig | EntityNameSingularSettingConfig | EntityNamePluralSettingConfig;
+export interface TagSuggestionsSettingConfig extends TextSettingConfig {
+    name: SettingName.TAG_SUGGESTIONS;
+    value: TagSuggestions;
+    control: SelectControl;
+    group: SettingGroup.AUTO_COMPLETE;
+}
+export type SettingConfig = PaginationTypeSettingConfig | PaginationPageSizeSettingConfig | EntityNameSingularSettingConfig | EntityNamePluralSettingConfig | TagSuggestionsSettingConfig;
 export type SettingsConfig = {
     [SettingName.PAGINATION_TYPE]: PaginationTypeSettingConfig;
     [SettingName.PAGINATION_PAGE_SIZE]: PaginationPageSizeSettingConfig;
     [SettingName.ENTITY_NAME_SINGULAR]: EntityNameSingularSettingConfig;
     [SettingName.ENTITY_NAME_PLURAL]: EntityNamePluralSettingConfig;
+    [SettingName.TAG_SUGGESTIONS]: TagSuggestionsSettingConfig;
 };
 export declare const settingsConfig: SettingsConfig;
 export type Setting = {
