@@ -21,3 +21,23 @@ A property is any form of arbitrary, yet specific, data which describes the qual
 ## An example use case
 
 Considering the previously stated descriptions, an example data model which follows this form of classification could be that "Red Dead Redemption 2" (an item) is an instance of a "video-game" (an entity), which contains various properties such as "platform", "publisher" and "year of release".
+
+## More example use cases
+
+To expand on the example provided above, several other, more thoroughly described, sets of data will be presented in this documentation (and mock data) to highlight various use cases.
+
+The mock/ directory contains three JSON files which describe how data could be modeled to be used for the following use cases:
+
+1. Food journal
+2. Exercise journal
+3. Video-game collection
+4. Vinyl record collection
+5. Wine inventory
+
+## Open questions
+
+This section goes over some remaining thoughts and concerns I still have which have yet to be understood or clearly defined.
+
+- Does it make more sense to have render-type on the property definition, or on the instance in the item?
+
+- Does the option for repeating a property make more sense on the property level, or on the instance it is defined?
