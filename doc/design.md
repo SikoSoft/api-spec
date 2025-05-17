@@ -41,3 +41,5 @@ This section goes over some remaining thoughts and concerns I still have which h
 - Does it make more sense to have render-type on the property definition, or on the instance in the item?
 
 - Does the option for repeating a property make more sense on the property level, or on the instance it is defined?
+
+- How to handle enum properties? (those which have a set list of possible choices)
