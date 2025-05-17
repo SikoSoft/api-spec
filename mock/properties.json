@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "name": "title",
+    "type": "text"
+  },
+  {
+    "id": 2,
+    "name": "artist",
+    "type": "text"
+  },
+  {
+    "id": 3,
+    "name": "year",
+    "type": "text"
+  },
+  {
+    "id": 4,
+    "name": "size",
+    "type": "enum",
+    "options": ["EP", "LP"]
+  },
+  {
+    "id": 5,
+    "name": "platform",
+    "type": "text"
+  },
+  {
+    "id": 6,
+    "name": "condition",
+    "type": "enum",
+    "options": ["new", "used"]
+  },
+  {
+    "id": 7,
+    "name": "label",
+    "type": "text"
+  },
+  {
+    "id": 8,
+    "name": "winery",
+    "type": "text"
+  },
+  {
+    "id": 9,
+    "name": "photo",
+    "type": "text"
+  },
+  {
+    "id": 10,
+    "name": "portion size",
+    "type": "text"
+  },
+  {
+    "id": 11,
+    "name": "food",
+    "type": "text"
+  },
+  {
+    "id": 12,
+    "name": "exercise",
+    "type": "text"
+  },
+  {
+    "id": 13,
+    "name": "weight",
+    "type": "number"
+  },
+  {
+    "id": 14,
+    "name": "reps",
+    "type": "number"
+  }
+]
