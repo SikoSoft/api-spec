@@ -1,6 +1,6 @@
 {
   "name": "api-spec",
-  "version": "1.14.0",
+  "version": "1.15.0",
   "description": "The contract between gapi and activity-logger.",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -48,6 +48,15 @@
     "./lib": {
       "types": "./dist/lib/index.d.ts",
       "default": "./dist/lib/index.js"
+    },
+    "./mock/entities": {
+      "default": "./mock/entities.json"
+    },
+    "./mock/items": {
+      "default": "./mock/items.json"
+    },
+    "./mock/properties": {
+      "default": "./mock/properties.json"
     }
   }
 }
