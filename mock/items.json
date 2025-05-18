@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "entityType": 1,
+    "properties": [
+      {
+        "type": 1,
+        "value": ["steak, fries, broccoli, ketchup and bernaise sauce"]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "entityType": 2,
+    "properties": [
+      {
+        "type": 12,
+        "value": ["pull-ups"]
+      },
+      {
+        "type": 14,
+        "value": [20]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "entityType": 2,
+    "properties": [
+      {
+        "type": 12,
+        "value": ["curls"]
+      },
+      {
+        "type": 13,
+        "value": [20]
+      },
+      {
+        "type": 14,
+        "value": [30]
+      }
+    ]
+  }
+]
