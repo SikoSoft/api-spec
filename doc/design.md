@@ -43,3 +43,5 @@ This section goes over some remaining thoughts and concerns I still have which h
 - Does the option for repeating a property make more sense on the property level, or on the instance it is defined?
 
 - How to handle enum properties? (those which have a set list of possible choices)
+
+- How to handle value by reference (so as to not need to repeatedly store same repetitive values over and over again)

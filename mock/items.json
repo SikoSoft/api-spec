@@ -40,5 +40,52 @@
         "value": [30]
       }
     ]
+  },
+  {
+    "id": 4,
+    "type": 3,
+    "properties": [
+      {
+        "id": 1,
+        "value": ["The Legend of Zelda: Breath of the Wild"]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "type": 3,
+    "properties": [
+      {
+        "id": 1,
+        "value": ["Minecraft"]
+      },
+      {
+        "id": 5,
+        "value": ["Nintendo Switch", "XBOX", "PS4", "PS5"]
+      },
+      {
+        "id": 9,
+        "value": [
+          "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/2x1_NSwitch_Minecraft_image1600w.jpg",
+          "https://sketchok.com/images/articles/03-games/027-minecraft/19/08m.jpg"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "type": 3,
+    "properties": [
+      {
+        "id": 1,
+        "value": ["Fortnite"]
+      },
+      {
+        "id": 9,
+        "value": [
+          "https://cdn2.unrealengine.com/fortnite-disney-star-wars-all-1920x1080-296e87fd5954.jpg"
+        ]
+      }
+    ]
   }
 ]
