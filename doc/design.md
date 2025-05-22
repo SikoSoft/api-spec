@@ -39,8 +39,10 @@ The mock/ directory contains three JSON files which describe how data could be m
 This section goes over some remaining thoughts and concerns I still have which have yet to be understood or clearly defined.
 
 - Does it make more sense to have render-type on the property definition, or on the instance in the item?
+  Seems like it makes sense on the property config level, as property instances are currently only expected to exist on the item instance and it makes no sense to repeat so much configuration in thousands of items.
 
 - Does the option for repeating a property make more sense on the property level, or on the instance it is defined?
+  Seems like it makes sense on the property config level, as property instances are currently only expected to exist on the item instance and it makes no sense to repeat so much configuration in thousands of items.
 
 - How to handle enum properties? (those which have a set list of possible choices)
 
