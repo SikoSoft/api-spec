@@ -2,73 +2,143 @@
   {
     "id": 1,
     "name": "title",
-    "type": "text"
+    "type": "text",
+    "prefix": "",
+    "suffix": "",
+    "required": 1,
+    "repeat": 1,
+    "allowed": 1
   },
   {
     "id": 2,
     "name": "artist",
-    "type": "text"
+    "type": "text",
+    "prefix": "",
+    "suffix": "",
+    "required": 1,
+    "repeat": 1,
+    "allowed": 1
   },
   {
     "id": 3,
     "name": "year",
-    "type": "text"
+    "type": "text",
+    "prefix": "",
+    "suffix": "",
+    "required": 1,
+    "repeat": 1,
+    "allowed": 1
   },
   {
     "id": 4,
     "name": "size",
     "type": "enum",
-    "options": ["EP", "LP"]
+    "options": ["EP", "LP"],
+    "prefix": "",
+    "suffix": "",
+    "required": 1,
+    "repeat": 1,
+    "allowed": 1
   },
   {
     "id": 5,
     "name": "platform",
-    "type": "text"
+    "type": "text",
+    "prefix": "",
+    "suffix": "",
+    "required": 1,
+    "repeat": 1,
+    "allowed": 1
   },
   {
     "id": 6,
     "name": "condition",
     "type": "enum",
-    "options": ["new", "used"]
+    "options": ["new", "used"],
+    "prefix": "",
+    "suffix": "",
+    "required": 1,
+    "repeat": 1,
+    "allowed": 1
   },
   {
     "id": 7,
     "name": "label",
-    "type": "text"
+    "type": "text",
+    "prefix": "",
+    "suffix": "",
+    "required": 1,
+    "repeat": 1,
+    "allowed": 1
   },
   {
     "id": 8,
     "name": "winery",
-    "type": "text"
+    "type": "text",
+    "prefix": "",
+    "suffix": "",
+    "required": 1,
+    "repeat": 1,
+    "allowed": 1
   },
   {
     "id": 9,
     "name": "photo",
-    "type": "text"
+    "type": "image",
+    "prefix": "",
+    "suffix": "",
+    "required": 1,
+    "repeat": 1,
+    "allowed": 1
   },
   {
     "id": 10,
     "name": "portion size",
-    "type": "text"
+    "type": "text",
+    "prefix": "",
+    "suffix": "",
+    "required": 1,
+    "repeat": 1,
+    "allowed": 1
   },
   {
     "id": 11,
     "name": "food",
-    "type": "text"
+    "type": "text",
+    "prefix": "",
+    "suffix": "",
+    "required": 1,
+    "repeat": 1,
+    "allowed": 1
   },
   {
     "id": 12,
     "name": "exercise",
-    "type": "text"
+    "type": "text",
+    "prefix": "",
+    "suffix": "",
+    "required": 1,
+    "repeat": 1,
+    "allowed": 1
   },
   {
     "id": 13,
     "name": "weight",
-    "type": "number"
+    "type": "number",
+    "prefix": "",
+    "suffix": "kg",
+    "required": 1,
+    "repeat": 1,
+    "allowed": 1
   },
   {
     "id": 14,
     "name": "reps",
-    "type": "number"
+    "type": "number",
+    "prefix": "",
+    "suffix": "reps",
+    "required": 1,
+    "repeat": 1,
+    "allowed": 1
   }
 ]
