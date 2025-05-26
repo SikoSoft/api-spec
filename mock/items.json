@@ -65,7 +65,7 @@
       {
         "id": 8,
         "propertyId": 1,
-        "value": ["Minecraft"]
+        "value": "Minecraft"
       },
       {
         "id": 9,
@@ -90,14 +90,18 @@
       {
         "id": 13,
         "propertyId": 9,
-        "src": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/2x1_NSwitch_Minecraft_image1600w.jpg",
-        "alt": "Minecraft"
+        "value": {
+          "src": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/2x1_NSwitch_Minecraft_image1600w.jpg",
+          "alt": "Minecraft"
+        }
       },
       {
         "id": 14,
         "propertyId": 9,
-        "src": "https://sketchok.com/images/articles/03-games/027-minecraft/19/08m.jpg",
-        "alt": "Minecraft"
+        "value": {
+          "src": "https://sketchok.com/images/articles/03-games/027-minecraft/19/08m.jpg",
+          "alt": "Minecraft"
+        }
       }
     ]
   },
@@ -113,8 +117,10 @@
       {
         "id": 16,
         "propertyId": 9,
-        "src": "https://cdn2.unrealengine.com/fortnite-disney-star-wars-all-1920x1080-296e87fd5954.jpg",
-        "alt": "Fortnite"
+        "value": {
+          "src": "https://cdn2.unrealengine.com/fortnite-disney-star-wars-all-1920x1080-296e87fd5954.jpg",
+          "alt": "Fortnite"
+        }
       }
     ]
   }
