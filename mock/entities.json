@@ -4,13 +4,13 @@
     "name": "meal",
     "properties": [
       {
-        "type": 10,
+        "propertyId": 10,
         "repeat": 1,
         "allowed": 1,
         "required": 1
       },
       {
-        "type": 11,
+        "propertyId": 11,
         "repeat": 1,
         "allowed": 1,
         "required": 0
@@ -22,19 +22,19 @@
     "name": "workout",
     "properties": [
       {
-        "type": 12,
+        "propertyId": 12,
         "repeat": 1,
         "allowed": 1,
         "required": 1
       },
       {
-        "type": 13,
+        "propertyId": 13,
         "repeat": 1,
         "allowed": 1,
         "required": 0
       },
       {
-        "type": 14,
+        "propertyId": 14,
         "repeat": 1,
         "allowed": 1,
         "required": 0
@@ -46,19 +46,19 @@
     "name": "video game",
     "properties": [
       {
-        "type": 1,
+        "propertyId": 1,
         "repeat": 1,
         "allowed": 1,
         "required": 1
       },
       {
-        "type": 9,
+        "propertyId": 9,
         "repeat": 10,
         "allowed": 10,
         "required": 0
       },
       {
-        "type": 5,
+        "propertyId": 5,
         "repeat": 1,
         "allowed": 1,
         "required": 0
@@ -70,25 +70,25 @@
     "name": "record",
     "properties": [
       {
-        "type": 1,
+        "propertyId": 1,
         "repeat": 1,
         "allowed": 1,
         "required": 1
       },
       {
-        "type": 2,
+        "propertyId": 2,
         "repeat": 1,
         "allowed": 1,
         "required": 1
       },
       {
-        "type": 3,
+        "propertyId": 3,
         "repeat": 1,
         "allowed": 1,
         "required": 1
       },
       {
-        "type": 4,
+        "propertyId": 4,
         "repeat": 1,
         "allowed": 1,
         "required": 1
@@ -100,25 +100,25 @@
     "name": "wine",
     "properties": [
       {
-        "type": 1,
+        "propertyId": 1,
         "repeat": 1,
         "allowed": 1,
         "required": 1
       },
       {
-        "type": 3,
+        "propertyId": 3,
         "repeat": 1,
         "allowed": 1,
         "required": 1
       },
       {
-        "type": 8,
+        "propertyId": 8,
         "repeat": 1,
         "allowed": 1,
         "required": 1
       },
       {
-        "type": 9,
+        "propertyId": 9,
         "repeat": 1,
         "allowed": 1,
         "required": 1
@@ -130,13 +130,13 @@
     "name": "to-do",
     "properties": [
       {
-        "type": 1,
+        "propertyId": 1,
         "repeat": 1,
         "allowed": 1,
         "required": 1
       },
       {
-        "type": 15,
+        "propertyId": 15,
         "repeat": 1,
         "allowed": 1,
         "required": 1
