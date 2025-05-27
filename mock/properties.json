@@ -140,5 +140,15 @@
     "required": 1,
     "repeat": 1,
     "allowed": 1
+  },
+  {
+    "id": 15,
+    "name": "priority",
+    "type": "number",
+    "prefix": "",
+    "suffix": "",
+    "required": 0,
+    "repeat": 1,
+    "allowed": 1
   }
 ]

@@ -124,5 +124,23 @@
         "required": 1
       }
     ]
+  },
+  {
+    "id": 6,
+    "name": "to-do",
+    "properties": [
+      {
+        "type": 1,
+        "repeat": 1,
+        "allowed": 1,
+        "required": 1
+      },
+      {
+        "type": 15,
+        "repeat": 1,
+        "allowed": 1,
+        "required": 1
+      }
+    ]
   }
 ]

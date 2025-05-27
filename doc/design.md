@@ -33,6 +33,7 @@ The mock/ directory contains three JSON files which describe how data could be m
 3. Video-game collection
 4. Vinyl record collection
 5. Wine inventory
+6. To-do list
 
 ## Open questions
 

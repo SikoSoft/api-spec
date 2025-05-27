@@ -123,5 +123,37 @@
         }
       }
     ]
+  },
+  {
+    "id": 7,
+    "type": 6,
+    "properties": [
+      {
+        "id": 17,
+        "propertyId": 1,
+        "value": "Buy groceries"
+      },
+      {
+        "id": 18,
+        "propertyId": 15,
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "type": 6,
+    "properties": [
+      {
+        "id": 17,
+        "propertyId": 1,
+        "value": "Mow the lawn"
+      },
+      {
+        "id": 18,
+        "propertyId": 15,
+        "value": 3
+      }
+    ]
   }
 ]
