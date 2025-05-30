@@ -4,6 +4,14 @@ This document aims to serve as both clarification of the core concepts of that g
 
 ## Terminology
 
+### List
+
+A list is a collection of items.
+
+This is user-generated data.
+
+Lists may contain items of different types.
+
 ### Item
 
 An item is an instance of an entity.
@@ -12,7 +20,7 @@ This is user-generated data.
 
 ### Entity
 
-An entity is the first level of abstraction which defines the qualities of any item that conforms to it.
+An entity is the first level of abstraction which defines the qualities of any item which conforms to it.
 
 ### Property
 
