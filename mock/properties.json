@@ -2,7 +2,8 @@
   {
     "id": 1,
     "name": "title",
-    "type": "text",
+    "dataType": "text",
+    "renderType": "text",
     "prefix": "",
     "suffix": "",
     "required": 1,
@@ -12,7 +13,8 @@
   {
     "id": 2,
     "name": "artist",
-    "type": "text",
+    "dataType": "text",
+    "renderType": "text",
     "prefix": "",
     "suffix": "",
     "required": 1,
@@ -22,7 +24,8 @@
   {
     "id": 3,
     "name": "year",
-    "type": "text",
+    "dataType": "int",
+    "renderType": "text",
     "prefix": "",
     "suffix": "",
     "required": 1,
@@ -32,7 +35,8 @@
   {
     "id": 4,
     "name": "size",
-    "type": "enum",
+    "dataType": "text",
+    "renderType": "text",
     "options": ["EP", "LP"],
     "prefix": "",
     "suffix": "",
@@ -43,7 +47,8 @@
   {
     "id": 5,
     "name": "platform",
-    "type": "text",
+    "dataType": "text",
+    "renderType": "text",
     "prefix": "",
     "suffix": "",
     "required": 1,
@@ -53,7 +58,8 @@
   {
     "id": 6,
     "name": "condition",
-    "type": "enum",
+    "dataType": "text",
+    "renderType": "text",
     "options": ["new", "used"],
     "prefix": "",
     "suffix": "",
@@ -64,7 +70,8 @@
   {
     "id": 7,
     "name": "label",
-    "type": "text",
+    "dataType": "text",
+    "renderType": "text",
     "prefix": "",
     "suffix": "",
     "required": 1,
@@ -74,7 +81,8 @@
   {
     "id": 8,
     "name": "winery",
-    "type": "text",
+    "dataType": "text",
+    "renderType": "text",
     "prefix": "",
     "suffix": "",
     "required": 1,
@@ -84,7 +92,8 @@
   {
     "id": 9,
     "name": "photo",
-    "type": "image",
+    "dataType": "image",
+    "renderType": "image",
     "prefix": "",
     "suffix": "",
     "required": 1,
@@ -94,7 +103,8 @@
   {
     "id": 10,
     "name": "portion size",
-    "type": "text",
+    "dataType": "text",
+    "renderType": "text",
     "prefix": "",
     "suffix": "",
     "required": 1,
@@ -104,7 +114,8 @@
   {
     "id": 11,
     "name": "food",
-    "type": "text",
+    "dataType": "text",
+    "renderType": "text",
     "prefix": "",
     "suffix": "",
     "required": 1,
@@ -114,7 +125,8 @@
   {
     "id": 12,
     "name": "exercise",
-    "type": "text",
+    "dataType": "text",
+    "renderType": "text",
     "prefix": "",
     "suffix": "",
     "required": 1,
@@ -124,7 +136,8 @@
   {
     "id": 13,
     "name": "weight",
-    "type": "number",
+    "dataType": "int",
+    "renderType": "text",
     "prefix": "",
     "suffix": "kg",
     "required": 1,
@@ -134,7 +147,8 @@
   {
     "id": 14,
     "name": "reps",
-    "type": "number",
+    "dataType": "int",
+    "renderType": "text",
     "prefix": "",
     "suffix": "reps",
     "required": 1,
@@ -144,7 +158,8 @@
   {
     "id": 15,
     "name": "priority",
-    "type": "number",
+    "dataType": "int",
+    "renderType": "hidden",
     "prefix": "",
     "suffix": "",
     "required": 0,
