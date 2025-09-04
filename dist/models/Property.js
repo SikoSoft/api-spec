@@ -19,4 +19,20 @@ export var PropertyRenderType;
     PropertyRenderType["VIDEO"] = "video";
     PropertyRenderType["HIDDEN"] = "hidden";
 })(PropertyRenderType || (PropertyRenderType = {}));
+/*
+export interface PropertyInstance {
+  id:
+  //config: PropertyConfig;
+}
+
+export const propertyConfig: PropertyConfig[] = [{
+
+}];
+
+
+export interface EntityConfig {
+
+}
+
+*/
 //# sourceMappingURL=Property.js.map

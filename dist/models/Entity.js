@@ -1,14 +1,3 @@
-export const defaultEntityPropertyConfig = {
-    propertyId: 0,
-    repeat: 1,
-    allowed: 1,
-    required: 0,
-};
-export const defaultEntityConfig = {
-    id: 0,
-    name: "",
-    properties: [],
-};
 export var DataType;
 (function (DataType) {
     DataType["BOOLEAN"] = "boolean";
@@ -24,4 +13,21 @@ export var RenderType;
     RenderType["NUMBER"] = "number";
     RenderType["HIDDEN"] = "hidden";
 })(RenderType || (RenderType = {}));
+export const defaultEntityPropertyConfig = {
+    entityConfigId: 0,
+    id: 0,
+    name: "",
+    prefix: "",
+    suffix: "",
+    required: 0,
+    repeat: 1,
+    allowed: 1,
+    dataType: DataType.SHORT_TEXT,
+    renderType: RenderType.TEXT,
+};
+export const defaultEntityConfig = {
+    id: 0,
+    name: "",
+    properties: [],
+};
 //# sourceMappingURL=Entity.js.map

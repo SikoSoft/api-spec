@@ -16,3 +16,8 @@ export declare enum PropertyRenderType {
     VIDEO = "video",
     HIDDEN = "hidden"
 }
+export interface PropertyConfig {
+    dataType: PropertyDataType;
+    controlType: PropertyControlType;
+    renderType: PropertyRenderType;
+}
