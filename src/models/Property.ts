@@ -18,3 +18,26 @@ export enum PropertyRenderType {
   VIDEO = "video",
   HIDDEN = "hidden",
 }
+
+export interface PropertyConfig {
+  dataType: PropertyDataType;
+  controlType: PropertyControlType;
+  renderType: PropertyRenderType;
+}
+
+/*
+export interface PropertyInstance {
+  id: 
+  //config: PropertyConfig;
+}
+
+export const propertyConfig: PropertyConfig[] = [{
+
+}];
+
+
+export interface EntityConfig {
+
+}
+
+*/

@@ -1,15 +1,42 @@
+export enum DataType {
+  BOOLEAN = "boolean",
+  IMAGE = "image",
+  INT = "int",
+  LONG_TEXT = "longText",
+  SHORT_TEXT = "shortText",
+}
+
+export enum RenderType {
+  TEXT = "text",
+  IMAGE = "image",
+  NUMBER = "number",
+  HIDDEN = "hidden",
+}
+
 export interface EntityPropertyConfig {
-  propertyId: number;
+  entityConfigId: number;
+  id: number;
+  name: string;
+  prefix: string;
+  suffix: string;
+  required: number;
   repeat: number;
   allowed: number;
-  required: number;
+  dataType: DataType;
+  renderType: RenderType;
 }
 
 export const defaultEntityPropertyConfig: EntityPropertyConfig = {
-  propertyId: 0,
+  entityConfigId: 0,
+  id: 0,
+  name: "",
+  prefix: "",
+  suffix: "",
+  required: 0,
   repeat: 1,
   allowed: 1,
-  required: 0,
+  dataType: DataType.SHORT_TEXT,
+  renderType: RenderType.TEXT,
 };
 
 export interface EntityConfig {
@@ -56,21 +83,6 @@ export interface Entity {
   id: number;
   name: string;
   properties: PropertyConfig[];
-}
-
-export enum DataType {
-  BOOLEAN = "boolean",
-  IMAGE = "image",
-  INT = "int",
-  LONG_TEXT = "longText",
-  SHORT_TEXT = "shortText",
-}
-
-export enum RenderType {
-  TEXT = "text",
-  IMAGE = "image",
-  NUMBER = "number",
-  HIDDEN = "hidden",
 }
 
 export interface Entity {
