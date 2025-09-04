@@ -27,6 +27,7 @@ export declare const defaultEntityPropertyConfig: EntityPropertyConfig;
 export interface EntityConfig {
     id: number;
     name: string;
+    description: string;
     properties: EntityPropertyConfig[];
 }
 export declare const defaultEntityConfig: EntityConfig;

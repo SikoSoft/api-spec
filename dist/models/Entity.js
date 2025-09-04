@@ -28,6 +28,7 @@ export const defaultEntityPropertyConfig = {
 export const defaultEntityConfig = {
     id: 0,
     name: "",
+    description: "",
     properties: [],
 };
 //# sourceMappingURL=Entity.js.map
