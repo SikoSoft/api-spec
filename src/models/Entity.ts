@@ -42,12 +42,14 @@ export const defaultEntityPropertyConfig: EntityPropertyConfig = {
 export interface EntityConfig {
   id: number;
   name: string;
+  description: string;
   properties: EntityPropertyConfig[];
 }
 
 export const defaultEntityConfig: EntityConfig = {
   id: 0,
   name: "",
+  description: "",
   properties: [],
 };
 
