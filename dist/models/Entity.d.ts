@@ -14,6 +14,7 @@ export declare enum RenderType {
 export interface EntityPropertyConfig {
     entityConfigId: number;
     id: number;
+    userId: string;
     name: string;
     prefix: string;
     suffix: string;
@@ -26,6 +27,7 @@ export interface EntityPropertyConfig {
 export declare const defaultEntityPropertyConfig: EntityPropertyConfig;
 export interface EntityConfig {
     id: number;
+    userId: string;
     name: string;
     description: string;
     properties: EntityPropertyConfig[];

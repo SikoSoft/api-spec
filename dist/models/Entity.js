@@ -16,6 +16,7 @@ export var RenderType;
 export const defaultEntityPropertyConfig = {
     entityConfigId: 0,
     id: 0,
+    userId: "",
     name: "",
     prefix: "",
     suffix: "",
@@ -27,6 +28,7 @@ export const defaultEntityPropertyConfig = {
 };
 export const defaultEntityConfig = {
     id: 0,
+    userId: "",
     name: "",
     description: "",
     properties: [],

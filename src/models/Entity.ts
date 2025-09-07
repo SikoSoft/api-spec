@@ -16,6 +16,7 @@ export enum RenderType {
 export interface EntityPropertyConfig {
   entityConfigId: number;
   id: number;
+  userId: string;
   name: string;
   prefix: string;
   suffix: string;
@@ -29,6 +30,7 @@ export interface EntityPropertyConfig {
 export const defaultEntityPropertyConfig: EntityPropertyConfig = {
   entityConfigId: 0,
   id: 0,
+  userId: "",
   name: "",
   prefix: "",
   suffix: "",
@@ -41,6 +43,7 @@ export const defaultEntityPropertyConfig: EntityPropertyConfig = {
 
 export interface EntityConfig {
   id: number;
+  userId: string;
   name: string;
   description: string;
   properties: EntityPropertyConfig[];
@@ -48,6 +51,7 @@ export interface EntityConfig {
 
 export const defaultEntityConfig: EntityConfig = {
   id: 0,
+  userId: "",
   name: "",
   description: "",
   properties: [],
