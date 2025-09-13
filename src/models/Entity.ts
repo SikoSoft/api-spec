@@ -26,6 +26,13 @@ export type LongTextDataValue = string;
 
 export type ShortTextDataValue = string;
 
+export type PropertyDataValue =
+  | BooleanDataValue
+  | IntDataValue
+  | ImageDataValue
+  | LongTextDataValue
+  | ShortTextDataValue;
+
 export interface CommonEntityPropertyConfig {
   entityConfigId: number;
   id: number;
@@ -38,17 +45,18 @@ export interface CommonEntityPropertyConfig {
   allowed: number;
   renderType: RenderType;
   dataType: DataType;
+  defaultValue: PropertyDataValue;
 }
 
 export interface BooleanEntityPropertyConfig
   extends CommonEntityPropertyConfig {
   dataType: DataType.BOOLEAN;
-  defaultValue: boolean;
+  defaultValue: BooleanDataValue;
 }
 
 export interface IntEntityPropertyConfig extends CommonEntityPropertyConfig {
   dataType: DataType.INT;
-  defaultValue: number;
+  defaultValue: IntDataValue;
 }
 
 export interface ImageEntityPropertyConfig extends CommonEntityPropertyConfig {
