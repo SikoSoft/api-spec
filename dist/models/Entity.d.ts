@@ -11,7 +11,15 @@ export declare enum RenderType {
     NUMBER = "number",
     HIDDEN = "hidden"
 }
-export interface EntityPropertyConfig {
+export type BooleanDataValue = boolean;
+export type IntDataValue = number;
+export type ImageDataValue = {
+    src: string;
+    alt: string;
+};
+export type LongTextDataValue = string;
+export type ShortTextDataValue = string;
+export interface CommonEntityPropertyConfig {
     entityConfigId: number;
     id: number;
     userId: string;
@@ -21,9 +29,30 @@ export interface EntityPropertyConfig {
     required: number;
     repeat: number;
     allowed: number;
-    dataType: DataType;
     renderType: RenderType;
+    dataType: DataType;
 }
+export interface BooleanEntityPropertyConfig extends CommonEntityPropertyConfig {
+    dataType: DataType.BOOLEAN;
+    defaultValue: boolean;
+}
+export interface IntEntityPropertyConfig extends CommonEntityPropertyConfig {
+    dataType: DataType.INT;
+    defaultValue: number;
+}
+export interface ImageEntityPropertyConfig extends CommonEntityPropertyConfig {
+    dataType: DataType.IMAGE;
+    defaultValue: ImageDataValue;
+}
+export interface LongTextEntityPropertyConfig extends CommonEntityPropertyConfig {
+    dataType: DataType.LONG_TEXT;
+    defaultValue: LongTextDataValue;
+}
+export interface ShortTextEntityPropertyConfig extends CommonEntityPropertyConfig {
+    dataType: DataType.SHORT_TEXT;
+    defaultValue: ShortTextDataValue;
+}
+export type EntityPropertyConfig = BooleanEntityPropertyConfig | IntEntityPropertyConfig | ImageEntityPropertyConfig | LongTextEntityPropertyConfig | ShortTextEntityPropertyConfig;
 export declare const defaultEntityPropertyConfig: EntityPropertyConfig;
 export interface EntityConfig {
     id: number;

@@ -25,6 +25,7 @@ export const defaultEntityPropertyConfig = {
     allowed: 1,
     dataType: DataType.SHORT_TEXT,
     renderType: RenderType.TEXT,
+    defaultValue: "",
 };
 export const defaultEntityConfig = {
     id: 0,
