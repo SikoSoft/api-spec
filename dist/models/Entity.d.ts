@@ -31,8 +31,6 @@ export interface CommonEntityPropertyConfig {
     repeat: number;
     allowed: number;
     renderType: RenderType;
-    dataType: DataType;
-    defaultValue: PropertyDataValue;
 }
 export interface BooleanDataTypedValue {
     dataType: DataType.BOOLEAN;
@@ -55,11 +53,16 @@ export interface ShortTextDataTypedValue {
     defaultValue: ShortTextDataValue;
 }
 export type DataTypedValue = BooleanDataTypedValue | IntDataTypedValue | ImageDataTypedValue | LongTextDataTypedValue | ShortTextDataTypedValue;
-export type BooleanEntityPropertyConfig = CommonEntityPropertyConfig & BooleanDataTypedValue;
-export type IntEntityPropertyConfig = CommonEntityPropertyConfig & IntDataTypedValue;
-export type ImageEntityPropertyConfig = CommonEntityPropertyConfig & ImageDataTypedValue;
-export type LongTextEntityPropertyConfig = CommonEntityPropertyConfig & LongTextDataTypedValue;
-export type ShortTextEntityPropertyConfig = CommonEntityPropertyConfig & ShortTextDataTypedValue;
+export interface BooleanEntityPropertyConfig extends CommonEntityPropertyConfig, BooleanDataTypedValue {
+}
+export interface IntEntityPropertyConfig extends CommonEntityPropertyConfig, IntDataTypedValue {
+}
+export interface ImageEntityPropertyConfig extends CommonEntityPropertyConfig, ImageDataTypedValue {
+}
+export interface LongTextEntityPropertyConfig extends CommonEntityPropertyConfig, LongTextDataTypedValue {
+}
+export interface ShortTextEntityPropertyConfig extends CommonEntityPropertyConfig, ShortTextDataTypedValue {
+}
 export type EntityPropertyConfig = BooleanEntityPropertyConfig | IntEntityPropertyConfig | ImageEntityPropertyConfig | LongTextEntityPropertyConfig | ShortTextEntityPropertyConfig;
 export declare const defaultEntityPropertyConfig: EntityPropertyConfig;
 export interface EntityConfig {
