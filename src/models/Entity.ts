@@ -48,33 +48,52 @@ export interface CommonEntityPropertyConfig {
   defaultValue: PropertyDataValue;
 }
 
-export interface BooleanEntityPropertyConfig
-  extends CommonEntityPropertyConfig {
+export interface BooleanDataTypedValue {
   dataType: DataType.BOOLEAN;
   defaultValue: BooleanDataValue;
 }
 
-export interface IntEntityPropertyConfig extends CommonEntityPropertyConfig {
+export interface IntDataTypedValue {
   dataType: DataType.INT;
   defaultValue: IntDataValue;
 }
 
-export interface ImageEntityPropertyConfig extends CommonEntityPropertyConfig {
+export interface ImageDataTypedValue {
   dataType: DataType.IMAGE;
   defaultValue: ImageDataValue;
 }
 
-export interface LongTextEntityPropertyConfig
-  extends CommonEntityPropertyConfig {
+export interface LongTextDataTypedValue {
   dataType: DataType.LONG_TEXT;
   defaultValue: LongTextDataValue;
 }
 
-export interface ShortTextEntityPropertyConfig
-  extends CommonEntityPropertyConfig {
+export interface ShortTextDataTypedValue {
   dataType: DataType.SHORT_TEXT;
   defaultValue: ShortTextDataValue;
 }
+
+export type DataTypedValue =
+  | BooleanDataTypedValue
+  | IntDataTypedValue
+  | ImageDataTypedValue
+  | LongTextDataTypedValue
+  | ShortTextDataTypedValue;
+
+export type BooleanEntityPropertyConfig = CommonEntityPropertyConfig &
+  BooleanDataTypedValue;
+
+export type IntEntityPropertyConfig = CommonEntityPropertyConfig &
+  IntDataTypedValue;
+
+export type ImageEntityPropertyConfig = CommonEntityPropertyConfig &
+  ImageDataTypedValue;
+
+export type LongTextEntityPropertyConfig = CommonEntityPropertyConfig &
+  LongTextDataTypedValue;
+
+export type ShortTextEntityPropertyConfig = CommonEntityPropertyConfig &
+  ShortTextDataTypedValue;
 
 export type EntityPropertyConfig =
   | BooleanEntityPropertyConfig
