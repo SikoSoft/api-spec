@@ -96,10 +96,10 @@ export interface PropertyConfig {
     allowed: number;
     renderType: RenderType;
 }
-export interface Entity {
+export interface EntityProperty {
     id: number;
-    name: string;
-    properties: PropertyConfig[];
+    propertyConfigId: number;
+    value: PropertyDataValue;
 }
 export interface Entity {
     id: number;
