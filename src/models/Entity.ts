@@ -174,8 +174,11 @@ export interface EntityProperty {
 
 export interface Entity {
   id: number;
-  name: string;
-  properties: PropertyConfig[];
+  type: number;
+  createdAt: string;
+  updatedAt: string;
+  tags: string[];
+  properties: EntityProperty[];
 }
 
 export interface CommonProperty {
