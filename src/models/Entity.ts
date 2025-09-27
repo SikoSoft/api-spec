@@ -1,5 +1,6 @@
 export enum DataType {
   BOOLEAN = "boolean",
+  DATE = "date",
   IMAGE = "image",
   INT = "int",
   LONG_TEXT = "longText",
@@ -15,12 +16,14 @@ export enum RenderType {
 
 export type BooleanDataValue = boolean;
 
-export type IntDataValue = number;
-
 export type ImageDataValue = {
   src: string;
   alt: string;
 };
+
+export type IntDataValue = number;
+
+export type DateDataValue = Date;
 
 export type LongTextDataValue = string;
 
@@ -28,8 +31,9 @@ export type ShortTextDataValue = string;
 
 export type PropertyDataValue =
   | BooleanDataValue
-  | IntDataValue
   | ImageDataValue
+  | IntDataValue
+  | DateDataValue
   | LongTextDataValue
   | ShortTextDataValue;
 
@@ -44,8 +48,6 @@ export interface CommonEntityPropertyConfig {
   repeat: number;
   allowed: number;
   renderType: RenderType;
-  //dataType: DataType;
-  //defaultValue: PropertyDataValue;
 }
 
 export interface BooleanDataTypedValue {
@@ -53,14 +55,19 @@ export interface BooleanDataTypedValue {
   defaultValue: BooleanDataValue;
 }
 
+export interface ImageDataTypedValue {
+  dataType: DataType.IMAGE;
+  defaultValue: ImageDataValue;
+}
+
 export interface IntDataTypedValue {
   dataType: DataType.INT;
   defaultValue: IntDataValue;
 }
 
-export interface ImageDataTypedValue {
-  dataType: DataType.IMAGE;
-  defaultValue: ImageDataValue;
+export interface DateDataTypedValue {
+  dataType: DataType.DATE;
+  defaultValue: DateDataValue;
 }
 
 export interface LongTextDataTypedValue {
@@ -75,8 +82,9 @@ export interface ShortTextDataTypedValue {
 
 export type DataTypedValue =
   | BooleanDataTypedValue
-  | IntDataTypedValue
   | ImageDataTypedValue
+  | IntDataTypedValue
+  | DateDataTypedValue
   | LongTextDataTypedValue
   | ShortTextDataTypedValue;
 
@@ -84,13 +92,17 @@ export interface BooleanEntityPropertyConfig
   extends CommonEntityPropertyConfig,
     BooleanDataTypedValue {}
 
+export interface ImageEntityPropertyConfig
+  extends CommonEntityPropertyConfig,
+    ImageDataTypedValue {}
+
 export interface IntEntityPropertyConfig
   extends CommonEntityPropertyConfig,
     IntDataTypedValue {}
 
-export interface ImageEntityPropertyConfig
+export interface DateEntityPropertyConfig
   extends CommonEntityPropertyConfig,
-    ImageDataTypedValue {}
+    DateDataTypedValue {}
 
 export interface LongTextEntityPropertyConfig
   extends CommonEntityPropertyConfig,
@@ -102,8 +114,9 @@ export interface ShortTextEntityPropertyConfig
 
 export type EntityPropertyConfig =
   | BooleanEntityPropertyConfig
-  | IntEntityPropertyConfig
   | ImageEntityPropertyConfig
+  | IntEntityPropertyConfig
+  | DateEntityPropertyConfig
   | LongTextEntityPropertyConfig
   | ShortTextEntityPropertyConfig;
 
@@ -138,23 +151,6 @@ export const defaultEntityConfig: EntityConfig = {
   properties: [],
 };
 
-export interface IntValueConfig {
-  id: number;
-  value: number;
-}
-
-export interface TextValueConfig {
-  id: number;
-  value: string;
-}
-
-export interface BooleanValueConfig {
-  id: number;
-  value: boolean;
-}
-
-export type ValueConfig = IntValueConfig | TextValueConfig | BooleanValueConfig;
-
 export interface PropertyConfig {
   id: number;
   name: string;
@@ -179,30 +175,6 @@ export interface Entity {
   updatedAt: string;
   tags: string[];
   properties: EntityProperty[];
-}
-
-export interface CommonProperty {
-  id: number;
-  propertyId: number;
-}
-
-export interface TextProperty extends CommonProperty {
-  value: string;
-}
-
-export interface ImageProperty extends CommonProperty {
-  value: {
-    src: string;
-    alt: string;
-  };
-}
-
-export type ItemProperty = TextProperty | ImageProperty;
-
-export interface Item {
-  id: number;
-  type: number;
-  properties: ItemProperty[];
 }
 
 export interface EntityItem {
