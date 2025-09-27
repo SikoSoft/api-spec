@@ -7,13 +7,6 @@ export enum DataType {
   SHORT_TEXT = "shortText",
 }
 
-export enum RenderType {
-  TEXT = "text",
-  IMAGE = "image",
-  NUMBER = "number",
-  HIDDEN = "hidden",
-}
-
 export type BooleanDataValue = boolean;
 
 export type ImageDataValue = {
@@ -47,7 +40,7 @@ export interface CommonEntityPropertyConfig {
   required: number;
   repeat: number;
   allowed: number;
-  renderType: RenderType;
+  hidden: boolean;
 }
 
 export interface BooleanDataTypedValue {
@@ -131,8 +124,8 @@ export const defaultEntityPropertyConfig: EntityPropertyConfig = {
   repeat: 1,
   allowed: 1,
   dataType: DataType.SHORT_TEXT,
-  renderType: RenderType.TEXT,
   defaultValue: "",
+  hidden: false,
 };
 
 export interface EntityConfig {
@@ -151,17 +144,6 @@ export const defaultEntityConfig: EntityConfig = {
   properties: [],
 };
 
-export interface PropertyConfig {
-  id: number;
-  name: string;
-  prefix: string;
-  suffix: string;
-  required: number;
-  repeat: number;
-  allowed: number;
-  renderType: RenderType;
-}
-
 export interface EntityProperty {
   id: number;
   propertyConfigId: number;
@@ -175,12 +157,4 @@ export interface Entity {
   updatedAt: string;
   tags: string[];
   properties: EntityProperty[];
-}
-
-export interface EntityItem {
-  id: number;
-  type: string;
-  createdAt: string;
-  updatedAt: string;
-  tags: string[];
 }
