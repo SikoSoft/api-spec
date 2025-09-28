@@ -79,6 +79,7 @@ export interface EntityProperty {
     id: number;
     propertyConfigId: number;
     value: PropertyDataValue;
+    order: number;
 }
 export interface Entity {
     id: number;
