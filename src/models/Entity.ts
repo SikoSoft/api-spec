@@ -134,6 +134,7 @@ export interface EntityConfig {
   name: string;
   description: string;
   properties: EntityPropertyConfig[];
+  revisionOf: null | number;
 }
 
 export const defaultEntityConfig: EntityConfig = {
@@ -142,6 +143,7 @@ export const defaultEntityConfig: EntityConfig = {
   name: "",
   description: "",
   properties: [],
+  revisionOf: null,
 };
 
 export interface EntityProperty {
