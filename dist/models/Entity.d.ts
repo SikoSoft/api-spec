@@ -73,6 +73,7 @@ export interface EntityConfig {
     name: string;
     description: string;
     properties: EntityPropertyConfig[];
+    revisionOf: null | number;
 }
 export declare const defaultEntityConfig: EntityConfig;
 export interface EntityProperty {
