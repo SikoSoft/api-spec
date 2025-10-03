@@ -1,4 +1,4 @@
-import { EntityPropertyConfig } from "../models/Entity";
+import { EntityConfig, EntityPropertyConfig } from "../models/Entity";
 import {
   RevisionProblems,
   RevisionCheckResult,
@@ -100,5 +100,19 @@ export class Revision {
 
   static getAllowedPropertyInstances(property: EntityPropertyConfig): number {
     return property.allowed;
+  }
+
+  static getEntityConfigAsString(entityConfig: EntityConfig): string {
+    return `${entityConfig.name}|${entityConfig.description}|${JSON.stringify(
+      entityConfig.properties
+    )}`;
+  }
+
+  static getPropertyConfigAsString(
+    propertyConfig: EntityPropertyConfig
+  ): string {
+    return Object.keys(propertyConfig)
+      .map((key) => `${propertyConfig[key as keyof EntityPropertyConfig]}`)
+      .join("|");
   }
 }
