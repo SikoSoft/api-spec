@@ -1,4 +1,4 @@
-import { EntityPropertyConfig } from "../models/Entity";
+import { EntityConfig, EntityPropertyConfig } from "../models/Entity";
 import { RevisionProblems, RevisionCheckResult } from "../models/Revision";
 export declare class Revision {
     static getResult(problems: RevisionProblems): RevisionCheckResult;
@@ -8,4 +8,6 @@ export declare class Revision {
     static propertyIsSafe(before: EntityPropertyConfig, after: EntityPropertyConfig): RevisionCheckResult;
     static getRequiredPropertyInstances(property: EntityPropertyConfig): number;
     static getAllowedPropertyInstances(property: EntityPropertyConfig): number;
+    static getEntityConfigAsString(entityConfig: EntityConfig): string;
+    static getPropertyConfigAsString(propertyConfig: EntityPropertyConfig): string;
 }

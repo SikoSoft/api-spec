@@ -55,5 +55,13 @@ export class Revision {
     static getAllowedPropertyInstances(property) {
         return property.allowed;
     }
+    static getEntityConfigAsString(entityConfig) {
+        return `${entityConfig.name}|${entityConfig.description}|${JSON.stringify(entityConfig.properties)}`;
+    }
+    static getPropertyConfigAsString(propertyConfig) {
+        return Object.keys(propertyConfig)
+            .map((key) => `${propertyConfig[key]}`)
+            .join("|");
+    }
 }
 //# sourceMappingURL=Revision.js.map
