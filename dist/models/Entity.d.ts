@@ -12,7 +12,7 @@ export type ImageDataValue = {
     alt: string;
 };
 export type IntDataValue = number;
-export type DateDataValue = Date;
+export type DateDataValue = Date | null;
 export type LongTextDataValue = string;
 export type ShortTextDataValue = string;
 export type PropertyDataValue = BooleanDataValue | ImageDataValue | IntDataValue | DateDataValue | LongTextDataValue | ShortTextDataValue;
