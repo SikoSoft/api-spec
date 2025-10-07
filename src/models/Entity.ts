@@ -16,7 +16,7 @@ export type ImageDataValue = {
 
 export type IntDataValue = number;
 
-export type DateDataValue = Date;
+export type DateDataValue = Date | null;
 
 export type LongTextDataValue = string;
 
