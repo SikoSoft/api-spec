@@ -47,6 +47,7 @@ export interface ListFilter {
   includeUntagged: boolean;
   includeAll: boolean;
   includeAllTagging: boolean;
+  includeTypes: number[];
   time: TimeContext;
   text: TextContext[];
 }
