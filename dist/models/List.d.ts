@@ -1,3 +1,4 @@
+import { DataType } from "./Entity";
 import { Settings } from "./Setting";
 export declare enum ListFilterType {
     CONTAINS_ONE_OF = "containsOneOf",
@@ -41,11 +42,16 @@ export interface ListFilter {
     time: TimeContext;
     text: TextContext[];
 }
-export declare enum ListSortProperty {
+export declare enum ListSortNativeProperty {
     OCCURRED_AT = "occurredAt",
     CREATED_AT = "createdAt",
     DESC = "desc"
 }
+export interface ListSortCustomProperty {
+    dataType: DataType;
+    propertyId: number;
+}
+export type ListSortProperty = ListSortNativeProperty | ListSortCustomProperty;
 export declare enum ListSortDirection {
     ASC = "asc",
     DESC = "desc"

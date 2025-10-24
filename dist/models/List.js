@@ -16,12 +16,12 @@ export var TextType;
     TextType["ENDS_WITH"] = "endsWith";
     TextType["EQUALS"] = "equals";
 })(TextType || (TextType = {}));
-export var ListSortProperty;
-(function (ListSortProperty) {
-    ListSortProperty["OCCURRED_AT"] = "occurredAt";
-    ListSortProperty["CREATED_AT"] = "createdAt";
-    ListSortProperty["DESC"] = "desc";
-})(ListSortProperty || (ListSortProperty = {}));
+export var ListSortNativeProperty;
+(function (ListSortNativeProperty) {
+    ListSortNativeProperty["OCCURRED_AT"] = "occurredAt";
+    ListSortNativeProperty["CREATED_AT"] = "createdAt";
+    ListSortNativeProperty["DESC"] = "desc";
+})(ListSortNativeProperty || (ListSortNativeProperty = {}));
 export var ListSortDirection;
 (function (ListSortDirection) {
     ListSortDirection["ASC"] = "asc";
