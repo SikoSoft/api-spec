@@ -1,3 +1,4 @@
+import { DataType } from "./Entity";
 import { Settings } from "./Setting";
 
 export enum ListFilterType {
@@ -52,11 +53,18 @@ export interface ListFilter {
   text: TextContext[];
 }
 
-export enum ListSortProperty {
+export enum ListSortNativeProperty {
   OCCURRED_AT = "occurredAt",
   CREATED_AT = "createdAt",
   DESC = "desc",
 }
+
+export interface ListSortCustomProperty {
+  dataType: DataType;
+  propertyId: number;
+}
+
+export type ListSortProperty = ListSortNativeProperty | ListSortCustomProperty;
 
 export enum ListSortDirection {
   ASC = "asc",
