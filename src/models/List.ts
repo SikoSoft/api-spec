@@ -54,9 +54,8 @@ export interface ListFilter {
 }
 
 export enum ListSortNativeProperty {
-  OCCURRED_AT = "occurredAt",
   CREATED_AT = "createdAt",
-  DESC = "desc",
+  UPDATED_AT = "updatedAt",
 }
 
 export interface ListSortCustomProperty {
