@@ -18,9 +18,8 @@ export var TextType;
 })(TextType || (TextType = {}));
 export var ListSortNativeProperty;
 (function (ListSortNativeProperty) {
-    ListSortNativeProperty["OCCURRED_AT"] = "occurredAt";
     ListSortNativeProperty["CREATED_AT"] = "createdAt";
-    ListSortNativeProperty["DESC"] = "desc";
+    ListSortNativeProperty["UPDATED_AT"] = "updatedAt";
 })(ListSortNativeProperty || (ListSortNativeProperty = {}));
 export var ListSortDirection;
 (function (ListSortDirection) {

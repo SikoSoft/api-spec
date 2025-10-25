@@ -43,9 +43,8 @@ export interface ListFilter {
     text: TextContext[];
 }
 export declare enum ListSortNativeProperty {
-    OCCURRED_AT = "occurredAt",
     CREATED_AT = "createdAt",
-    DESC = "desc"
+    UPDATED_AT = "updatedAt"
 }
 export interface ListSortCustomProperty {
     dataType: DataType;
