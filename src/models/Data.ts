@@ -1,4 +1,5 @@
 import { Entity, EntityConfig, EntityPropertyConfig } from "./Entity";
+import { ListConfig } from "./List";
 
 export type ExportMetaData = {
   version: string;
@@ -13,20 +14,24 @@ export interface ExportEntityConfig
   properties: ExportPropertyConfig[];
 }
 
-export type ExportConfigData = ExportEntityConfig[];
+export type ExportEntityConfigData = ExportEntityConfig[];
 
 export type ExportEntityData = Omit<Entity, "userId">[];
 
-export type ExportDataContents = {
-  meta: ExportMetaData;
-  [ExportDataType.CONFIGS]: ExportConfigData;
-  [ExportDataType.ENTITIES]: ExportEntityData;
-};
+export type ExportListConfigData = ListConfig[];
 
 export enum ExportDataType {
-  CONFIGS = "configs",
+  ENTITY_CONFIGS = "entityConfigs",
   ENTITIES = "entities",
+  LIST_CONFIGS = "listConfigs",
 }
+
+export type ExportDataContents = {
+  meta: ExportMetaData;
+  [ExportDataType.ENTITY_CONFIGS]: ExportEntityConfigData;
+  [ExportDataType.ENTITIES]: ExportEntityData;
+  [ExportDataType.LIST_CONFIGS]: ExportListConfigData;
+};
 
 export type ExportDataSet = {
   entityConfigId: number;
