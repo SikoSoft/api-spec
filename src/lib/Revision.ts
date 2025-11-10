@@ -1,8 +1,10 @@
-import { EntityConfig, EntityPropertyConfig } from "../models/Entity";
+import { DataType, EntityConfig, EntityPropertyConfig } from "../models/Entity";
 import {
   RevisionProblems,
   RevisionCheckResult,
   RevisionDriftType,
+  RevisionEntityConfig,
+  RevisionEntityPropertyConfig,
 } from "../models/Revision";
 
 export class Revision {
@@ -102,17 +104,29 @@ export class Revision {
     return property.allowed;
   }
 
-  static getEntityConfigAsString(entityConfig: EntityConfig): string {
-    return `${entityConfig.name}|${entityConfig.description}|${JSON.stringify(
-      entityConfig.properties
-    )}`;
+  static getEntityConfigAsString(entityConfig: RevisionEntityConfig): string {
+    return `${entityConfig.name ?? ""}|${
+      entityConfig.description ?? ""
+    }|${entityConfig.properties
+      .sort((a, b) => (a < b ? -1 : a > b ? 1 : 0))
+      .map((prop) => Revision.getPropertyConfigAsString(prop))
+      .join("|")}`;
   }
 
   static getPropertyConfigAsString(
-    propertyConfig: EntityPropertyConfig
+    propertyConfig: RevisionEntityPropertyConfig
   ): string {
-    return Object.keys(propertyConfig)
-      .map((key) => `${propertyConfig[key as keyof EntityPropertyConfig]}`)
-      .join("|");
+    let defaultValue = String(propertyConfig.defaultValue) || "";
+    if (propertyConfig.dataType === DataType.DATE) {
+      defaultValue = "";
+    }
+
+    return `${propertyConfig.name ?? ""}/${propertyConfig.prefix ?? ""}/${
+      propertyConfig.suffix ?? ""
+    }/${propertyConfig.required ?? ""}/${propertyConfig.repeat ?? ""}/${
+      propertyConfig.allowed ?? ""
+    }/${propertyConfig.dataType ?? ""}/${defaultValue}/${
+      propertyConfig.hidden ?? ""
+    }`;
   }
 }
