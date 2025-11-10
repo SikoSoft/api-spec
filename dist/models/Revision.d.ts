@@ -1,3 +1,4 @@
+import { EntityConfig, EntityPropertyConfig } from "./Entity";
 export declare enum RevisionDriftType {
     MIN_REQUIRED_INCREASED = "minRequiredIncreased",
     MAX_ALLOWED_DECREASED = "maxAllowedDecreased",
@@ -10,4 +11,8 @@ export type RevisionCheckResult = {
 } | {
     isValid: false;
     problems: RevisionProblems;
+};
+export type RevisionEntityPropertyConfig = Omit<EntityPropertyConfig, "userId" | "entityConfigId" | "id">;
+export type RevisionEntityConfig = Pick<EntityConfig, "name" | "description"> & {
+    properties: RevisionEntityPropertyConfig[];
 };
