@@ -37,3 +37,9 @@ export type ExportDataSet = {
   entityConfigId: number;
   dataType: ExportDataType;
 };
+
+export enum NukedDataType {
+  ENTITIES = "entities",
+  ENTITY_CONFIGS = "entityConfigs",
+  LIST_CONFIGS = "listConfigs",
+}
