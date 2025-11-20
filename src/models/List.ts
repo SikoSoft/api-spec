@@ -81,6 +81,7 @@ export interface ListConfig {
   filter: ListFilter;
   sort: ListSort;
   setting: Settings;
+  themes: string[];
 }
 
 export enum ListContextType {
