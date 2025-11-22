@@ -60,6 +60,7 @@ export interface ListSort {
     direction: ListSortDirection;
 }
 export interface ListConfig {
+    userId: string;
     name: string;
     id: string;
     filter: ListFilter;
