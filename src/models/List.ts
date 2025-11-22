@@ -76,6 +76,7 @@ export interface ListSort {
 }
 
 export interface ListConfig {
+  userId: string;
   name: string;
   id: string;
   filter: ListFilter;
