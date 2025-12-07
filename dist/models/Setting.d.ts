@@ -5,6 +5,7 @@ export declare enum ControlType {
     SELECT = "select"
 }
 export declare enum SettingGroup {
+    ACCESS = "access",
     PAGINATION = "pagination",
     LEXICOLOGY = "lexicology",
     AUTO_COMPLETE = "autoComplete"
@@ -20,7 +21,8 @@ export declare enum SettingName {
     PAGINATION_PAGE_SIZE = "paginationPageSize",
     ENTITY_NAME_SINGULAR = "entityNameSingular",
     ENTITY_NAME_PLURAL = "entityNamePlural",
-    TAG_SUGGESTIONS = "tagSuggestions"
+    TAG_SUGGESTIONS = "tagSuggestions",
+    PUBLIC = "public"
 }
 export declare enum PaginationType {
     LAZY = "lazy",
@@ -99,13 +101,20 @@ export interface TagSuggestionsSettingConfig extends TextSettingConfig {
     control: SelectControl;
     group: SettingGroup.AUTO_COMPLETE;
 }
-export type SettingConfig = PaginationTypeSettingConfig | PaginationPageSizeSettingConfig | EntityNameSingularSettingConfig | EntityNamePluralSettingConfig | TagSuggestionsSettingConfig;
+export interface PublicSettingConfig extends BooleanSettingConfig {
+    name: SettingName.PUBLIC;
+    value: boolean;
+    control: BooleanControl;
+    group: SettingGroup.ACCESS;
+}
+export type SettingConfig = PaginationTypeSettingConfig | PaginationPageSizeSettingConfig | EntityNameSingularSettingConfig | EntityNamePluralSettingConfig | TagSuggestionsSettingConfig | PublicSettingConfig;
 export type SettingsConfig = {
     [SettingName.PAGINATION_TYPE]: PaginationTypeSettingConfig;
     [SettingName.PAGINATION_PAGE_SIZE]: PaginationPageSizeSettingConfig;
     [SettingName.ENTITY_NAME_SINGULAR]: EntityNameSingularSettingConfig;
     [SettingName.ENTITY_NAME_PLURAL]: EntityNamePluralSettingConfig;
     [SettingName.TAG_SUGGESTIONS]: TagSuggestionsSettingConfig;
+    [SettingName.PUBLIC]: PublicSettingConfig;
 };
 export declare const settingsConfig: SettingsConfig;
 export type Setting = {

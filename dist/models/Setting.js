@@ -7,6 +7,7 @@ export var ControlType;
 })(ControlType || (ControlType = {}));
 export var SettingGroup;
 (function (SettingGroup) {
+    SettingGroup["ACCESS"] = "access";
     SettingGroup["PAGINATION"] = "pagination";
     SettingGroup["LEXICOLOGY"] = "lexicology";
     SettingGroup["AUTO_COMPLETE"] = "autoComplete";
@@ -18,6 +19,7 @@ export var SettingName;
     SettingName["ENTITY_NAME_SINGULAR"] = "entityNameSingular";
     SettingName["ENTITY_NAME_PLURAL"] = "entityNamePlural";
     SettingName["TAG_SUGGESTIONS"] = "tagSuggestions";
+    SettingName["PUBLIC"] = "public";
 })(SettingName || (SettingName = {}));
 export var PaginationType;
 (function (PaginationType) {
@@ -68,6 +70,12 @@ export const settingsConfig = {
         },
         group: SettingGroup.AUTO_COMPLETE,
     },
+    [SettingName.PUBLIC]: {
+        name: SettingName.PUBLIC,
+        value: false,
+        control: { type: ControlType.BOOLEAN },
+        group: SettingGroup.ACCESS,
+    },
 };
 export const defaultSettings = {
     [SettingName.PAGINATION_TYPE]: PaginationType.LAZY,
@@ -75,5 +83,6 @@ export const defaultSettings = {
     [SettingName.ENTITY_NAME_SINGULAR]: "action",
     [SettingName.ENTITY_NAME_PLURAL]: "actions",
     [SettingName.TAG_SUGGESTIONS]: TagSuggestions.DISABLED,
+    [SettingName.PUBLIC]: false,
 };
 //# sourceMappingURL=Setting.js.map
