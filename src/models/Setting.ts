@@ -8,6 +8,7 @@ export enum ControlType {
 }
 
 export enum SettingGroup {
+  ACCESS = "access",
   PAGINATION = "pagination",
   LEXICOLOGY = "lexicology",
   AUTO_COMPLETE = "autoComplete",
@@ -26,6 +27,7 @@ export enum SettingName {
   ENTITY_NAME_SINGULAR = "entityNameSingular",
   ENTITY_NAME_PLURAL = "entityNamePlural",
   TAG_SUGGESTIONS = "tagSuggestions",
+  PUBLIC = "public",
 }
 
 export enum PaginationType {
@@ -125,12 +127,20 @@ export interface TagSuggestionsSettingConfig extends TextSettingConfig {
   group: SettingGroup.AUTO_COMPLETE;
 }
 
+export interface PublicSettingConfig extends BooleanSettingConfig {
+  name: SettingName.PUBLIC;
+  value: boolean;
+  control: BooleanControl;
+  group: SettingGroup.ACCESS;
+}
+
 export type SettingConfig =
   | PaginationTypeSettingConfig
   | PaginationPageSizeSettingConfig
   | EntityNameSingularSettingConfig
   | EntityNamePluralSettingConfig
-  | TagSuggestionsSettingConfig;
+  | TagSuggestionsSettingConfig
+  | PublicSettingConfig;
 
 export type SettingsConfig = {
   [SettingName.PAGINATION_TYPE]: PaginationTypeSettingConfig;
@@ -138,6 +148,7 @@ export type SettingsConfig = {
   [SettingName.ENTITY_NAME_SINGULAR]: EntityNameSingularSettingConfig;
   [SettingName.ENTITY_NAME_PLURAL]: EntityNamePluralSettingConfig;
   [SettingName.TAG_SUGGESTIONS]: TagSuggestionsSettingConfig;
+  [SettingName.PUBLIC]: PublicSettingConfig;
 };
 
 export const settingsConfig: SettingsConfig = {
@@ -177,6 +188,12 @@ export const settingsConfig: SettingsConfig = {
     },
     group: SettingGroup.AUTO_COMPLETE,
   },
+  [SettingName.PUBLIC]: {
+    name: SettingName.PUBLIC,
+    value: false,
+    control: { type: ControlType.BOOLEAN },
+    group: SettingGroup.ACCESS,
+  },
 };
 
 export type Setting = {
@@ -196,4 +213,5 @@ export const defaultSettings: Settings = {
   [SettingName.ENTITY_NAME_SINGULAR]: "action",
   [SettingName.ENTITY_NAME_PLURAL]: "actions",
   [SettingName.TAG_SUGGESTIONS]: TagSuggestions.DISABLED,
+  [SettingName.PUBLIC]: false,
 };
