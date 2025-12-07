@@ -79,7 +79,6 @@ export interface ListConfig {
   userId: string;
   name: string;
   id: string;
-  public: boolean;
   filter: ListFilter;
   sort: ListSort;
   setting: Settings;
