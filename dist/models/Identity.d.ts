@@ -5,3 +5,10 @@ export interface User {
     lastName: string;
     roles: string[];
 }
+export interface UserGoogleAccount {
+    userId: string;
+    googleId: string;
+    email: string;
+    refreshToken: string;
+    addedAt: Date;
+}
