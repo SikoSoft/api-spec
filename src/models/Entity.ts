@@ -136,6 +136,8 @@ export interface EntityConfig {
   properties: EntityPropertyConfig[];
   revisionOf: null | number;
   allowPropertyOrdering: boolean;
+  aiEnabled: boolean;
+  aiIdentifyPrompt: string;
 }
 
 export const defaultEntityConfig: EntityConfig = {
@@ -146,6 +148,8 @@ export const defaultEntityConfig: EntityConfig = {
   properties: [],
   revisionOf: null,
   allowPropertyOrdering: false,
+  aiEnabled: false,
+  aiIdentifyPrompt: "",
 };
 
 export interface EntityProperty {
