@@ -1,6 +1,7 @@
 import { EntityConfig, EntityPropertyConfig } from "./Entity";
 
 export enum RevisionDriftType {
+  NAME_REQUIRED = "nameRequired",
   MIN_REQUIRED_INCREASED = "minRequiredIncreased",
   MAX_ALLOWED_DECREASED = "maxAllowedDecreased",
   INCOMPATIBLE_DATA_TYPE_CHANGE = "incompatibleDataTypeChange",

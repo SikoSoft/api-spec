@@ -81,6 +81,10 @@ export class Revision {
   ): RevisionCheckResult {
     const problems: RevisionProblems = [];
 
+    if (after.name === "") {
+      problems.push(RevisionDriftType.NAME_REQUIRED);
+    }
+
     if (before.required < after.required) {
       problems.push(RevisionDriftType.MIN_REQUIRED_INCREASED);
     }
