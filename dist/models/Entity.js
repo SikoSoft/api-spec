@@ -29,5 +29,7 @@ export const defaultEntityConfig = {
     properties: [],
     revisionOf: null,
     allowPropertyOrdering: false,
+    aiEnabled: false,
+    aiIdentifyPrompt: "",
 };
 //# sourceMappingURL=Entity.js.map

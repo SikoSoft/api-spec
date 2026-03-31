@@ -75,6 +75,8 @@ export interface EntityConfig {
     properties: EntityPropertyConfig[];
     revisionOf: null | number;
     allowPropertyOrdering: boolean;
+    aiEnabled: boolean;
+    aiIdentifyPrompt: string;
 }
 export declare const defaultEntityConfig: EntityConfig;
 export interface EntityProperty {
