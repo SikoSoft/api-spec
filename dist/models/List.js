@@ -16,6 +16,18 @@ export var TextType;
     TextType["ENDS_WITH"] = "endsWith";
     TextType["EQUALS"] = "equals";
 })(TextType || (TextType = {}));
+export const defaultListFilter = {
+    tagging: {
+        [ListFilterType.CONTAINS_ALL_OF]: [],
+        [ListFilterType.CONTAINS_ONE_OF]: [],
+    },
+    includeTypes: [],
+    includeUntagged: true,
+    includeAll: true,
+    includeAllTagging: true,
+    time: { type: ListFilterTimeType.ALL_TIME },
+    text: [],
+};
 export var ListSortNativeProperty;
 (function (ListSortNativeProperty) {
     ListSortNativeProperty["CREATED_AT"] = "createdAt";
@@ -26,6 +38,10 @@ export var ListSortDirection;
     ListSortDirection["ASC"] = "asc";
     ListSortDirection["DESC"] = "desc";
 })(ListSortDirection || (ListSortDirection = {}));
+export const defaultListSort = {
+    property: ListSortNativeProperty.CREATED_AT,
+    direction: ListSortDirection.DESC,
+};
 export var ListContextType;
 (function (ListContextType) {
     ListContextType["BEFORE"] = "before";
@@ -37,4 +53,9 @@ export var ListContextUnit;
     ListContextUnit["HOUR"] = "hour";
     ListContextUnit["DAY"] = "day";
 })(ListContextUnit || (ListContextUnit = {}));
+export const defaultListContext = {
+    type: ListContextType.BEFORE,
+    quantity: 1,
+    unit: ListContextUnit.DAY,
+};
 //# sourceMappingURL=List.js.map

@@ -42,6 +42,7 @@ export interface ListFilter {
     time: TimeContext;
     text: TextContext[];
 }
+export declare const defaultListFilter: ListFilter;
 export declare enum ListSortNativeProperty {
     CREATED_AT = "createdAt",
     UPDATED_AT = "updatedAt"
@@ -59,6 +60,7 @@ export interface ListSort {
     property: ListSortProperty;
     direction: ListSortDirection;
 }
+export declare const defaultListSort: ListSort;
 export interface ListConfig {
     userId: string;
     name: string;
@@ -82,3 +84,4 @@ export interface ListContext {
     quantity: number;
     unit: ListContextUnit;
 }
+export declare const defaultListContext: ListContext;
