@@ -53,6 +53,19 @@ export interface ListFilter {
   text: TextContext[];
 }
 
+export const defaultListFilter: ListFilter = {
+  tagging: {
+    [ListFilterType.CONTAINS_ALL_OF]: [],
+    [ListFilterType.CONTAINS_ONE_OF]: [],
+  },
+  includeTypes: [],
+  includeUntagged: true,
+  includeAll: true,
+  includeAllTagging: true,
+  time: { type: ListFilterTimeType.ALL_TIME },
+  text: [],
+};
+
 export enum ListSortNativeProperty {
   CREATED_AT = "createdAt",
   UPDATED_AT = "updatedAt",
@@ -74,6 +87,11 @@ export interface ListSort {
   property: ListSortProperty;
   direction: ListSortDirection;
 }
+
+export const defaultListSort: ListSort = {
+  property: ListSortNativeProperty.CREATED_AT,
+  direction: ListSortDirection.DESC,
+};
 
 export interface ListConfig {
   userId: string;
@@ -101,3 +119,9 @@ export interface ListContext {
   quantity: number;
   unit: ListContextUnit;
 }
+
+export const defaultListContext: ListContext = {
+  type: ListContextType.BEFORE,
+  quantity: 1,
+  unit: ListContextUnit.DAY,
+};
