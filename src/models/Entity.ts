@@ -41,6 +41,8 @@ export interface CommonEntityPropertyConfig {
   repeat: number;
   allowed: number;
   hidden: boolean;
+  optionsOnly: boolean;
+  options: PropertyDataValue[];
 }
 
 export interface BooleanDataTypedValue {
@@ -126,6 +128,8 @@ export const defaultEntityPropertyConfig: EntityPropertyConfig = {
   dataType: DataType.SHORT_TEXT,
   defaultValue: "",
   hidden: false,
+  optionsOnly: false,
+  options: [],
 };
 
 export interface EntityConfig {
