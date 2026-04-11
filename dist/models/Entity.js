@@ -20,6 +20,8 @@ export const defaultEntityPropertyConfig = {
     dataType: DataType.SHORT_TEXT,
     defaultValue: "",
     hidden: false,
+    optionsOnly: false,
+    options: [],
 };
 export const defaultEntityConfig = {
     id: 0,

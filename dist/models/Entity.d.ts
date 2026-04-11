@@ -27,6 +27,8 @@ export interface CommonEntityPropertyConfig {
     repeat: number;
     allowed: number;
     hidden: boolean;
+    optionsOnly: boolean;
+    options: PropertyDataValue[];
 }
 export interface BooleanDataTypedValue {
     dataType: DataType.BOOLEAN;
