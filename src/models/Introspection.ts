@@ -1,26 +1,26 @@
-import { UserGoogleAccount } from "./Identity";
+import { User, UserGoogleAccount } from "./Identity";
 
-export interface CommonUser {
-  id: string;
-  sessionId: string;
-  roles: string[];
+export interface IntrospectionCommonUser {
+  isLoggedIn: true;
+  user: User;
   googleLink: boolean;
+  sessionId: string;
+  expiresAt: Date;
 }
 
-export interface UserWithGoogleLink extends CommonUser {
+export interface IntrospectionWithGoogleLink extends IntrospectionCommonUser {
   googleLink: true;
   googleAccount: UserGoogleAccount;
 }
 
-export interface UserWithoutGoogleLink extends CommonUser {
+export interface IntrospectionWithoutGoogleLink
+  extends IntrospectionCommonUser {
   googleLink: false;
 }
 
-export interface IntrospectionUser {
-  isLoggedIn: true;
-  user: UserWithGoogleLink | UserWithoutGoogleLink;
-  expiresAt: Date;
-}
+export type IntrospectionUser =
+  | IntrospectionWithGoogleLink
+  | IntrospectionWithoutGoogleLink;
 
 export interface IntrospectionAnonymous {
   isLoggedIn: false;
