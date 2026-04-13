@@ -1,3 +1,4 @@
+export * as Access from "./Access";
 export * as Data from "./Data";
 export * as Entity from "./Entity";
 export * as Identity from "./Identity";
