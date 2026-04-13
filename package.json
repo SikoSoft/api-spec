@@ -1,6 +1,6 @@
 {
   "name": "api-spec",
-  "version": "1.53.0",
+  "version": "1.54.0",
   "description": "The contract between gapi and activity-logger.",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -40,6 +40,10 @@
     "./models/Identity": {
       "types": "./dist/models/Identity.d.ts",
       "default": "./dist/models/Identity.js"
+    },
+    "./models/Introspection": {
+      "types": "./dist/models/Introspection.d.ts",
+      "default": "./dist/models/Introspection.js"
     },
     "./models/Operation": {
       "types": "./dist/models/Operation.d.ts",
