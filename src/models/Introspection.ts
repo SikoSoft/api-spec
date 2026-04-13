@@ -1,10 +1,4 @@
-export interface UserGoogleAccount {
-  userId: string;
-  googleId: string;
-  email: string;
-  refreshToken: string;
-  addedAt: Date;
-}
+import { UserGoogleAccount } from "./Identity";
 
 export interface CommonUser {
   id: string;

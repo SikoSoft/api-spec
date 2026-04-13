@@ -1,6 +1,7 @@
 export * as Data from "./Data";
 export * as Entity from "./Entity";
 export * as Identity from "./Identity";
+export * as Introspection from "./Introspection";
 export * as List from "./List";
 export * as Operation from "./Operation";
 export * as Revision from "./Revision";
