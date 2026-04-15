@@ -12,3 +12,8 @@ export interface UserGoogleAccount {
     refreshToken: string;
     addedAt: Date;
 }
+export declare enum Role {
+    AI = "orbit-ai",
+    NUKE = "orbit-nuke",
+    ACCESS = "orbit-access"
+}
