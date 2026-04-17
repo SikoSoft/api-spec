@@ -2,10 +2,14 @@ export declare enum AccessPartyType {
     USER = "user",
     GROUP = "group"
 }
+export interface AccessPolicyGroupUser {
+    id: string;
+    name: string;
+}
 export interface AccessPolicyGroup {
     id: string;
     name: string;
-    users: string[];
+    users: AccessPolicyGroupUser[];
 }
 export interface AccessRule {
     id: number;
