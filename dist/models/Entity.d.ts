@@ -94,5 +94,6 @@ export interface Entity {
     updatedAt: string;
     tags: string[];
     properties: EntityProperty[];
-    accessPolicyId: number;
+    viewAccessPolicyId: number;
+    editAccessPolicyId: number;
 }
