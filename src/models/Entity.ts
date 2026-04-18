@@ -1,3 +1,5 @@
+import { AccessPolicy } from "./Access";
+
 export enum DataType {
   BOOLEAN = "boolean",
   DATE = "date",
@@ -170,4 +172,5 @@ export interface Entity {
   updatedAt: string;
   tags: string[];
   properties: EntityProperty[];
+  accessPolicyId: number;
 }

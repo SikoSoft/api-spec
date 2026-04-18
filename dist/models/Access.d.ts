@@ -11,7 +11,7 @@ export interface AccessPolicyGroup {
     name: string;
     users: AccessPolicyGroupUser[];
 }
-export interface AccessRule {
+export interface AccessParty {
     id: number;
     type: AccessPartyType;
     partyId: string;
@@ -20,7 +20,7 @@ export interface AccessPolicy {
     id: number;
     name: string;
     description: string;
-    accessRules: AccessRule[];
+    parties: AccessParty[];
 }
 export interface AccessPolicyParty {
     id: string;
