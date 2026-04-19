@@ -101,6 +101,8 @@ export interface ListConfig {
   sort: ListSort;
   setting: Settings;
   themes: string[];
+  viewAccessPolicyId: number;
+  editAccessPolicyId: number;
 }
 
 export enum ListContextType {
