@@ -1,3 +1,4 @@
+import { AccessPolicy } from "./Access";
 import { DataType } from "./Entity";
 import { Settings } from "./Setting";
 
@@ -101,8 +102,8 @@ export interface ListConfig {
   sort: ListSort;
   setting: Settings;
   themes: string[];
-  viewAccessPolicyId: number;
-  editAccessPolicyId: number;
+  viewAccessPolicy: AccessPolicy | null;
+  editAccessPolicy: AccessPolicy | null;
 }
 
 export enum ListContextType {
