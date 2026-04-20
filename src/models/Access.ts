@@ -14,21 +14,26 @@ export interface AccessPolicyGroup {
   users: AccessPolicyGroupUser[];
 }
 
-export interface AccessParty {
-  id: number;
-  type: AccessPartyType;
-  partyId: string;
+export interface AccessPolicyUserParty {
+  type: AccessPartyType.USER;
+  id: string;
+  name: string;
+  userId: string;
 }
+
+export interface AccessPolicyGroupParty {
+  type: AccessPartyType.GROUP;
+  id: string;
+  name: string;
+  groupId: string;
+  users: AccessPolicyGroupUser[];
+}
+
+export type AccessPolicyParty = AccessPolicyUserParty | AccessPolicyGroupParty;
 
 export interface AccessPolicy {
   id: number;
   name: string;
   description: string;
-  parties: AccessParty[];
-}
-
-export interface AccessPolicyParty {
-  id: string;
-  type: AccessPartyType;
-  name: string;
+  parties: AccessPolicyParty[];
 }
