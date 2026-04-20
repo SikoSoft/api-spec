@@ -15,13 +15,11 @@ export interface AccessPolicyUserParty {
     type: AccessPartyType.USER;
     id: string;
     name: string;
-    userId: string;
 }
 export interface AccessPolicyGroupParty {
     type: AccessPartyType.GROUP;
     id: string;
     name: string;
-    groupId: string;
     users: AccessPolicyGroupUser[];
 }
 export type AccessPolicyParty = AccessPolicyUserParty | AccessPolicyGroupParty;
