@@ -1,3 +1,4 @@
+import { AccessPolicy } from "./Access";
 export declare enum DataType {
     BOOLEAN = "boolean",
     DATE = "date",
@@ -79,6 +80,8 @@ export interface EntityConfig {
     allowPropertyOrdering: boolean;
     aiEnabled: boolean;
     aiIdentifyPrompt: string;
+    viewAccessPolicy: AccessPolicy | null;
+    editAccessPolicy: AccessPolicy | null;
 }
 export declare const defaultEntityConfig: EntityConfig;
 export interface EntityProperty {

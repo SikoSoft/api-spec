@@ -33,5 +33,7 @@ export const defaultEntityConfig = {
     allowPropertyOrdering: false,
     aiEnabled: false,
     aiIdentifyPrompt: "",
+    viewAccessPolicy: null,
+    editAccessPolicy: null,
 };
 //# sourceMappingURL=Entity.js.map
