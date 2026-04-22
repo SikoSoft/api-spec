@@ -82,6 +82,7 @@ export interface EntityConfig {
     aiIdentifyPrompt: string;
     viewAccessPolicy: AccessPolicy | null;
     editAccessPolicy: AccessPolicy | null;
+    public: boolean;
 }
 export declare const defaultEntityConfig: EntityConfig;
 export interface EntityProperty {

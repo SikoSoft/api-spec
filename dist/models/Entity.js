@@ -35,5 +35,6 @@ export const defaultEntityConfig = {
     aiIdentifyPrompt: "",
     viewAccessPolicy: null,
     editAccessPolicy: null,
+    public: false,
 };
 //# sourceMappingURL=Entity.js.map
