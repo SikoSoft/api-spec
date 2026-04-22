@@ -146,6 +146,7 @@ export interface EntityConfig {
   aiIdentifyPrompt: string;
   viewAccessPolicy: AccessPolicy | null;
   editAccessPolicy: AccessPolicy | null;
+  public: boolean;
 }
 
 export const defaultEntityConfig: EntityConfig = {
@@ -160,6 +161,7 @@ export const defaultEntityConfig: EntityConfig = {
   aiIdentifyPrompt: "",
   viewAccessPolicy: null,
   editAccessPolicy: null,
+  public: false,
 };
 
 export interface EntityProperty {
