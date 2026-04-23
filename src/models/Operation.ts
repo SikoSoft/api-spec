@@ -55,5 +55,5 @@ export type Operation =
 
 export interface BulkOperation {
   operation: Operation;
-  actions: number[];
+  entities: number[];
 }
