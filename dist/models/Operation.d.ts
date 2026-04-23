@@ -38,5 +38,5 @@ export interface RemovePropertiesOperation {
 export type Operation = DeleteOperation | ReplaceTagsOperation | AddTagsOperation | RemoveTagsOperation | ReplacePropertiesOperation | AddPropertiesOperation | RemovePropertiesOperation;
 export interface BulkOperation {
     operation: Operation;
-    actions: number[];
+    entities: number[];
 }
