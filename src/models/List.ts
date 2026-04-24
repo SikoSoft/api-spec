@@ -1,5 +1,5 @@
 import { AccessPolicy } from "./Access";
-import { DataType } from "./Entity";
+import { DataType, PropertyDataValue } from "./Entity";
 import { Settings } from "./Setting";
 
 export enum ListFilterType {
@@ -44,6 +44,10 @@ export interface TextContext {
 
 export type TaggingContext = Record<ListFilterType, string[]>;
 
+export interface FilterProperty {
+  propertyId: number;
+  value: PropertyDataValue;
+}
 export interface ListFilter {
   tagging: TaggingContext;
   includeUntagged: boolean;
@@ -51,7 +55,7 @@ export interface ListFilter {
   includeAllTagging: boolean;
   includeTypes: number[];
   time: TimeContext;
-  text: TextContext[];
+  properties: FilterProperty[];
 }
 
 export const defaultListFilter: ListFilter = {
@@ -64,7 +68,7 @@ export const defaultListFilter: ListFilter = {
   includeAll: true,
   includeAllTagging: true,
   time: { type: ListFilterTimeType.ALL_TIME },
-  text: [],
+  properties: [],
 };
 
 export enum ListSortNativeProperty {
