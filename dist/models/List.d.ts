@@ -1,5 +1,5 @@
 import { AccessPolicy } from "./Access";
-import { DataType } from "./Entity";
+import { DataType, PropertyDataValue } from "./Entity";
 import { Settings } from "./Setting";
 export declare enum ListFilterType {
     CONTAINS_ONE_OF = "containsOneOf",
@@ -34,6 +34,10 @@ export interface TextContext {
     subStr: string;
 }
 export type TaggingContext = Record<ListFilterType, string[]>;
+export interface FilterProperty {
+    propertyId: number;
+    value: PropertyDataValue;
+}
 export interface ListFilter {
     tagging: TaggingContext;
     includeUntagged: boolean;
@@ -41,7 +45,7 @@ export interface ListFilter {
     includeAllTagging: boolean;
     includeTypes: number[];
     time: TimeContext;
-    text: TextContext[];
+    properties: FilterProperty[];
 }
 export declare const defaultListFilter: ListFilter;
 export declare enum ListSortNativeProperty {

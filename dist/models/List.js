@@ -26,7 +26,7 @@ export const defaultListFilter = {
     includeAll: true,
     includeAllTagging: true,
     time: { type: ListFilterTimeType.ALL_TIME },
-    text: [],
+    properties: [],
 };
 export var ListSortNativeProperty;
 (function (ListSortNativeProperty) {
