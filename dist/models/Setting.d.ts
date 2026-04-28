@@ -53,23 +53,26 @@ export interface SelectControl {
     options: any[];
 }
 export type Control = BooleanControl | NumberControl | TextControl | SelectControl;
-export interface BooleanSettingConfig {
+export interface CommonSettingConfig {
     name: SettingName;
+    control: Control;
+    group: SettingGroup;
+    defaultValue: SettingTypeConfig[ControlType];
+}
+export interface BooleanSettingConfig extends CommonSettingConfig {
     value: boolean;
     control: BooleanControl;
-    group: SettingGroup;
+    defaultValue: boolean;
 }
-export interface NumberSettingConfig {
-    name: SettingName;
+export interface NumberSettingConfig extends CommonSettingConfig {
     value: number;
     control: NumberControl;
-    group: SettingGroup;
+    defaultValue: number;
 }
-export interface TextSettingConfig {
-    name: SettingName;
+export interface TextSettingConfig extends CommonSettingConfig {
     value: string;
     control: TextControl | SelectControl;
-    group: SettingGroup;
+    defaultValue: string;
 }
 export interface PaginationTypeSettingConfig extends TextSettingConfig {
     name: SettingName.PAGINATION_TYPE;

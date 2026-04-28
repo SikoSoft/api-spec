@@ -42,24 +42,28 @@ export const settingsConfig = {
             options: Object.values(PaginationType),
         },
         group: SettingGroup.PAGINATION,
+        defaultValue: PaginationType.LAZY,
     },
     [SettingName.PAGINATION_PAGE_SIZE]: {
         name: SettingName.PAGINATION_PAGE_SIZE,
         value: 10,
         control: { type: ControlType.NUMBER, min: 1, max: 100, step: 1 },
         group: SettingGroup.PAGINATION,
+        defaultValue: 10,
     },
     [SettingName.ENTITY_NAME_SINGULAR]: {
         name: SettingName.ENTITY_NAME_SINGULAR,
         value: "action",
         control: { type: ControlType.TEXT },
         group: SettingGroup.LEXICOLOGY,
+        defaultValue: "action",
     },
     [SettingName.ENTITY_NAME_PLURAL]: {
         name: SettingName.ENTITY_NAME_PLURAL,
         value: "action",
         control: { type: ControlType.TEXT },
         group: SettingGroup.LEXICOLOGY,
+        defaultValue: "actions",
     },
     [SettingName.TAG_SUGGESTIONS]: {
         name: SettingName.TAG_SUGGESTIONS,
@@ -69,12 +73,14 @@ export const settingsConfig = {
             options: Object.values(TagSuggestions),
         },
         group: SettingGroup.AUTO_COMPLETE,
+        defaultValue: TagSuggestions.DISABLED,
     },
     [SettingName.PUBLIC]: {
         name: SettingName.PUBLIC,
         value: false,
         control: { type: ControlType.BOOLEAN },
         group: SettingGroup.ACCESS,
+        defaultValue: false,
     },
 };
 export const defaultSettings = {
