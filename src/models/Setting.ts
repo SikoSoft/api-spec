@@ -1,5 +1,3 @@
-import { Setting } from ".";
-
 export enum ControlType {
   BOOLEAN = "boolean",
   NUMBER = "number",
@@ -24,8 +22,6 @@ export interface SettingTypeConfig {
 export enum SettingName {
   PAGINATION_TYPE = "paginationType",
   PAGINATION_PAGE_SIZE = "paginationPageSize",
-  ENTITY_NAME_SINGULAR = "entityNameSingular",
-  ENTITY_NAME_PLURAL = "entityNamePlural",
   TAG_SUGGESTIONS = "tagSuggestions",
   PUBLIC = "public",
 }
@@ -41,9 +37,6 @@ export enum TagSuggestions {
   ONLY_IN_LIST = "onlyInList",
   ALL = "all",
 }
-
-export type PaginationIndex = keyof typeof PaginationType;
-export type PaginationValue = (typeof PaginationType)[PaginationIndex];
 
 export interface BooleanControl {
   type: ControlType.BOOLEAN;
@@ -79,86 +72,56 @@ export interface CommonSettingConfig {
 }
 
 export interface BooleanSettingConfig extends CommonSettingConfig {
-  value: boolean;
   control: BooleanControl;
   defaultValue: boolean;
 }
 
 export interface NumberSettingConfig extends CommonSettingConfig {
-  value: number;
   control: NumberControl;
   defaultValue: number;
 }
 
 export interface TextSettingConfig extends CommonSettingConfig {
-  value: string;
   control: TextControl | SelectControl;
   defaultValue: string;
 }
 
 export interface PaginationTypeSettingConfig extends TextSettingConfig {
   name: SettingName.PAGINATION_TYPE;
-  value: PaginationType;
   control: SelectControl;
+  defaultValue: PaginationType;
   group: SettingGroup.PAGINATION;
 }
 
 export interface PaginationPageSizeSettingConfig extends NumberSettingConfig {
   name: SettingName.PAGINATION_PAGE_SIZE;
-  value: number;
-  control: NumberControl;
   group: SettingGroup.PAGINATION;
-}
-
-export interface EntityNameSingularSettingConfig extends TextSettingConfig {
-  name: SettingName.ENTITY_NAME_SINGULAR;
-  value: string;
-  control: TextControl;
-  group: SettingGroup.LEXICOLOGY;
-}
-
-export interface EntityNamePluralSettingConfig extends TextSettingConfig {
-  name: SettingName.ENTITY_NAME_PLURAL;
-  value: string;
-  control: TextControl;
-  group: SettingGroup.LEXICOLOGY;
 }
 
 export interface TagSuggestionsSettingConfig extends TextSettingConfig {
   name: SettingName.TAG_SUGGESTIONS;
-  value: TagSuggestions;
   control: SelectControl;
+  defaultValue: TagSuggestions;
   group: SettingGroup.AUTO_COMPLETE;
 }
 
 export interface PublicSettingConfig extends BooleanSettingConfig {
   name: SettingName.PUBLIC;
-  value: boolean;
-  control: BooleanControl;
   group: SettingGroup.ACCESS;
 }
-
-export type SettingConfig =
-  | PaginationTypeSettingConfig
-  | PaginationPageSizeSettingConfig
-  | EntityNameSingularSettingConfig
-  | EntityNamePluralSettingConfig
-  | TagSuggestionsSettingConfig
-  | PublicSettingConfig;
 
 export type SettingsConfig = {
   [SettingName.PAGINATION_TYPE]: PaginationTypeSettingConfig;
   [SettingName.PAGINATION_PAGE_SIZE]: PaginationPageSizeSettingConfig;
-  [SettingName.ENTITY_NAME_SINGULAR]: EntityNameSingularSettingConfig;
-  [SettingName.ENTITY_NAME_PLURAL]: EntityNamePluralSettingConfig;
   [SettingName.TAG_SUGGESTIONS]: TagSuggestionsSettingConfig;
   [SettingName.PUBLIC]: PublicSettingConfig;
 };
 
+export type SettingConfig = SettingsConfig[keyof SettingsConfig];
+
 export const settingsConfig: SettingsConfig = {
   [SettingName.PAGINATION_TYPE]: {
     name: SettingName.PAGINATION_TYPE,
-    value: PaginationType.LAZY,
     control: {
       type: ControlType.SELECT,
       options: Object.values(PaginationType),
@@ -168,28 +131,12 @@ export const settingsConfig: SettingsConfig = {
   },
   [SettingName.PAGINATION_PAGE_SIZE]: {
     name: SettingName.PAGINATION_PAGE_SIZE,
-    value: 10,
     control: { type: ControlType.NUMBER, min: 1, max: 100, step: 1 },
     group: SettingGroup.PAGINATION,
     defaultValue: 10,
   },
-  [SettingName.ENTITY_NAME_SINGULAR]: {
-    name: SettingName.ENTITY_NAME_SINGULAR,
-    value: "action",
-    control: { type: ControlType.TEXT },
-    group: SettingGroup.LEXICOLOGY,
-    defaultValue: "action",
-  },
-  [SettingName.ENTITY_NAME_PLURAL]: {
-    name: SettingName.ENTITY_NAME_PLURAL,
-    value: "action",
-    control: { type: ControlType.TEXT },
-    group: SettingGroup.LEXICOLOGY,
-    defaultValue: "actions",
-  },
   [SettingName.TAG_SUGGESTIONS]: {
     name: SettingName.TAG_SUGGESTIONS,
-    value: TagSuggestions.DISABLED,
     control: {
       type: ControlType.SELECT,
       options: Object.values(TagSuggestions),
@@ -199,7 +146,6 @@ export const settingsConfig: SettingsConfig = {
   },
   [SettingName.PUBLIC]: {
     name: SettingName.PUBLIC,
-    value: false,
     control: { type: ControlType.BOOLEAN },
     group: SettingGroup.ACCESS,
     defaultValue: false,
@@ -209,19 +155,17 @@ export const settingsConfig: SettingsConfig = {
 export type Setting = {
   [K in keyof SettingsConfig]: Partial<SettingsConfig[K]> & {
     name: K;
-    value: SettingsConfig[K]["value"];
+    value: SettingsConfig[K]["defaultValue"];
   };
 }[keyof SettingsConfig];
 
 export type Settings = {
-  [Property in keyof SettingsConfig]: SettingsConfig[Property]["value"];
+  [Property in keyof SettingsConfig]: SettingsConfig[Property]["defaultValue"];
 };
 
-export const defaultSettings: Settings = {
-  [SettingName.PAGINATION_TYPE]: PaginationType.LAZY,
-  [SettingName.PAGINATION_PAGE_SIZE]: 10,
-  [SettingName.ENTITY_NAME_SINGULAR]: "action",
-  [SettingName.ENTITY_NAME_PLURAL]: "actions",
-  [SettingName.TAG_SUGGESTIONS]: TagSuggestions.DISABLED,
-  [SettingName.PUBLIC]: false,
-};
+export const defaultSettings: Settings = Object.fromEntries(
+  Object.entries(settingsConfig).map(([key, config]) => [
+    key,
+    config.defaultValue,
+  ])
+) as Settings;
