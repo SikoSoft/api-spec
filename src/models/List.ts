@@ -47,6 +47,7 @@ export type TaggingContext = Record<ListFilterType, string[]>;
 export interface FilterProperty {
   propertyId: number;
   value: PropertyDataValue;
+  operation: TextType;
 }
 export interface ListFilter {
   tagging: TaggingContext;
