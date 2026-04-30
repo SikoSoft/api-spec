@@ -10,6 +10,9 @@ export enum SettingGroup {
   PAGINATION = "pagination",
   LEXICOLOGY = "lexicology",
   AUTO_COMPLETE = "autoComplete",
+  LIST_CONFIG = "listConfig",
+  AI = "ai",
+  MISC = "misc",
 }
 
 export interface SettingTypeConfig {
@@ -24,6 +27,9 @@ export enum SettingName {
   PAGINATION_PAGE_SIZE = "paginationPageSize",
   TAG_SUGGESTIONS = "tagSuggestions",
   PUBLIC = "public",
+  ASSIST_SAVE_IMAGE = "assistSaveImage",
+  DEFAULT_LIST_CONFIG = "defaultListConfig",
+  REQUEST_DEBOUNCE_DELAY = "requestDebounceDelay",
 }
 
 export enum PaginationType {
@@ -64,11 +70,18 @@ export type Control =
   | TextControl
   | SelectControl;
 
+export enum SettingContextType {
+  LIST = "list",
+  USER = "user",
+  APP = "app",
+}
+
 export interface CommonSettingConfig {
   name: SettingName;
   control: Control;
   group: SettingGroup;
   defaultValue: SettingTypeConfig[ControlType];
+  context: SettingContextType[];
 }
 
 export interface BooleanSettingConfig extends CommonSettingConfig {
@@ -110,11 +123,29 @@ export interface PublicSettingConfig extends BooleanSettingConfig {
   group: SettingGroup.ACCESS;
 }
 
+export interface AssistSaveImageSettingConfig extends BooleanSettingConfig {
+  name: SettingName.ASSIST_SAVE_IMAGE;
+  group: SettingGroup.AI;
+}
+
+export interface DefaultListConfigSettingConfig extends TextSettingConfig {
+  name: SettingName.DEFAULT_LIST_CONFIG;
+  group: SettingGroup.LIST_CONFIG;
+}
+
+export interface RequestDebounceDelaySettingConfig extends NumberSettingConfig {
+  name: SettingName.REQUEST_DEBOUNCE_DELAY;
+  group: SettingGroup.MISC;
+}
+
 export type SettingsConfig = {
   [SettingName.PAGINATION_TYPE]: PaginationTypeSettingConfig;
   [SettingName.PAGINATION_PAGE_SIZE]: PaginationPageSizeSettingConfig;
   [SettingName.TAG_SUGGESTIONS]: TagSuggestionsSettingConfig;
   [SettingName.PUBLIC]: PublicSettingConfig;
+  [SettingName.ASSIST_SAVE_IMAGE]: AssistSaveImageSettingConfig;
+  [SettingName.DEFAULT_LIST_CONFIG]: DefaultListConfigSettingConfig;
+  [SettingName.REQUEST_DEBOUNCE_DELAY]: RequestDebounceDelaySettingConfig;
 };
 
 export type SettingConfig = SettingsConfig[keyof SettingsConfig];
@@ -128,12 +159,22 @@ export const settingsConfig: SettingsConfig = {
     },
     group: SettingGroup.PAGINATION,
     defaultValue: PaginationType.LAZY,
+    context: [
+      SettingContextType.USER,
+      SettingContextType.LIST,
+      SettingContextType.APP,
+    ],
   },
   [SettingName.PAGINATION_PAGE_SIZE]: {
     name: SettingName.PAGINATION_PAGE_SIZE,
     control: { type: ControlType.NUMBER, min: 1, max: 100, step: 1 },
     group: SettingGroup.PAGINATION,
     defaultValue: 10,
+    context: [
+      SettingContextType.USER,
+      SettingContextType.LIST,
+      SettingContextType.APP,
+    ],
   },
   [SettingName.TAG_SUGGESTIONS]: {
     name: SettingName.TAG_SUGGESTIONS,
@@ -143,12 +184,43 @@ export const settingsConfig: SettingsConfig = {
     },
     group: SettingGroup.AUTO_COMPLETE,
     defaultValue: TagSuggestions.DISABLED,
+    context: [
+      SettingContextType.USER,
+      SettingContextType.LIST,
+      SettingContextType.APP,
+    ],
   },
   [SettingName.PUBLIC]: {
     name: SettingName.PUBLIC,
     control: { type: ControlType.BOOLEAN },
     group: SettingGroup.ACCESS,
     defaultValue: false,
+    context: [SettingContextType.LIST],
+  },
+  [SettingName.ASSIST_SAVE_IMAGE]: {
+    name: SettingName.ASSIST_SAVE_IMAGE,
+    control: { type: ControlType.BOOLEAN },
+    group: SettingGroup.AI,
+    defaultValue: false,
+    context: [SettingContextType.USER],
+  },
+  [SettingName.DEFAULT_LIST_CONFIG]: {
+    name: SettingName.DEFAULT_LIST_CONFIG,
+    control: { type: ControlType.TEXT },
+    group: SettingGroup.LIST_CONFIG,
+    defaultValue: "",
+    context: [SettingContextType.USER],
+  },
+  [SettingName.REQUEST_DEBOUNCE_DELAY]: {
+    name: SettingName.REQUEST_DEBOUNCE_DELAY,
+    control: { type: ControlType.NUMBER, min: 0, max: 1000, step: 1 },
+    group: SettingGroup.MISC,
+    defaultValue: 0,
+    context: [
+      SettingContextType.USER,
+      SettingContextType.LIST,
+      SettingContextType.APP,
+    ],
   },
 };
 
