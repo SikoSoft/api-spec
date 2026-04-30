@@ -8,7 +8,10 @@ export declare enum SettingGroup {
     ACCESS = "access",
     PAGINATION = "pagination",
     LEXICOLOGY = "lexicology",
-    AUTO_COMPLETE = "autoComplete"
+    AUTO_COMPLETE = "autoComplete",
+    LIST_CONFIG = "listConfig",
+    AI = "ai",
+    MISC = "misc"
 }
 export interface SettingTypeConfig {
     [ControlType.BOOLEAN]: boolean;
@@ -20,7 +23,10 @@ export declare enum SettingName {
     PAGINATION_TYPE = "paginationType",
     PAGINATION_PAGE_SIZE = "paginationPageSize",
     TAG_SUGGESTIONS = "tagSuggestions",
-    PUBLIC = "public"
+    PUBLIC = "public",
+    ASSIST_SAVE_IMAGE = "assistSaveImage",
+    DEFAULT_LIST_CONFIG = "defaultListConfig",
+    REQUEST_DEBOUNCE_DELAY = "requestDebounceDelay"
 }
 export declare enum PaginationType {
     LAZY = "lazy",
@@ -49,11 +55,17 @@ export interface SelectControl {
     options: any[];
 }
 export type Control = BooleanControl | NumberControl | TextControl | SelectControl;
+export declare enum SettingContextType {
+    LIST = "list",
+    USER = "user",
+    APP = "app"
+}
 export interface CommonSettingConfig {
     name: SettingName;
     control: Control;
     group: SettingGroup;
     defaultValue: SettingTypeConfig[ControlType];
+    context: SettingContextType[];
 }
 export interface BooleanSettingConfig extends CommonSettingConfig {
     control: BooleanControl;
@@ -87,11 +99,26 @@ export interface PublicSettingConfig extends BooleanSettingConfig {
     name: SettingName.PUBLIC;
     group: SettingGroup.ACCESS;
 }
+export interface AssistSaveImageSettingConfig extends BooleanSettingConfig {
+    name: SettingName.ASSIST_SAVE_IMAGE;
+    group: SettingGroup.AI;
+}
+export interface DefaultListConfigSettingConfig extends TextSettingConfig {
+    name: SettingName.DEFAULT_LIST_CONFIG;
+    group: SettingGroup.LIST_CONFIG;
+}
+export interface RequestDebounceDelaySettingConfig extends NumberSettingConfig {
+    name: SettingName.REQUEST_DEBOUNCE_DELAY;
+    group: SettingGroup.MISC;
+}
 export type SettingsConfig = {
     [SettingName.PAGINATION_TYPE]: PaginationTypeSettingConfig;
     [SettingName.PAGINATION_PAGE_SIZE]: PaginationPageSizeSettingConfig;
     [SettingName.TAG_SUGGESTIONS]: TagSuggestionsSettingConfig;
     [SettingName.PUBLIC]: PublicSettingConfig;
+    [SettingName.ASSIST_SAVE_IMAGE]: AssistSaveImageSettingConfig;
+    [SettingName.DEFAULT_LIST_CONFIG]: DefaultListConfigSettingConfig;
+    [SettingName.REQUEST_DEBOUNCE_DELAY]: RequestDebounceDelaySettingConfig;
 };
 export type SettingConfig = SettingsConfig[keyof SettingsConfig];
 export declare const settingsConfig: SettingsConfig;
