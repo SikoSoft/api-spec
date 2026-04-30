@@ -202,7 +202,7 @@ export const settingsConfig: SettingsConfig = {
     control: { type: ControlType.BOOLEAN },
     group: SettingGroup.AI,
     defaultValue: false,
-    context: [SettingContextType.USER],
+    context: [SettingContextType.USER, SettingContextType.APP],
   },
   [SettingName.DEFAULT_LIST_CONFIG]: {
     name: SettingName.DEFAULT_LIST_CONFIG,
