@@ -25,6 +25,7 @@ export var SettingName;
     SettingName["DEFAULT_LIST_CONFIG"] = "defaultListConfig";
     SettingName["REQUEST_DEBOUNCE_DELAY"] = "requestDebounceDelay";
     SettingName["ASSIST_SUGGESTION_ENABLED"] = "assistSuggestionEnabled";
+    SettingName["AUTO_PUBLISH"] = "autoPublish";
 })(SettingName || (SettingName = {}));
 export var PaginationType;
 (function (PaginationType) {
@@ -122,6 +123,13 @@ export const settingsConfig = {
             SettingContextType.LIST,
             SettingContextType.APP,
         ],
+    },
+    [SettingName.AUTO_PUBLISH]: {
+        name: SettingName.AUTO_PUBLISH,
+        control: { type: ControlType.BOOLEAN },
+        group: SettingGroup.MISC,
+        defaultValue: false,
+        context: [SettingContextType.LIST],
     },
 };
 export const defaultSettings = Object.fromEntries(Object.entries(settingsConfig).map(([key, config]) => [
