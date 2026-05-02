@@ -30,6 +30,7 @@ export enum SettingName {
   ASSIST_SAVE_IMAGE = "assistSaveImage",
   DEFAULT_LIST_CONFIG = "defaultListConfig",
   REQUEST_DEBOUNCE_DELAY = "requestDebounceDelay",
+  ASSIST_SUGGESTION_ENABLED = "assistSuggestionEnabled",
 }
 
 export enum PaginationType {
@@ -128,6 +129,12 @@ export interface AssistSaveImageSettingConfig extends BooleanSettingConfig {
   group: SettingGroup.AI;
 }
 
+export interface AssistSuggestionEnabledSettingConfig
+  extends BooleanSettingConfig {
+  name: SettingName.ASSIST_SUGGESTION_ENABLED;
+  group: SettingGroup.AI;
+}
+
 export interface DefaultListConfigSettingConfig extends TextSettingConfig {
   name: SettingName.DEFAULT_LIST_CONFIG;
   group: SettingGroup.LIST_CONFIG;
@@ -144,6 +151,7 @@ export type SettingsConfig = {
   [SettingName.TAG_SUGGESTIONS]: TagSuggestionsSettingConfig;
   [SettingName.PUBLIC]: PublicSettingConfig;
   [SettingName.ASSIST_SAVE_IMAGE]: AssistSaveImageSettingConfig;
+  [SettingName.ASSIST_SUGGESTION_ENABLED]: AssistSuggestionEnabledSettingConfig;
   [SettingName.DEFAULT_LIST_CONFIG]: DefaultListConfigSettingConfig;
   [SettingName.REQUEST_DEBOUNCE_DELAY]: RequestDebounceDelaySettingConfig;
 };
@@ -203,6 +211,13 @@ export const settingsConfig: SettingsConfig = {
     group: SettingGroup.AI,
     defaultValue: false,
     context: [SettingContextType.USER, SettingContextType.APP],
+  },
+  [SettingName.ASSIST_SUGGESTION_ENABLED]: {
+    name: SettingName.ASSIST_SUGGESTION_ENABLED,
+    control: { type: ControlType.BOOLEAN },
+    group: SettingGroup.AI,
+    defaultValue: false,
+    context: [SettingContextType.LIST],
   },
   [SettingName.DEFAULT_LIST_CONFIG]: {
     name: SettingName.DEFAULT_LIST_CONFIG,
