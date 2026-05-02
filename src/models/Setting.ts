@@ -31,6 +31,7 @@ export enum SettingName {
   DEFAULT_LIST_CONFIG = "defaultListConfig",
   REQUEST_DEBOUNCE_DELAY = "requestDebounceDelay",
   ASSIST_SUGGESTION_ENABLED = "assistSuggestionEnabled",
+  AUTO_PUBLISH = "autoPublish",
 }
 
 export enum PaginationType {
@@ -135,6 +136,11 @@ export interface AssistSuggestionEnabledSettingConfig
   group: SettingGroup.AI;
 }
 
+export interface AutoPublishSettingConfig extends BooleanSettingConfig {
+  name: SettingName.AUTO_PUBLISH;
+  group: SettingGroup.MISC;
+}
+
 export interface DefaultListConfigSettingConfig extends TextSettingConfig {
   name: SettingName.DEFAULT_LIST_CONFIG;
   group: SettingGroup.LIST_CONFIG;
@@ -154,6 +160,7 @@ export type SettingsConfig = {
   [SettingName.ASSIST_SUGGESTION_ENABLED]: AssistSuggestionEnabledSettingConfig;
   [SettingName.DEFAULT_LIST_CONFIG]: DefaultListConfigSettingConfig;
   [SettingName.REQUEST_DEBOUNCE_DELAY]: RequestDebounceDelaySettingConfig;
+  [SettingName.AUTO_PUBLISH]: AutoPublishSettingConfig;
 };
 
 export type SettingConfig = SettingsConfig[keyof SettingsConfig];
@@ -236,6 +243,13 @@ export const settingsConfig: SettingsConfig = {
       SettingContextType.LIST,
       SettingContextType.APP,
     ],
+  },
+  [SettingName.AUTO_PUBLISH]: {
+    name: SettingName.AUTO_PUBLISH,
+    control: { type: ControlType.BOOLEAN },
+    group: SettingGroup.MISC,
+    defaultValue: false,
+    context: [SettingContextType.LIST],
   },
 };
 
