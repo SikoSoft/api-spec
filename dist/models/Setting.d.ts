@@ -26,7 +26,8 @@ export declare enum SettingName {
     PUBLIC = "public",
     ASSIST_SAVE_IMAGE = "assistSaveImage",
     DEFAULT_LIST_CONFIG = "defaultListConfig",
-    REQUEST_DEBOUNCE_DELAY = "requestDebounceDelay"
+    REQUEST_DEBOUNCE_DELAY = "requestDebounceDelay",
+    ASSIST_SUGGESTION_ENABLED = "assistSuggestionEnabled"
 }
 export declare enum PaginationType {
     LAZY = "lazy",
@@ -103,6 +104,10 @@ export interface AssistSaveImageSettingConfig extends BooleanSettingConfig {
     name: SettingName.ASSIST_SAVE_IMAGE;
     group: SettingGroup.AI;
 }
+export interface AssistSuggestionEnabledSettingConfig extends BooleanSettingConfig {
+    name: SettingName.ASSIST_SUGGESTION_ENABLED;
+    group: SettingGroup.AI;
+}
 export interface DefaultListConfigSettingConfig extends TextSettingConfig {
     name: SettingName.DEFAULT_LIST_CONFIG;
     group: SettingGroup.LIST_CONFIG;
@@ -117,6 +122,7 @@ export type SettingsConfig = {
     [SettingName.TAG_SUGGESTIONS]: TagSuggestionsSettingConfig;
     [SettingName.PUBLIC]: PublicSettingConfig;
     [SettingName.ASSIST_SAVE_IMAGE]: AssistSaveImageSettingConfig;
+    [SettingName.ASSIST_SUGGESTION_ENABLED]: AssistSuggestionEnabledSettingConfig;
     [SettingName.DEFAULT_LIST_CONFIG]: DefaultListConfigSettingConfig;
     [SettingName.REQUEST_DEBOUNCE_DELAY]: RequestDebounceDelaySettingConfig;
 };

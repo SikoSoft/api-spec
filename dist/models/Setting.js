@@ -24,6 +24,7 @@ export var SettingName;
     SettingName["ASSIST_SAVE_IMAGE"] = "assistSaveImage";
     SettingName["DEFAULT_LIST_CONFIG"] = "defaultListConfig";
     SettingName["REQUEST_DEBOUNCE_DELAY"] = "requestDebounceDelay";
+    SettingName["ASSIST_SUGGESTION_ENABLED"] = "assistSuggestionEnabled";
 })(SettingName || (SettingName = {}));
 export var PaginationType;
 (function (PaginationType) {
@@ -96,6 +97,13 @@ export const settingsConfig = {
         group: SettingGroup.AI,
         defaultValue: false,
         context: [SettingContextType.USER, SettingContextType.APP],
+    },
+    [SettingName.ASSIST_SUGGESTION_ENABLED]: {
+        name: SettingName.ASSIST_SUGGESTION_ENABLED,
+        control: { type: ControlType.BOOLEAN },
+        group: SettingGroup.AI,
+        defaultValue: false,
+        context: [SettingContextType.LIST],
     },
     [SettingName.DEFAULT_LIST_CONFIG]: {
         name: SettingName.DEFAULT_LIST_CONFIG,
