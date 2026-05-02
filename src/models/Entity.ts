@@ -180,4 +180,6 @@ export interface Entity {
   properties: EntityProperty[];
   viewAccessPolicyId: number;
   editAccessPolicyId: number;
+  suggestion: boolean;
+  published: boolean;
 }
