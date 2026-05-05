@@ -54,6 +54,8 @@ export interface ListFilter {
   includeUntagged: boolean;
   includeAll: boolean;
   includeAllTagging: boolean;
+  published?: boolean;
+  suggestion?: boolean;
   includeTypes: number[];
   time: TimeContext;
   properties: FilterProperty[];
@@ -68,6 +70,8 @@ export const defaultListFilter: ListFilter = {
   includeUntagged: true,
   includeAll: true,
   includeAllTagging: true,
+  published: true,
+  suggestion: false,
   time: { type: ListFilterTimeType.ALL_TIME },
   properties: [],
 };
