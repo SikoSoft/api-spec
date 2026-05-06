@@ -93,6 +93,7 @@ export interface EntityProperty {
 }
 export interface Entity {
     id: number;
+    userId: string;
     type: number;
     createdAt: string;
     updatedAt: string;
