@@ -44,6 +44,8 @@ export interface ListFilter {
     includeUntagged: boolean;
     includeAll: boolean;
     includeAllTagging: boolean;
+    published?: boolean;
+    suggestion?: boolean;
     includeTypes: number[];
     time: TimeContext;
     properties: FilterProperty[];

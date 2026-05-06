@@ -2,6 +2,7 @@ import { User, UserGoogleAccount } from "./Identity";
 
 export interface IntrospectionCommonUser {
   isLoggedIn: true;
+  isSystem: false;
   user: User;
   googleLink: boolean;
   sessionId: string;
@@ -24,6 +25,15 @@ export type IntrospectionUser =
 
 export interface IntrospectionAnonymous {
   isLoggedIn: false;
+  isSystem: false;
 }
 
-export type Introspection = IntrospectionUser | IntrospectionAnonymous;
+export interface IntrospectionSystem {
+  isLoggedIn: false;
+  isSystem: true;
+}
+
+export type Introspection =
+  | IntrospectionUser
+  | IntrospectionAnonymous
+  | IntrospectionSystem;
