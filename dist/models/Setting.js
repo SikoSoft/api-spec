@@ -26,6 +26,7 @@ export var SettingName;
     SettingName["REQUEST_DEBOUNCE_DELAY"] = "requestDebounceDelay";
     SettingName["ASSIST_SUGGESTION_ENABLED"] = "assistSuggestionEnabled";
     SettingName["AUTO_PUBLISH"] = "autoPublish";
+    SettingName["ENABLE_2FA"] = "enable2FA";
 })(SettingName || (SettingName = {}));
 export var PaginationType;
 (function (PaginationType) {
@@ -130,6 +131,13 @@ export const settingsConfig = {
         group: SettingGroup.MISC,
         defaultValue: false,
         context: [SettingContextType.LIST],
+    },
+    [SettingName.ENABLE_2FA]: {
+        name: SettingName.ENABLE_2FA,
+        control: { type: ControlType.BOOLEAN },
+        group: SettingGroup.ACCESS,
+        defaultValue: false,
+        context: [SettingContextType.USER],
     },
 };
 export const defaultSettings = Object.fromEntries(Object.entries(settingsConfig).map(([key, config]) => [
