@@ -17,6 +17,7 @@ export var TextType;
     TextType["EQUALS"] = "equals";
 })(TextType || (TextType = {}));
 export const defaultListFilter = {
+    userIds: [],
     tagging: {
         [ListFilterType.CONTAINS_ALL_OF]: [],
         [ListFilterType.CONTAINS_ONE_OF]: [],

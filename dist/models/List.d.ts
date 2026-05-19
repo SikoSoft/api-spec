@@ -40,6 +40,7 @@ export interface FilterProperty {
     operation: TextType;
 }
 export interface ListFilter {
+    userIds: string[];
     tagging: TaggingContext;
     includeUntagged: boolean;
     includeAll: boolean;
