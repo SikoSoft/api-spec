@@ -50,6 +50,7 @@ export interface FilterProperty {
   operation: TextType;
 }
 export interface ListFilter {
+  userIds: string[];
   tagging: TaggingContext;
   includeUntagged: boolean;
   includeAll: boolean;
@@ -62,6 +63,7 @@ export interface ListFilter {
 }
 
 export const defaultListFilter: ListFilter = {
+  userIds: [],
   tagging: {
     [ListFilterType.CONTAINS_ALL_OF]: [],
     [ListFilterType.CONTAINS_ONE_OF]: [],
