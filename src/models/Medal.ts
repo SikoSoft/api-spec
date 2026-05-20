@@ -4,6 +4,7 @@ export interface Criterion {
   fact: string;
   operator: EvalOperator;
   value: string | number | boolean | string[];
+  params?: Record<string, unknown>;
 }
 
 export interface Criteria {
