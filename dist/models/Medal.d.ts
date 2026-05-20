@@ -1,12 +1,15 @@
-export interface MedalCriteria {
-    id: number;
-    medalId: number;
-    type: string;
-    value: string;
-    createdAt: string;
-    updatedAt: string;
+export type EvalOperator = "==" | "!=" | ">" | ">=" | "<" | "<=" | "contains";
+export interface Criterion {
+    fact: string;
+    operator: EvalOperator;
+    value: string | number | boolean | string[];
+    params?: Record<string, unknown>;
 }
-export interface Medal {
+export interface Criteria {
+    any?: (Criterion | Criteria)[];
+    all?: (Criterion | Criteria)[];
+}
+export interface MedalConfig {
     id: number;
     name: string;
     description: string;
@@ -16,5 +19,11 @@ export interface Medal {
     icon: string;
     createdAt: string;
     updatedAt: string;
-    criteria: MedalCriteria[];
+    criteria: Criterion | Criteria;
+}
+export interface Medal {
+    id: number;
+    userId: string;
+    medalConfigId: number;
+    awardedAt: string;
 }
