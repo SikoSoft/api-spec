@@ -1,0 +1,25 @@
+[
+  {
+    "id": 1,
+    "name": "Game Collector",
+    "description": "Register 10 games in your collection.",
+    "series": "Collector",
+    "recurrence": 1,
+    "prestige": 2,
+    "icon": "https://example.com/icons/game-collector.png",
+    "createdAt": "2024-01-01T00:00:00Z",
+    "updatedAt": "2024-01-01T00:00:00Z",
+    "criteria": [
+      {
+        "property": "rating",
+        "operator": ">=",
+        "value": 95
+      },
+      {
+        "property": "reviews",
+        "operator": ">=",
+        "value": 100
+      }
+    ]
+  }
+]
