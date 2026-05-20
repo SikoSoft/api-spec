@@ -1,6 +1,6 @@
 {
   "name": "api-spec",
-  "version": "1.83.0",
+  "version": "1.84.0",
   "description": "The contract between gapi and activity-logger.",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -37,9 +37,9 @@
       "types": "./dist/models/Entity.d.ts",
       "default": "./dist/models/Entity.js"
     },
-    "./models/List": {
-      "types": "./dist/models/List.d.ts",
-      "default": "./dist/models/List.js"
+    "./models/Hook": {
+      "types": "./dist/models/Hook.d.ts",
+      "default": "./dist/models/Hook.js"
     },
     "./models/Identity": {
       "types": "./dist/models/Identity.d.ts",
@@ -48,6 +48,14 @@
     "./models/Introspection": {
       "types": "./dist/models/Introspection.d.ts",
       "default": "./dist/models/Introspection.js"
+    },
+    "./models/List": {
+      "types": "./dist/models/List.d.ts",
+      "default": "./dist/models/List.js"
+    },
+    "./models/Medal": {
+      "types": "./dist/models/Medal.d.ts",
+      "default": "./dist/models/Medal.js"
     },
     "./models/Operation": {
       "types": "./dist/models/Operation.d.ts",
@@ -60,6 +68,10 @@
     "./models/Setting": {
       "types": "./dist/models/Setting.d.ts",
       "default": "./dist/models/Setting.js"
+    },
+    "./models/Statistic": {
+      "types": "./dist/models/Statistic.d.ts",
+      "default": "./dist/models/Statistic.js"
     },
     "./models/Workspace": {
       "types": "./dist/models/Workspace.d.ts",
