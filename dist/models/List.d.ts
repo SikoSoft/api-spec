@@ -40,16 +40,16 @@ export interface FilterProperty {
     operation: TextType;
 }
 export interface ListFilter {
-    userIds: string[];
-    tagging: TaggingContext;
-    includeUntagged: boolean;
-    includeAll: boolean;
-    includeAllTagging: boolean;
+    userIds?: string[];
+    tagging?: TaggingContext;
+    includeUntagged?: boolean;
+    includeAll?: boolean;
+    includeAllTagging?: boolean;
     published?: boolean;
     suggestion?: boolean;
-    includeTypes: number[];
-    time: TimeContext;
-    properties: FilterProperty[];
+    includeTypes?: number[];
+    time?: TimeContext;
+    properties?: FilterProperty[];
 }
 export declare const defaultListFilter: ListFilter;
 export declare enum ListSortNativeProperty {
