@@ -11,6 +11,7 @@ export class ListConfig {
     }
 
     if (
+      listFilter.includeTypes &&
       listFilter.includeTypes.length > 0 &&
       !listFilter.includeTypes.includes(entity.type)
     ) {
@@ -20,6 +21,7 @@ export class ListConfig {
     if (!listFilter.includeAllTagging) {
       if (!(listFilter.includeUntagged && entity.tags.length === 0)) {
         if (
+          listFilter.tagging?.containsAllOf &&
           !listFilter.tagging.containsAllOf.every((tag) =>
             entity.tags.includes(tag)
           )
@@ -28,7 +30,7 @@ export class ListConfig {
         }
 
         if (
-          listFilter.tagging.containsOneOf.length > 0 &&
+          listFilter.tagging?.containsOneOf &&
           !listFilter.tagging.containsOneOf.some((tag) =>
             entity.tags.includes(tag)
           )
