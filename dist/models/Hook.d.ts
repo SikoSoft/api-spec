@@ -6,3 +6,6 @@ export declare enum HookType {
     PRE_DELETE = "preDelete",
     POST_DELETE = "postDelete"
 }
+export type PreCreateContext = {
+    type: HookType.PRE_CREATE;
+};

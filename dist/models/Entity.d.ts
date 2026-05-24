@@ -70,6 +70,9 @@ export interface ShortTextEntityPropertyConfig extends CommonEntityPropertyConfi
 }
 export type EntityPropertyConfig = BooleanEntityPropertyConfig | ImageEntityPropertyConfig | IntEntityPropertyConfig | DateEntityPropertyConfig | LongTextEntityPropertyConfig | ShortTextEntityPropertyConfig;
 export declare const defaultEntityPropertyConfig: EntityPropertyConfig;
+export interface EntityConfigUniqueConstraint {
+    propertyIds: number[];
+}
 export interface EntityConfig {
     id: number;
     userId: string;
@@ -83,6 +86,7 @@ export interface EntityConfig {
     viewAccessPolicy: AccessPolicy | null;
     editAccessPolicy: AccessPolicy | null;
     public: boolean;
+    uniqueConstraints: EntityConfigUniqueConstraint[];
 }
 export declare const defaultEntityConfig: EntityConfig;
 export interface EntityProperty {
