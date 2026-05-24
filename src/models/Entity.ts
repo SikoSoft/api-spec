@@ -134,6 +134,10 @@ export const defaultEntityPropertyConfig: EntityPropertyConfig = {
   options: [],
 };
 
+export interface EntityConfigUniqueConstraint {
+  propertyIds: number[];
+}
+
 export interface EntityConfig {
   id: number;
   userId: string;
@@ -147,6 +151,7 @@ export interface EntityConfig {
   viewAccessPolicy: AccessPolicy | null;
   editAccessPolicy: AccessPolicy | null;
   public: boolean;
+  uniqueConstraints: EntityConfigUniqueConstraint[];
 }
 
 export const defaultEntityConfig: EntityConfig = {
@@ -162,6 +167,7 @@ export const defaultEntityConfig: EntityConfig = {
   viewAccessPolicy: null,
   editAccessPolicy: null,
   public: false,
+  uniqueConstraints: [],
 };
 
 export interface EntityProperty {
