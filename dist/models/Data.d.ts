@@ -1,5 +1,6 @@
 import { Entity, EntityConfig, EntityPropertyConfig } from "./Entity";
 import { ListConfig } from "./List";
+import { Medal, MedalConfig } from "./Medal";
 export type ExportMetaData = {
     version: string;
     date: string;
@@ -12,16 +13,22 @@ export interface ExportEntityConfig extends Omit<EntityConfig, "userId" | "prope
 export type ExportEntityConfigData = ExportEntityConfig[];
 export type ExportEntityData = Omit<Entity, "userId">[];
 export type ExportListConfigData = ListConfig[];
+export type ExportMedalConfigData = Omit<MedalConfig, "createdAt" | "updatedAt">[];
+export type ExportMedalData = Medal[];
 export declare enum ExportDataType {
     ENTITY_CONFIGS = "entityConfigs",
     ENTITIES = "entities",
-    LIST_CONFIGS = "listConfigs"
+    LIST_CONFIGS = "listConfigs",
+    MEDAL_CONFIGS = "medalConfigs",
+    MEDALS = "medals"
 }
 export type ExportDataContents = {
     meta: ExportMetaData;
     [ExportDataType.ENTITY_CONFIGS]: ExportEntityConfigData;
     [ExportDataType.ENTITIES]: ExportEntityData;
     [ExportDataType.LIST_CONFIGS]: ExportListConfigData;
+    [ExportDataType.MEDAL_CONFIGS]: ExportMedalConfigData;
+    [ExportDataType.MEDALS]: ExportMedalData;
 };
 export type ExportDataSet = {
     entityConfigId: number;
@@ -30,5 +37,7 @@ export type ExportDataSet = {
 export declare enum NukedDataType {
     ENTITIES = "entities",
     ENTITY_CONFIGS = "entityConfigs",
-    LIST_CONFIGS = "listConfigs"
+    LIST_CONFIGS = "listConfigs",
+    MEDAL_CONFIGS = "medalConfigs",
+    MEDALS = "medals"
 }
