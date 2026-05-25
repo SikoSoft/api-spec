@@ -152,6 +152,7 @@ export interface EntityConfig {
   editAccessPolicy: AccessPolicy | null;
   public: boolean;
   uniqueConstraints: EntityConfigUniqueConstraint[];
+  allowTags: boolean;
 }
 
 export const defaultEntityConfig: EntityConfig = {
@@ -168,6 +169,7 @@ export const defaultEntityConfig: EntityConfig = {
   editAccessPolicy: null,
   public: false,
   uniqueConstraints: [],
+  allowTags: true,
 };
 
 export interface EntityProperty {
