@@ -117,6 +117,23 @@ export type EntityPropertyConfig =
   | LongTextEntityPropertyConfig
   | ShortTextEntityPropertyConfig;
 
+export type EntityPropertyCalculationReference = { propertyConfigId: number };
+
+export type EntityPropertyCalculationOperation = "*" | "+" | "-" | "/";
+
+export type EntityPropertyCalculation = {
+  value1: EntityPropertyCalculationReference | number;
+  value2: EntityPropertyCalculationReference | number;
+  operation: EntityPropertyCalculationOperation;
+};
+
+export type EntityCalculatedPropertyConfig = Omit<
+  EntityPropertyConfig,
+  "required" | "repeat" | "allowed" | "optionsOnly" | "options"
+> & {
+  calculation: EntityPropertyCalculation;
+};
+
 export const defaultEntityPropertyConfig: EntityPropertyConfig = {
   entityConfigId: 0,
   id: 0,
