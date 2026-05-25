@@ -87,6 +87,7 @@ export interface EntityConfig {
     editAccessPolicy: AccessPolicy | null;
     public: boolean;
     uniqueConstraints: EntityConfigUniqueConstraint[];
+    allowTags: boolean;
 }
 export declare const defaultEntityConfig: EntityConfig;
 export interface EntityProperty {

@@ -37,5 +37,6 @@ export const defaultEntityConfig = {
     editAccessPolicy: null,
     public: false,
     uniqueConstraints: [],
+    allowTags: true,
 };
 //# sourceMappingURL=Entity.js.map
