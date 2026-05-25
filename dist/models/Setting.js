@@ -129,7 +129,7 @@ export const settingsConfig = {
         name: SettingName.AUTO_PUBLISH,
         control: { type: ControlType.BOOLEAN },
         group: SettingGroup.MISC,
-        defaultValue: false,
+        defaultValue: true,
         context: [SettingContextType.LIST],
     },
     [SettingName.ENABLE_2FA]: {
