@@ -27,7 +27,8 @@ export const defaultListFilter = {
     includeAll: true,
     includeAllTagging: true,
     published: true,
-    suggestion: false,
+    suggested: false,
+    identified: false,
     time: { type: ListFilterTimeType.ALL_TIME },
     properties: [],
 };
