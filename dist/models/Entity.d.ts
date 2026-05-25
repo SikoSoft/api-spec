@@ -105,6 +105,7 @@ export interface Entity {
     properties: EntityProperty[];
     viewAccessPolicyId: number;
     editAccessPolicyId: number;
-    suggestion: boolean;
+    suggested: boolean;
     published: boolean;
+    identified: boolean;
 }
