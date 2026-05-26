@@ -69,6 +69,18 @@ export interface LongTextEntityPropertyConfig extends CommonEntityPropertyConfig
 export interface ShortTextEntityPropertyConfig extends CommonEntityPropertyConfig, ShortTextDataTypedValue {
 }
 export type EntityPropertyConfig = BooleanEntityPropertyConfig | ImageEntityPropertyConfig | IntEntityPropertyConfig | DateEntityPropertyConfig | LongTextEntityPropertyConfig | ShortTextEntityPropertyConfig;
+export type EntityPropertyCalculationReference = {
+    propertyConfigId: number;
+};
+export type EntityPropertyCalculationOperation = "*" | "+" | "-" | "/";
+export type EntityPropertyCalculation = {
+    value1: EntityPropertyCalculationReference | number;
+    value2: EntityPropertyCalculationReference | number;
+    operation: EntityPropertyCalculationOperation;
+};
+export type EntityCalculatedPropertyConfig = Omit<EntityPropertyConfig, "required" | "repeat" | "allowed" | "optionsOnly" | "options"> & {
+    calculation: EntityPropertyCalculation;
+};
 export declare const defaultEntityPropertyConfig: EntityPropertyConfig;
 export interface EntityConfigUniqueConstraint {
     propertyIds: number[];
