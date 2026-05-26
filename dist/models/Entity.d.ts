@@ -90,7 +90,7 @@ export interface EntityConfig {
     userId: string;
     name: string;
     description: string;
-    properties: EntityPropertyConfig[];
+    properties: (EntityPropertyConfig | EntityCalculatedPropertyConfig)[];
     revisionOf: null | number;
     allowPropertyOrdering: boolean;
     aiEnabled: boolean;
