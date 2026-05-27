@@ -3,7 +3,7 @@ export declare enum FactOperation {
     ENTITY_COUNT = "entityCount",
     UNIQUE_TAG_COUNT = "uniqueTagCount",
     MEDAL_COUNT = "medalCount",
-    SEGMENT_CLASSIFICATION = "segmentClassification"
+    ANALYSIS_CLASSIFICATION = "analysisClassification"
 }
 export declare enum AnalysisClassificationType {
     MORNING_FASTING = "morningFasting",
@@ -29,7 +29,7 @@ export type MedalCountFactContext = {
     series: string;
 };
 export type AnalysisClassificationFactContext = {
-    operation: FactOperation.SEGMENT_CLASSIFICATION;
+    operation: FactOperation.ANALYSIS_CLASSIFICATION;
     filter: ListFilter;
     analysisType: AnalysisClassificationType;
 };

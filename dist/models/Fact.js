@@ -3,7 +3,7 @@ export var FactOperation;
     FactOperation["ENTITY_COUNT"] = "entityCount";
     FactOperation["UNIQUE_TAG_COUNT"] = "uniqueTagCount";
     FactOperation["MEDAL_COUNT"] = "medalCount";
-    FactOperation["SEGMENT_CLASSIFICATION"] = "segmentClassification";
+    FactOperation["ANALYSIS_CLASSIFICATION"] = "analysisClassification";
 })(FactOperation || (FactOperation = {}));
 export var AnalysisClassificationType;
 (function (AnalysisClassificationType) {
