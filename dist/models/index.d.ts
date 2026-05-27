@@ -1,6 +1,7 @@
 export * as Access from "./Access";
 export * as Data from "./Data";
 export * as Entity from "./Entity";
+export * as Fact from "./Fact";
 export * as Hook from "./Hook";
 export * as Identity from "./Identity";
 export * as Introspection from "./Introspection";
