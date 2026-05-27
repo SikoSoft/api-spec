@@ -1,6 +1,6 @@
 {
   "name": "api-spec",
-  "version": "1.95.0",
+  "version": "1.95.1",
   "description": "The contract between gapi and activity-logger.",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -29,6 +29,10 @@
       "types": "./dist/models/Access.d.ts",
       "default": "./dist/models/Access.js"
     },
+    "./models/Comment": {
+      "types": "./dist/models/Comment.d.ts",
+      "default": "./dist/models/Comment.js"
+    },
     "./models/Data": {
       "types": "./dist/models/Data.d.ts",
       "default": "./dist/models/Data.js"
@@ -36,6 +40,10 @@
     "./models/Entity": {
       "types": "./dist/models/Entity.d.ts",
       "default": "./dist/models/Entity.js"
+    },
+    "./models/Fact": {
+      "types": "./dist/models/Fact.d.ts",
+      "default": "./dist/models/Fact.js"
     },
     "./models/Hook": {
       "types": "./dist/models/Hook.d.ts",
