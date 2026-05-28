@@ -33,6 +33,7 @@ export enum SettingName {
   ASSIST_SUGGESTION_ENABLED = "assistSuggestionEnabled",
   AUTO_PUBLISH = "autoPublish",
   ENABLE_2FA = "enable2FA",
+  DEFAULT_WORKSPACE = "defaultWorkspace",
 }
 
 export enum PaginationType {
@@ -157,6 +158,11 @@ export interface Enable2FASettingConfig extends BooleanSettingConfig {
   group: SettingGroup.ACCESS;
 }
 
+export interface DefaultWorkspaceSettingConfig extends TextSettingConfig {
+  name: SettingName.DEFAULT_WORKSPACE;
+  group: SettingGroup.MISC;
+}
+
 export type SettingsConfig = {
   [SettingName.PAGINATION_TYPE]: PaginationTypeSettingConfig;
   [SettingName.PAGINATION_PAGE_SIZE]: PaginationPageSizeSettingConfig;
@@ -168,6 +174,7 @@ export type SettingsConfig = {
   [SettingName.REQUEST_DEBOUNCE_DELAY]: RequestDebounceDelaySettingConfig;
   [SettingName.AUTO_PUBLISH]: AutoPublishSettingConfig;
   [SettingName.ENABLE_2FA]: Enable2FASettingConfig;
+  [SettingName.DEFAULT_WORKSPACE]: DefaultWorkspaceSettingConfig;
 };
 
 export type SettingConfig = SettingsConfig[keyof SettingsConfig];
@@ -263,6 +270,13 @@ export const settingsConfig: SettingsConfig = {
     control: { type: ControlType.BOOLEAN },
     group: SettingGroup.ACCESS,
     defaultValue: false,
+    context: [SettingContextType.USER],
+  },
+  [SettingName.DEFAULT_WORKSPACE]: {
+    name: SettingName.DEFAULT_WORKSPACE,
+    control: { type: ControlType.TEXT },
+    group: SettingGroup.MISC,
+    defaultValue: "",
     context: [SettingContextType.USER],
   },
 };
