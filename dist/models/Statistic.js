@@ -1,4 +1,4 @@
-import { FactOperation } from "./Fact";
+import { AnalysisClassificationType, FactOperation } from "./Fact";
 import { ListFilterTimeType } from "./List";
 export var Statistic;
 (function (Statistic) {
@@ -27,7 +27,8 @@ export const exampleChartRequest = {
     },
     dataPoints: [
         {
-            operation: FactOperation.ENTITY_COUNT,
+            operation: FactOperation.ANALYSIS_CLASSIFICATION,
+            analysisType: AnalysisClassificationType.MORNING_FASTING,
             filter: {
                 includeAll: true,
                 includeAllTagging: true,

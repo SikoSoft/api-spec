@@ -27,6 +27,8 @@ export type MedalCountFactContext = {
     operation: FactOperation.MEDAL_COUNT;
     medalConfigId: number;
     series: string;
+    start?: string;
+    end?: string;
 };
 export type AnalysisClassificationFactContext = {
     operation: FactOperation.ANALYSIS_CLASSIFICATION;

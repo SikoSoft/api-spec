@@ -27,6 +27,7 @@ export var SettingName;
     SettingName["ASSIST_SUGGESTION_ENABLED"] = "assistSuggestionEnabled";
     SettingName["AUTO_PUBLISH"] = "autoPublish";
     SettingName["ENABLE_2FA"] = "enable2FA";
+    SettingName["DEFAULT_WORKSPACE"] = "defaultWorkspace";
 })(SettingName || (SettingName = {}));
 export var PaginationType;
 (function (PaginationType) {
@@ -137,6 +138,13 @@ export const settingsConfig = {
         control: { type: ControlType.BOOLEAN },
         group: SettingGroup.ACCESS,
         defaultValue: false,
+        context: [SettingContextType.USER],
+    },
+    [SettingName.DEFAULT_WORKSPACE]: {
+        name: SettingName.DEFAULT_WORKSPACE,
+        control: { type: ControlType.TEXT },
+        group: SettingGroup.MISC,
+        defaultValue: "",
         context: [SettingContextType.USER],
     },
 };

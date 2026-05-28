@@ -29,7 +29,8 @@ export declare enum SettingName {
     REQUEST_DEBOUNCE_DELAY = "requestDebounceDelay",
     ASSIST_SUGGESTION_ENABLED = "assistSuggestionEnabled",
     AUTO_PUBLISH = "autoPublish",
-    ENABLE_2FA = "enable2FA"
+    ENABLE_2FA = "enable2FA",
+    DEFAULT_WORKSPACE = "defaultWorkspace"
 }
 export declare enum PaginationType {
     LAZY = "lazy",
@@ -126,6 +127,10 @@ export interface Enable2FASettingConfig extends BooleanSettingConfig {
     name: SettingName.ENABLE_2FA;
     group: SettingGroup.ACCESS;
 }
+export interface DefaultWorkspaceSettingConfig extends TextSettingConfig {
+    name: SettingName.DEFAULT_WORKSPACE;
+    group: SettingGroup.MISC;
+}
 export type SettingsConfig = {
     [SettingName.PAGINATION_TYPE]: PaginationTypeSettingConfig;
     [SettingName.PAGINATION_PAGE_SIZE]: PaginationPageSizeSettingConfig;
@@ -137,6 +142,7 @@ export type SettingsConfig = {
     [SettingName.REQUEST_DEBOUNCE_DELAY]: RequestDebounceDelaySettingConfig;
     [SettingName.AUTO_PUBLISH]: AutoPublishSettingConfig;
     [SettingName.ENABLE_2FA]: Enable2FASettingConfig;
+    [SettingName.DEFAULT_WORKSPACE]: DefaultWorkspaceSettingConfig;
 };
 export type SettingConfig = SettingsConfig[keyof SettingsConfig];
 export declare const settingsConfig: SettingsConfig;
