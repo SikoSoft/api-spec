@@ -4,5 +4,6 @@ export interface Workspace {
   userId: string;
   createdAt: Date;
   updatedAt: Date;
+  color: string;
   listConfigs: string[];
 }
