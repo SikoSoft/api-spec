@@ -5,5 +5,6 @@ export interface Workspace {
     createdAt: Date;
     updatedAt: Date;
     color: string;
+    showEverything: boolean;
     listConfigs: string[];
 }
