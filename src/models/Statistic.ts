@@ -1,4 +1,4 @@
-import { FactContext, FactOperation } from "./Fact";
+import { AnalysisClassificationType, FactContext, FactOperation } from "./Fact";
 import { ListFilterTimeType } from "./List";
 
 export enum Statistic {
@@ -33,6 +33,12 @@ export interface SegmentationTime {
 
 export type Segmentation = SegmentationTime;
 
+export type SegmentedDataPoint = {
+  value: number | string | null;
+};
+
+export type SegmentedData = Record<string, SegmentedDataPoint>;
+
 export interface ChartRequest {
   dataWindow: DataWindow;
   segmentation: Segmentation;
@@ -50,7 +56,8 @@ export const exampleChartRequest: ChartRequest = {
   },
   dataPoints: [
     {
-      operation: FactOperation.ENTITY_COUNT,
+      operation: FactOperation.ANALYSIS_CLASSIFICATION,
+      analysisType: AnalysisClassificationType.MORNING_FASTING,
       filter: {
         includeAll: true,
         includeAllTagging: true,
@@ -63,3 +70,7 @@ export const exampleChartRequest: ChartRequest = {
     },
   ],
 };
+
+export interface ChartResponse {
+  segmentedData: SegmentedData;
+}
