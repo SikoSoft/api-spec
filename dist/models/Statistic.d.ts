@@ -27,10 +27,13 @@ export type Segmentation = SegmentationTime;
 export type SegmentedDataPoint = {
     value: number | string | null;
 };
-export type SegmentedData = Record<string, SegmentedDataPoint[]>;
+export type SegmentedData = Record<string, SegmentedDataPoint>;
 export interface ChartRequest {
     dataWindow: DataWindow;
     segmentation: Segmentation;
     dataPoints: DataPointRequest[];
 }
 export declare const exampleChartRequest: ChartRequest;
+export interface ChartResponse {
+    segmentedData: SegmentedData;
+}
