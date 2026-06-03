@@ -47,12 +47,24 @@ export type SegmentedDataPoint = {
     segment: string;
     value: SegmentedDataPointValue;
 };
-export interface ChartRequest {
+export interface ChartConfig {
     dataWindow: DataWindow;
     segmentation: Segmentation;
     dataPoints: DataPointRequest[];
 }
-export declare const exampleChartRequest: ChartRequest;
+export interface Chart {
+    name: string;
+    config: ChartConfig;
+    userId: string;
+    createdAt: Date;
+    updatedAt: Date;
+}
+export interface ChartRequest {
+    config: ChartConfig;
+    name?: string;
+    save?: boolean;
+}
+export declare const exampleChartRequest: ChartConfig;
 export interface ChartResponse {
     segmentedData: SegmentedDataPoint[];
 }
