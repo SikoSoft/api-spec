@@ -63,13 +63,27 @@ export type SegmentedDataPoint = {
   value: SegmentedDataPointValue;
 };
 
-export interface ChartRequest {
+export interface ChartConfig {
   dataWindow: DataWindow;
   segmentation: Segmentation;
   dataPoints: DataPointRequest[];
 }
 
-export const exampleChartRequest: ChartRequest = {
+export interface Chart {
+  name: string;
+  config: ChartConfig;
+  userId: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+export interface ChartRequest {
+  config: ChartConfig;
+  name?: string;
+  save?: boolean;
+}
+
+export const exampleChartRequest: ChartConfig = {
   dataWindow: {
     type: DataWindowType.CUSTOM,
     start: new Date("2024-01-01T00:00:00Z"),
