@@ -4,10 +4,26 @@ export declare enum Statistic {
 }
 export interface StatisticValue {
 }
-export interface DataWindow {
+export declare enum DataWindowType {
+    YEAR_TO_DATE = "yearToDate",
+    MONTH_TO_DATE = "monthToDate",
+    WEEK_TO_DATE = "weekToDate",
+    LAST_365_DAYS = "last365Days",
+    LAST_30_DAYS = "last30Days",
+    LAST_7_DAYS = "last7Days",
+    CUSTOM = "custom"
+}
+export interface DataWindowCommon {
+    type: DataWindowType;
+}
+export interface DataWindowCustom extends DataWindowCommon {
+    type: DataWindowType.CUSTOM;
     start: Date;
     end: Date;
 }
+export type DataWindow = (DataWindowCommon & {
+    type: Exclude<DataWindowType, DataWindowType.CUSTOM>;
+}) | DataWindowCustom;
 export declare enum SegmentationType {
     TIME = "time"
 }
