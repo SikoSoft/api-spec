@@ -26,7 +26,12 @@ export var SegmentationTimeUnit;
     SegmentationTimeUnit["MONTH"] = "month";
     SegmentationTimeUnit["YEAR"] = "year";
 })(SegmentationTimeUnit || (SegmentationTimeUnit = {}));
+export var ChartVersion;
+(function (ChartVersion) {
+    ChartVersion[ChartVersion["V1"] = 1] = "V1";
+})(ChartVersion || (ChartVersion = {}));
 export const exampleChartRequest = {
+    version: ChartVersion.V1,
     dataWindow: {
         type: DataWindowType.CUSTOM,
         start: new Date("2024-01-01T00:00:00Z"),

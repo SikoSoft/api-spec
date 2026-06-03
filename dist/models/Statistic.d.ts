@@ -47,11 +47,16 @@ export type SegmentedDataPoint = {
     segment: string;
     value: SegmentedDataPointValue;
 };
-export interface ChartConfig {
+export declare enum ChartVersion {
+    V1 = 1
+}
+export interface ChartConfigV1 {
+    version: ChartVersion.V1;
     dataWindow: DataWindow;
     segmentation: Segmentation;
     dataPoints: DataPointRequest[];
 }
+export type ChartConfig = ChartConfigV1;
 export interface Chart {
     name: string;
     config: ChartConfig;
