@@ -63,11 +63,18 @@ export type SegmentedDataPoint = {
   value: SegmentedDataPointValue;
 };
 
-export interface ChartConfig {
+export enum ChartVersion {
+  V1 = 1,
+}
+
+export interface ChartConfigV1 {
+  version: ChartVersion.V1;
   dataWindow: DataWindow;
   segmentation: Segmentation;
   dataPoints: DataPointRequest[];
 }
+
+export type ChartConfig = ChartConfigV1;
 
 export interface Chart {
   name: string;
@@ -84,6 +91,7 @@ export interface ChartRequest {
 }
 
 export const exampleChartRequest: ChartConfig = {
+  version: ChartVersion.V1,
   dataWindow: {
     type: DataWindowType.CUSTOM,
     start: new Date("2024-01-01T00:00:00Z"),
