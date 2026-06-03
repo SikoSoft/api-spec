@@ -24,19 +24,19 @@ After any change, run `npm run build` to verify types compile cleanly. Downstrea
 
 Each file owns one domain area:
 
-| File | What it defines |
-|---|---|
-| `Entity.ts` | `DataType` enum, typed property value unions, `EntityPropertyConfig` discriminated union (one variant per `DataType`), `EntityConfig`, `Entity` |
-| `List.ts` | `ListFilter`, `ListSort`, `ListConfig`, `ListContext`, and their enums/defaults |
-| `Setting.ts` | `SettingName`, `ControlType`, `SettingGroup` enums; per-setting config interfaces; `SettingsConfig` map; `settingsConfig` constant; `Settings` type (name→value map) |
-| `Operation.ts` | `OperationType` enum; per-operation interfaces; `BulkOperation` |
-| `Access.ts` | `AccessPolicy`, `AccessPolicyParty` discriminated union |
-| `Revision.ts` | `RevisionDriftType` enum, `RevisionCheckResult`, slim `RevisionEntityConfig` / `RevisionEntityPropertyConfig` types |
-| `Introspection.ts` | `Introspection` union (logged-in vs anonymous, with/without Google link) |
-| `Identity.ts` | `User`, `UserGoogleAccount`, `Role` enum |
-| `Workspace.ts` | `Workspace` |
-| `Data.ts` | Export/import data shapes (`ExportDataContents`, `NukedDataType`, etc.) |
-| `Asset.ts` | Draft/unused high-level asset abstraction |
+| File               | What it defines                                                                                                                                                      |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Entity.ts`        | `DataType` enum, typed property value unions, `EntityPropertyConfig` discriminated union (one variant per `DataType`), `EntityConfig`, `Entity`                      |
+| `List.ts`          | `ListFilter`, `ListSort`, `ListConfig`, `ListContext`, and their enums/defaults                                                                                      |
+| `Setting.ts`       | `SettingName`, `ControlType`, `SettingGroup` enums; per-setting config interfaces; `SettingsConfig` map; `settingsConfig` constant; `Settings` type (name→value map) |
+| `Operation.ts`     | `OperationType` enum; per-operation interfaces; `BulkOperation`                                                                                                      |
+| `Access.ts`        | `AccessPolicy`, `AccessPolicyParty` discriminated union                                                                                                              |
+| `Revision.ts`      | `RevisionDriftType` enum, `RevisionCheckResult`, slim `RevisionEntityConfig` / `RevisionEntityPropertyConfig` types                                                  |
+| `Introspection.ts` | `Introspection` union (logged-in vs anonymous, with/without Google link)                                                                                             |
+| `Identity.ts`      | `User`, `UserGoogleAccount`, `Role` enum                                                                                                                             |
+| `Workspace.ts`     | `Workspace`                                                                                                                                                          |
+| `Data.ts`          | Export/import data shapes (`ExportDataContents`, `NukedDataType`, etc.)                                                                                              |
+| `Asset.ts`         | Draft/unused high-level asset abstraction                                                                                                                            |
 
 ### `src/lib/` — runtime utility classes
 
@@ -55,3 +55,7 @@ Static JSON fixtures (`entities.json`, `items.json`, `properties.json`) exported
 **`SettingsConfig` map** — `settingsConfig` is the authoritative runtime registry of all settings. `Settings` (the value-only map) and `Setting` (the union of individual setting objects) are derived from it via mapped types. When adding a new setting: add to `SettingName`, create the config interface, add to `SettingsConfig`, add to `settingsConfig` const, and update `defaultSettings`.
 
 **Exports map** — `package.json` uses explicit `exports` entries. Every new public module must be added there alongside the corresponding `"types"` and `"default"` paths pointing into `dist/`.
+
+## Versioning
+
+See [docs/versioning.md](docs/versioning.md) for further details on how to create a new version.
