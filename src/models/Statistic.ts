@@ -69,13 +69,20 @@ export interface ChartConfig {
   dataPoints: DataPointRequest[];
 }
 
-export interface Chart {
+export enum ChartVersion {
+  V1 = 1,
+}
+
+export interface ChartV1 {
+  version: ChartVersion.V1;
   name: string;
   config: ChartConfig;
   userId: string;
   createdAt: Date;
   updatedAt: Date;
 }
+
+export type Chart = ChartV1;
 
 export interface ChartRequest {
   config: ChartConfig;
