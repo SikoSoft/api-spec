@@ -58,6 +58,7 @@ export interface ChartConfigV1 {
 }
 export type ChartConfig = ChartConfigV1;
 export interface Chart {
+    id: number;
     name: string;
     config: ChartConfig;
     userId: string;
