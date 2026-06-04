@@ -65,16 +65,37 @@ export type SegmentedDataPoint = {
 
 export enum ChartVersion {
   V1 = 1,
+  V2 = 2,
 }
 
-export interface ChartConfigV1 {
-  version: ChartVersion.V1;
+export interface ChartConfigCommon {
+  version: ChartVersion;
   dataWindow: DataWindow;
   segmentation: Segmentation;
   dataPoints: DataPointRequest[];
 }
 
-export type ChartConfig = ChartConfigV1;
+export interface ChartConfigV1 extends ChartConfigCommon {
+  version: ChartVersion.V1;
+}
+
+export enum ChartConfigType {
+  BAR = "bar",
+  LINE = "line",
+  SCATTER = "scatter",
+  BUBBLE = "bubble",
+  PIE = "pie",
+  DOUGHNUT = "doughnut",
+  POLAR_AREA = "polarArea",
+  RADAR = "radar",
+}
+
+export interface ChartConfigV2 extends ChartConfigCommon {
+  version: ChartVersion.V2;
+  type: `${ChartConfigType}`;
+}
+
+export type ChartConfig = ChartConfigV1 | ChartConfigV2;
 
 export interface Chart {
   id: number;
@@ -92,7 +113,8 @@ export interface ChartRequest {
 }
 
 export const exampleChartRequest: ChartConfig = {
-  version: ChartVersion.V1,
+  version: ChartVersion.V2,
+  type: "line",
   dataWindow: {
     type: DataWindowType.CUSTOM,
     start: new Date("2024-01-01T00:00:00Z"),
