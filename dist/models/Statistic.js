@@ -29,9 +29,22 @@ export var SegmentationTimeUnit;
 export var ChartVersion;
 (function (ChartVersion) {
     ChartVersion[ChartVersion["V1"] = 1] = "V1";
+    ChartVersion[ChartVersion["V2"] = 2] = "V2";
 })(ChartVersion || (ChartVersion = {}));
+export var ChartConfigType;
+(function (ChartConfigType) {
+    ChartConfigType["BAR"] = "bar";
+    ChartConfigType["LINE"] = "line";
+    ChartConfigType["SCATTER"] = "scatter";
+    ChartConfigType["BUBBLE"] = "bubble";
+    ChartConfigType["PIE"] = "pie";
+    ChartConfigType["DOUGHNUT"] = "doughnut";
+    ChartConfigType["POLAR_AREA"] = "polarArea";
+    ChartConfigType["RADAR"] = "radar";
+})(ChartConfigType || (ChartConfigType = {}));
 export const exampleChartRequest = {
-    version: ChartVersion.V1,
+    version: ChartVersion.V2,
+    type: "line",
     dataWindow: {
         type: DataWindowType.CUSTOM,
         start: new Date("2024-01-01T00:00:00Z"),

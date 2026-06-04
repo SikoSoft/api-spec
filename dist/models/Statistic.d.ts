@@ -48,15 +48,33 @@ export type SegmentedDataPoint = {
     value: SegmentedDataPointValue;
 };
 export declare enum ChartVersion {
-    V1 = 1
+    V1 = 1,
+    V2 = 2
 }
-export interface ChartConfigV1 {
-    version: ChartVersion.V1;
+export interface ChartConfigCommon {
+    version: ChartVersion;
     dataWindow: DataWindow;
     segmentation: Segmentation;
     dataPoints: DataPointRequest[];
 }
-export type ChartConfig = ChartConfigV1;
+export interface ChartConfigV1 extends ChartConfigCommon {
+    version: ChartVersion.V1;
+}
+export declare enum ChartConfigType {
+    BAR = "bar",
+    LINE = "line",
+    SCATTER = "scatter",
+    BUBBLE = "bubble",
+    PIE = "pie",
+    DOUGHNUT = "doughnut",
+    POLAR_AREA = "polarArea",
+    RADAR = "radar"
+}
+export interface ChartConfigV2 extends ChartConfigCommon {
+    version: ChartVersion.V2;
+    type: `${ChartConfigType}`;
+}
+export type ChartConfig = ChartConfigV1 | ChartConfigV2;
 export interface Chart {
     id: number;
     name: string;
