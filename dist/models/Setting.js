@@ -28,6 +28,7 @@ export var SettingName;
     SettingName["AUTO_PUBLISH"] = "autoPublish";
     SettingName["ENABLE_2FA"] = "enable2FA";
     SettingName["DEFAULT_WORKSPACE"] = "defaultWorkspace";
+    SettingName["TIMEZONE"] = "timezone";
 })(SettingName || (SettingName = {}));
 export var PaginationType;
 (function (PaginationType) {
@@ -145,6 +146,13 @@ export const settingsConfig = {
         control: { type: ControlType.TEXT },
         group: SettingGroup.MISC,
         defaultValue: "",
+        context: [SettingContextType.USER],
+    },
+    [SettingName.TIMEZONE]: {
+        name: SettingName.TIMEZONE,
+        control: { type: ControlType.NUMBER },
+        group: SettingGroup.MISC,
+        defaultValue: 0,
         context: [SettingContextType.USER],
     },
 };
