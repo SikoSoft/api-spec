@@ -1,8 +1,3 @@
-export declare enum Theme {
-    LIGHT = "light",
-    DARK = "dark",
-    SYSTEM = "system"
-}
 export interface Workspace {
     id: string;
     name: string;
@@ -12,5 +7,5 @@ export interface Workspace {
     color: string;
     showEverything: boolean;
     listConfigs: string[];
-    theme: Theme;
+    theme: string;
 }
