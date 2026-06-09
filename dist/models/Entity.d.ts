@@ -94,6 +94,7 @@ export interface EntityConfig {
     revisionOf: null | number;
     allowPropertyOrdering: boolean;
     aiEnabled: boolean;
+    aiClassifyEnabled: boolean;
     aiIdentifyPrompt: string;
     viewAccessPolicy: AccessPolicy | null;
     editAccessPolicy: AccessPolicy | null;

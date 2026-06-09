@@ -32,6 +32,7 @@ export const defaultEntityConfig = {
     revisionOf: null,
     allowPropertyOrdering: false,
     aiEnabled: false,
+    aiClassifyEnabled: false,
     aiIdentifyPrompt: "",
     viewAccessPolicy: null,
     editAccessPolicy: null,
