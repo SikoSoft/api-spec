@@ -75,7 +75,6 @@ export const defaultListFilter: ListFilter = {
   includeAllTagging: true,
   published: true,
   suggested: false,
-  identified: false,
   time: { type: ListFilterTimeType.ALL_TIME },
   properties: [],
 };
