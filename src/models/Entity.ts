@@ -164,6 +164,7 @@ export interface EntityConfig {
   revisionOf: null | number;
   allowPropertyOrdering: boolean;
   aiEnabled: boolean;
+  aiClassifyEnabled: boolean;
   aiIdentifyPrompt: string;
   viewAccessPolicy: AccessPolicy | null;
   editAccessPolicy: AccessPolicy | null;
@@ -181,6 +182,7 @@ export const defaultEntityConfig: EntityConfig = {
   revisionOf: null,
   allowPropertyOrdering: false,
   aiEnabled: false,
+  aiClassifyEnabled: false,
   aiIdentifyPrompt: "",
   viewAccessPolicy: null,
   editAccessPolicy: null,
