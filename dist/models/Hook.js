@@ -6,5 +6,6 @@ export var HookType;
     HookType["POST_UPDATE"] = "postUpdate";
     HookType["PRE_DELETE"] = "preDelete";
     HookType["POST_DELETE"] = "postDelete";
+    HookType["POST_ANALYSIS_CLASSIFICATION"] = "postAnalysisClassification";
 })(HookType || (HookType = {}));
 //# sourceMappingURL=Hook.js.map

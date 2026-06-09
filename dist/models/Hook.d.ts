@@ -4,5 +4,6 @@ export declare enum HookType {
     PRE_UPDATE = "preUpdate",
     POST_UPDATE = "postUpdate",
     PRE_DELETE = "preDelete",
-    POST_DELETE = "postDelete"
+    POST_DELETE = "postDelete",
+    POST_ANALYSIS_CLASSIFICATION = "postAnalysisClassification"
 }
