@@ -87,6 +87,7 @@ export interface ChartRequest {
     config: ChartConfig;
     name?: string;
     save?: boolean;
+    resync?: boolean;
 }
 export declare const exampleChartRequest: ChartConfig;
 export interface ChartResponse {
