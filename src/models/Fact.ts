@@ -5,6 +5,7 @@ export enum FactOperation {
   UNIQUE_TAG_COUNT = "uniqueTagCount",
   MEDAL_COUNT = "medalCount",
   ANALYSIS_CLASSIFICATION = "analysisClassification",
+  PROPERTY_SUM = "propertySum",
 }
 
 export enum AnalysisClassificationType {
@@ -60,8 +61,15 @@ export type AnalysisClassificationFactContext = {
   analysisType: AnalysisClassificationType;
 };
 
+export type PropertySumFactContext = {
+  operation: FactOperation.PROPERTY_SUM;
+  filter: ListFilter;
+  propertyConfigId: number;
+};
+
 export type FactContext =
   | EntityCountFactContext
   | UniqueTagCountFactContext
   | MedalCountFactContext
-  | AnalysisClassificationFactContext;
+  | AnalysisClassificationFactContext
+  | PropertySumFactContext;
