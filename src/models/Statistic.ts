@@ -110,6 +110,7 @@ export interface ChartRequest {
   config: ChartConfig;
   name?: string;
   save?: boolean;
+  resync?: boolean;
 }
 
 export const exampleChartRequest: ChartConfig = {
