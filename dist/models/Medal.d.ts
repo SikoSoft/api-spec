@@ -1,13 +1,4 @@
-import { FactContext } from "./Fact";
-import { SegmentationTimeUnit } from "./Statistic";
-export interface StreakRequest {
-    alias: string;
-    segmentUnit: SegmentationTimeUnit;
-    length: number;
-    innerContext: FactContext;
-    innerOperator: EvalOperator;
-    innerValue: string | number | boolean;
-}
+import { FactRequest, StreakRequest } from "./Fact";
 export type EvalOperator = "==" | "!=" | ">" | ">=" | "<" | "<=" | "contains";
 export interface Criterion {
     fact: string;
@@ -17,10 +8,6 @@ export interface Criterion {
 export interface Criteria {
     any?: (Criterion | Criteria)[];
     all?: (Criterion | Criteria)[];
-}
-export interface FactRequest {
-    alias: string;
-    context: FactContext;
 }
 export interface MedalConfig {
     id: number;

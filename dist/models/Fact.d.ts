@@ -1,4 +1,6 @@
 import { ListFilter } from "./List";
+import { EvalOperator } from "./Medal";
+import { SegmentationTimeUnit } from "./Statistic";
 export declare enum FactOperation {
     ENTITY_COUNT = "entityCount",
     UNIQUE_TAG_COUNT = "uniqueTagCount",
@@ -42,3 +44,30 @@ export type PropertySumFactContext = {
     propertyConfigId: number;
 };
 export type FactContext = EntityCountFactContext | UniqueTagCountFactContext | MedalCountFactContext | AnalysisClassificationFactContext | PropertySumFactContext;
+export interface FactRequest {
+    alias: string;
+    context: FactContext;
+}
+export interface StreakContext {
+    segmentUnit: SegmentationTimeUnit;
+    length: number;
+    innerContext: FactContext;
+    innerOperator: EvalOperator;
+    innerValue: string | number | boolean;
+}
+export interface Streak {
+    name: string;
+    userId: string;
+    createdAt: Date;
+    updatedAt: Date;
+    context: StreakContext;
+}
+export interface StreakResult {
+    streak: Streak;
+    current: number;
+    longest: number;
+}
+export interface StreakRequest {
+    alias: string;
+    context: StreakContext;
+}
