@@ -90,6 +90,7 @@ export interface StreakContext {
 }
 
 export interface Streak {
+  id: number;
   name: string;
   userId: string;
   createdAt: Date;
@@ -98,7 +99,7 @@ export interface Streak {
 }
 
 export interface StreakResult {
-  streak: Streak;
+  streakId: number;
   current: number;
   longest: number;
 }
