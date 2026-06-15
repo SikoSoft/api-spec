@@ -38,6 +38,7 @@ export interface FilterProperty {
     propertyId: number;
     value: PropertyDataValue;
     operation: TextType;
+    matchUnset?: boolean;
 }
 export interface ListFilter {
     userIds?: string[];
