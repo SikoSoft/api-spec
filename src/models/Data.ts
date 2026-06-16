@@ -1,4 +1,9 @@
-import { Entity, EntityConfig, EntityPropertyConfig } from "./Entity";
+import {
+  Entity,
+  EntityCalculatedPropertyConfig,
+  EntityConfig,
+  EntityPropertyConfig,
+} from "./Entity";
 import { ListConfig } from "./List";
 import { Medal, MedalConfig } from "./Medal";
 
@@ -10,9 +15,12 @@ export type ExportMetaData = {
 export interface ExportPropertyConfig
   extends Omit<EntityPropertyConfig, "userId" | "entityConfigId"> {}
 
+export interface ExportCalculatedPropertyConfig
+  extends Omit<EntityCalculatedPropertyConfig, "userId" | "entityConfigId"> {}
+
 export interface ExportEntityConfig
   extends Omit<EntityConfig, "userId" | "properties"> {
-  properties: ExportPropertyConfig[];
+  properties: (ExportPropertyConfig | ExportCalculatedPropertyConfig)[];
 }
 
 export type ExportEntityConfigData = ExportEntityConfig[];
