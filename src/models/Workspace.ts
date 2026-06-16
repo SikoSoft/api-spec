@@ -8,4 +8,6 @@ export interface Workspace {
   showEverything: boolean;
   listConfigs: string[];
   theme: string;
+  facts: number[];
+  streaks: number[];
 }
