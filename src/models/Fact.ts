@@ -76,6 +76,20 @@ export type FactContext =
   | AnalysisClassificationFactContext
   | PropertySumFactContext;
 
+export interface Fact {
+  id: number;
+  name: string;
+  userId: string;
+  createdAt: Date;
+  updatedAt: Date;
+  context: FactContext;
+}
+
+export interface FactResult {
+  factId: number;
+  value: string | number;
+}
+
 export interface FactRequest {
   alias: string;
   context: FactContext;
