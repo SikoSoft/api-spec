@@ -10,4 +10,5 @@ export interface Workspace {
   theme: string;
   facts: number[];
   streaks: number[];
+  charts: number[];
 }
