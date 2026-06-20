@@ -27,5 +27,25 @@
         "Return 0 if none are found, or null if there is genuinely not enough data to determine."
       ]
     }
+  },
+  "sugarIntake": {
+    "promptConfig": {
+      "description": "the intensity of added sugar consumption",
+      "scale": "0.0 = no added sugar consumed, 1.0 = very high added sugar consumption (frequent sugary foods or drinks)",
+      "notes": [
+        "Consider both food and drink sources of added sugar.",
+        "Natural sugars in whole fruits should weigh less heavily than refined or added sugars."
+      ]
+    }
+  },
+  "calorieIntake": {
+    "promptConfig": {
+      "description": "estimated total caloric intake",
+      "scale": "integer — estimated total calories consumed within the time window, based on the described food and drink items",
+      "notes": [
+        "Estimate calories using typical caloric values for the foods and drinks described.",
+        "Return null if there is genuinely not enough information to make a reasonable estimate."
+      ]
+    }
   }
 }

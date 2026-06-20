@@ -58,4 +58,8 @@ Static JSON fixtures (`entities.json`, `items.json`, `properties.json`) exported
 
 ## Versioning
 
-See [docs/versioning.md](docs/versioning.md) for further details on how to create a new version.
+See [doc/versioning.md](doc/versioning.md) for further details on how to create a new version.
+
+## Analysis classifications
+
+See [doc/analysis-classifications.md](doc/analysis-classifications.md) for the process of adding a new analysis classification type.
