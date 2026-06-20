@@ -12,6 +12,8 @@ export var AnalysisClassificationType;
     AnalysisClassificationType["MORNING_FASTING"] = "morningFasting";
     AnalysisClassificationType["AFTERNOON_SNACKING"] = "afternoonSnacking";
     AnalysisClassificationType["CAFFEINE_INTAKE"] = "caffeineIntake";
+    AnalysisClassificationType["SUGAR_INTAKE"] = "sugarIntake";
+    AnalysisClassificationType["CALORIE_INTAKE"] = "calorieIntake";
 })(AnalysisClassificationType || (AnalysisClassificationType = {}));
 export const analysisClassifications = configData;
 //# sourceMappingURL=Fact.js.map

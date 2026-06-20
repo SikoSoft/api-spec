@@ -11,7 +11,9 @@ export declare enum FactOperation {
 export declare enum AnalysisClassificationType {
     MORNING_FASTING = "morningFasting",
     AFTERNOON_SNACKING = "afternoonSnacking",
-    CAFFEINE_INTAKE = "caffeineIntake"
+    CAFFEINE_INTAKE = "caffeineIntake",
+    SUGAR_INTAKE = "sugarIntake",
+    CALORIE_INTAKE = "calorieIntake"
 }
 export interface AnalysisClassificationConfig {
     type: AnalysisClassificationType;
