@@ -1,0 +1,31 @@
+{
+  "morningFasting": {
+    "promptConfig": {
+      "description": "how well the user maintained a morning fast",
+      "scale": "0.0 = broke fast immediately or heavily (consumed caloric food before noon), 1.0 = maintained fast perfectly (no caloric food intake before noon)",
+      "notes": [
+        "Only consider items consumed between midnight and noon (00:00-12:00). ",
+        "Afternoon and evening eating does NOT affect this score — ignore it entirely. ",
+        "Medications never break a fast. Black coffee and plain tea are borderline; ",
+        "lean toward not breaking the fast unless clearly caloric."
+      ]
+    }
+  },
+  "afternoonSnacking": {
+    "promptConfig": {
+      "description": "the intensity of afternoon snacking activity",
+      "scale": "0.0 = no snacking at all, 1.0 = very frequent or heavy snacking",
+      "notes": []
+    }
+  },
+  "caffeineIntake": {
+    "promptConfig": {
+      "description": "caffeinated drink consumption",
+      "scale": "integer count — number of caffeinated drinks consumed (cups of coffee, lungo, espresso shots, energy drinks, etc.)",
+      "notes": [
+        "For each time window, count the total number of caffeinated drink items consumed.",
+        "Return 0 if none are found, or null if there is genuinely not enough data to determine."
+      ]
+    }
+  }
+}
