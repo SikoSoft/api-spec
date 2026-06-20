@@ -1,0 +1,40 @@
+name: Publish Analysis Config
+
+on:
+  push:
+    tags:
+      - "*"
+
+permissions:
+  contents: read
+
+env:
+  AZURE_STORAGE_CONTAINER: CONTAINER_NAME
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Upload versioned config
+        uses: azure/CLI@v2
+        with:
+          inlineScript: |
+            az storage blob upload \
+              --container-name ${{ env.AZURE_STORAGE_CONTAINER }} \
+              --name analysisConfig-${{ github.ref_name }}.json \
+              --file src/models/data/analysisConfig.json \
+              --connection-string "${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}" \
+              --overwrite
+
+      - name: Upload latest config
+        uses: azure/CLI@v2
+        with:
+          inlineScript: |
+            az storage blob upload \
+              --container-name ${{ env.AZURE_STORAGE_CONTAINER }} \
+              --name analysisConfig-latest.json \
+              --file src/models/data/analysisConfig.json \
+              --connection-string "${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}" \
+              --overwrite
