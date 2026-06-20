@@ -15,7 +15,11 @@ export declare enum AnalysisClassificationType {
 }
 export interface AnalysisClassificationConfig {
     type: AnalysisClassificationType;
-    prompt: string;
+    promptConfig: {
+        description: string;
+        scale: string;
+        notes: string[];
+    };
 }
 export declare const analysisClassifications: AnalysisClassificationConfig[];
 export type EntityCountFactContext = {

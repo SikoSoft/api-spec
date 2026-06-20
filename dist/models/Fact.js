@@ -1,3 +1,4 @@
+import configData from "./data/analysisConfig.json";
 export var FactOperation;
 (function (FactOperation) {
     FactOperation["ENTITY_COUNT"] = "entityCount";
@@ -12,18 +13,5 @@ export var AnalysisClassificationType;
     AnalysisClassificationType["AFTERNOON_SNACKING"] = "afternoonSnacking";
     AnalysisClassificationType["CAFFEINE_INTAKE"] = "caffeineIntake";
 })(AnalysisClassificationType || (AnalysisClassificationType = {}));
-export const analysisClassifications = [
-    {
-        type: AnalysisClassificationType.MORNING_FASTING,
-        prompt: "Classify the user's morning fasting behavior based on their activity patterns.",
-    },
-    {
-        type: AnalysisClassificationType.AFTERNOON_SNACKING,
-        prompt: "Classify the user's afternoon snacking behavior based on their activity patterns.",
-    },
-    {
-        type: AnalysisClassificationType.CAFFEINE_INTAKE,
-        prompt: "Classify the user's caffeine intake behavior based on their activity patterns.",
-    },
-];
+export const analysisClassifications = configData;
 //# sourceMappingURL=Fact.js.map
