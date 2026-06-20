@@ -9,7 +9,7 @@ permissions:
   contents: read
 
 env:
-  AZURE_STORAGE_CONTAINER: CONTAINER_NAME
+  AZURE_STORAGE_CONTAINER: api-spec
 
 jobs:
   upload:
