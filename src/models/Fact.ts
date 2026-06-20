@@ -1,6 +1,7 @@
 import { ListFilter } from "./List";
 import { EvalOperator } from "./Medal";
 import { SegmentationTimeUnit } from "./Statistic";
+import configData from "./data/analysisConfig.json";
 
 export enum FactOperation {
   ENTITY_COUNT = "entityCount",
@@ -18,9 +19,17 @@ export enum AnalysisClassificationType {
 
 export interface AnalysisClassificationConfig {
   type: AnalysisClassificationType;
-  prompt: string;
+  promptConfig: {
+    description: string;
+    scale: string;
+    notes: string[];
+  };
 }
 
+export const analysisClassifications =
+  configData as unknown as AnalysisClassificationConfig[];
+
+/*
 export const analysisClassifications: AnalysisClassificationConfig[] = [
   {
     type: AnalysisClassificationType.MORNING_FASTING,
@@ -38,6 +47,7 @@ export const analysisClassifications: AnalysisClassificationConfig[] = [
       "Classify the user's caffeine intake behavior based on their activity patterns.",
   },
 ];
+*/
 
 export type EntityCountFactContext = {
   operation: FactOperation.ENTITY_COUNT;
