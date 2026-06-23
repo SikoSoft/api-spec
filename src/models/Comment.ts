@@ -16,3 +16,8 @@ export interface AnonymousComment extends CommonComment {
 export interface UserComment extends CommonComment {
   user: User;
 }
+
+export enum CommentReactionType {
+  LIKE = "like",
+  DISLIKE = "dislike",
+}
