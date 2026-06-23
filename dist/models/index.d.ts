@@ -1,4 +1,5 @@
 export * as Access from "./Access";
+export * as Comment from "./Comment";
 export * as Data from "./Data";
 export * as Entity from "./Entity";
 export * as Fact from "./Fact";
