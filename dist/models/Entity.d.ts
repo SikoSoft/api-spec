@@ -101,6 +101,7 @@ export interface EntityConfig {
     public: boolean;
     uniqueConstraints: EntityConfigUniqueConstraint[];
     allowTags: boolean;
+    allowComments: boolean;
 }
 export declare const defaultEntityConfig: EntityConfig;
 export interface EntityProperty {
@@ -122,4 +123,5 @@ export interface Entity {
     suggested: boolean;
     published: boolean;
     identified: boolean;
+    allowComments: boolean;
 }
