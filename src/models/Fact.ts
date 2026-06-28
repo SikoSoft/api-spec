@@ -120,6 +120,8 @@ export interface StreakAlertConfig {
   streakId: number;
   userId: string;
   noticeTime: number;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 export interface Streak {
