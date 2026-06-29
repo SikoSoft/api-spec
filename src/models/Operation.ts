@@ -8,6 +8,7 @@ export enum OperationType {
   REPLACE_PROPERTIES = "replaceProperties",
   ADD_PROPERTIES = "addProperties",
   REMOVE_PROPERTIES = "removeProperties",
+  ORDER_PROPERTIES = "orderProperties",
 }
 
 export interface DeleteOperation {
@@ -44,6 +45,16 @@ export interface RemovePropertiesOperation {
   properties: EntityProperty[];
 }
 
+export interface PropertyOrder {
+  propertyConfigId: number;
+  order: number;
+}
+
+export interface OrderPropertiesOperation {
+  type: OperationType.ORDER_PROPERTIES;
+  propertyOrder: PropertyOrder[];
+}
+
 export type Operation =
   | DeleteOperation
   | ReplaceTagsOperation
@@ -51,7 +62,8 @@ export type Operation =
   | RemoveTagsOperation
   | ReplacePropertiesOperation
   | AddPropertiesOperation
-  | RemovePropertiesOperation;
+  | RemovePropertiesOperation
+  | OrderPropertiesOperation;
 
 export interface BulkOperation {
   operation: Operation;
