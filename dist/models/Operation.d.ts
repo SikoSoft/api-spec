@@ -6,7 +6,8 @@ export declare enum OperationType {
     REMOVE_TAGS = "removeTags",
     REPLACE_PROPERTIES = "replaceProperties",
     ADD_PROPERTIES = "addProperties",
-    REMOVE_PROPERTIES = "removeProperties"
+    REMOVE_PROPERTIES = "removeProperties",
+    ORDER_PROPERTIES = "orderProperties"
 }
 export interface DeleteOperation {
     type: OperationType.DELETE;
@@ -35,7 +36,15 @@ export interface RemovePropertiesOperation {
     type: OperationType.REMOVE_PROPERTIES;
     properties: EntityProperty[];
 }
-export type Operation = DeleteOperation | ReplaceTagsOperation | AddTagsOperation | RemoveTagsOperation | ReplacePropertiesOperation | AddPropertiesOperation | RemovePropertiesOperation;
+export interface PropertyOrder {
+    propertyConfigId: number;
+    order: number;
+}
+export interface OrderPropertiesOperation {
+    type: OperationType.ORDER_PROPERTIES;
+    propertyOrder: PropertyOrder[];
+}
+export type Operation = DeleteOperation | ReplaceTagsOperation | AddTagsOperation | RemoveTagsOperation | ReplacePropertiesOperation | AddPropertiesOperation | RemovePropertiesOperation | OrderPropertiesOperation;
 export interface BulkOperation {
     operation: Operation;
     entities: number[];
