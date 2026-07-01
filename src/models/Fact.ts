@@ -115,6 +115,15 @@ export interface StreakContext {
   innerValue: string | number | boolean;
 }
 
+export interface StreakAlertConfig {
+  id: number;
+  streakId: number;
+  userId: string;
+  noticeTime: number;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
 export interface Streak {
   id: number;
   name: string;
@@ -122,6 +131,7 @@ export interface Streak {
   createdAt: Date;
   updatedAt: Date;
   context: StreakContext;
+  alerts: StreakAlertConfig[];
 }
 
 export interface StreakResult {

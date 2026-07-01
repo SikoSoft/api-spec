@@ -7,5 +7,6 @@ export var OperationType;
     OperationType["REPLACE_PROPERTIES"] = "replaceProperties";
     OperationType["ADD_PROPERTIES"] = "addProperties";
     OperationType["REMOVE_PROPERTIES"] = "removeProperties";
+    OperationType["ORDER_PROPERTIES"] = "orderProperties";
 })(OperationType || (OperationType = {}));
 //# sourceMappingURL=Operation.js.map
