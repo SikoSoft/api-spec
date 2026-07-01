@@ -122,6 +122,7 @@ export interface StreakAlertConfig {
   noticeTime: number;
   createdAt: Date;
   updatedAt: Date;
+  message?: string;
 }
 
 export interface Streak {
