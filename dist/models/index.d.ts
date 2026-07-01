@@ -1,4 +1,6 @@
 export * as Access from "./Access";
+export * as Formatter from "./Formatter";
+export * as Comment from "./Comment";
 export * as Data from "./Data";
 export * as Entity from "./Entity";
 export * as Fact from "./Fact";
