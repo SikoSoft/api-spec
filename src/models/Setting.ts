@@ -35,6 +35,7 @@ export enum SettingName {
   ENABLE_2FA = "enable2FA",
   DEFAULT_WORKSPACE = "defaultWorkspace",
   TIMEZONE = "timezone",
+  SHOW_TAGS = "showTags",
 }
 
 export enum PaginationType {
@@ -169,6 +170,11 @@ export interface TimezoneSettingConfig extends NumberSettingConfig {
   group: SettingGroup.MISC;
 }
 
+export interface ShowTagsSettingConfig extends BooleanSettingConfig {
+  name: SettingName.SHOW_TAGS;
+  group: SettingGroup.MISC;
+}
+
 export type SettingsConfig = {
   [SettingName.PAGINATION_TYPE]: PaginationTypeSettingConfig;
   [SettingName.PAGINATION_PAGE_SIZE]: PaginationPageSizeSettingConfig;
@@ -182,6 +188,7 @@ export type SettingsConfig = {
   [SettingName.ENABLE_2FA]: Enable2FASettingConfig;
   [SettingName.DEFAULT_WORKSPACE]: DefaultWorkspaceSettingConfig;
   [SettingName.TIMEZONE]: TimezoneSettingConfig;
+  [SettingName.SHOW_TAGS]: ShowTagsSettingConfig;
 };
 
 export type SettingConfig = SettingsConfig[keyof SettingsConfig];
@@ -292,6 +299,17 @@ export const settingsConfig: SettingsConfig = {
     group: SettingGroup.MISC,
     defaultValue: 0,
     context: [SettingContextType.USER],
+  },
+  [SettingName.SHOW_TAGS]: {
+    name: SettingName.SHOW_TAGS,
+    control: { type: ControlType.BOOLEAN },
+    group: SettingGroup.MISC,
+    defaultValue: true,
+    context: [
+      SettingContextType.USER,
+      SettingContextType.LIST,
+      SettingContextType.APP,
+    ],
   },
 };
 
