@@ -29,6 +29,7 @@ export var SettingName;
     SettingName["ENABLE_2FA"] = "enable2FA";
     SettingName["DEFAULT_WORKSPACE"] = "defaultWorkspace";
     SettingName["TIMEZONE"] = "timezone";
+    SettingName["SHOW_TAGS"] = "showTags";
 })(SettingName || (SettingName = {}));
 export var PaginationType;
 (function (PaginationType) {
@@ -154,6 +155,17 @@ export const settingsConfig = {
         group: SettingGroup.MISC,
         defaultValue: 0,
         context: [SettingContextType.USER],
+    },
+    [SettingName.SHOW_TAGS]: {
+        name: SettingName.SHOW_TAGS,
+        control: { type: ControlType.BOOLEAN },
+        group: SettingGroup.MISC,
+        defaultValue: true,
+        context: [
+            SettingContextType.USER,
+            SettingContextType.LIST,
+            SettingContextType.APP,
+        ],
     },
 };
 export const defaultSettings = Object.fromEntries(Object.entries(settingsConfig).map(([key, config]) => [

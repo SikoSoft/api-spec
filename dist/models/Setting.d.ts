@@ -31,7 +31,8 @@ export declare enum SettingName {
     AUTO_PUBLISH = "autoPublish",
     ENABLE_2FA = "enable2FA",
     DEFAULT_WORKSPACE = "defaultWorkspace",
-    TIMEZONE = "timezone"
+    TIMEZONE = "timezone",
+    SHOW_TAGS = "showTags"
 }
 export declare enum PaginationType {
     LAZY = "lazy",
@@ -136,6 +137,10 @@ export interface TimezoneSettingConfig extends NumberSettingConfig {
     name: SettingName.TIMEZONE;
     group: SettingGroup.MISC;
 }
+export interface ShowTagsSettingConfig extends BooleanSettingConfig {
+    name: SettingName.SHOW_TAGS;
+    group: SettingGroup.MISC;
+}
 export type SettingsConfig = {
     [SettingName.PAGINATION_TYPE]: PaginationTypeSettingConfig;
     [SettingName.PAGINATION_PAGE_SIZE]: PaginationPageSizeSettingConfig;
@@ -149,6 +154,7 @@ export type SettingsConfig = {
     [SettingName.ENABLE_2FA]: Enable2FASettingConfig;
     [SettingName.DEFAULT_WORKSPACE]: DefaultWorkspaceSettingConfig;
     [SettingName.TIMEZONE]: TimezoneSettingConfig;
+    [SettingName.SHOW_TAGS]: ShowTagsSettingConfig;
 };
 export type SettingConfig = SettingsConfig[keyof SettingsConfig];
 export declare const settingsConfig: SettingsConfig;
