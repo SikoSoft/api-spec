@@ -36,6 +36,7 @@ export enum SettingName {
   DEFAULT_WORKSPACE = "defaultWorkspace",
   TIMEZONE = "timezone",
   SHOW_TAGS = "showTags",
+  ASSIST_LOOKBACK_WINDOW = "assistLookbackWindow",
 }
 
 export enum PaginationType {
@@ -175,6 +176,11 @@ export interface ShowTagsSettingConfig extends BooleanSettingConfig {
   group: SettingGroup.MISC;
 }
 
+export interface AssistLookbackWindowSettingConfig extends NumberSettingConfig {
+  name: SettingName.ASSIST_LOOKBACK_WINDOW;
+  group: SettingGroup.AI;
+}
+
 export type SettingsConfig = {
   [SettingName.PAGINATION_TYPE]: PaginationTypeSettingConfig;
   [SettingName.PAGINATION_PAGE_SIZE]: PaginationPageSizeSettingConfig;
@@ -189,6 +195,7 @@ export type SettingsConfig = {
   [SettingName.DEFAULT_WORKSPACE]: DefaultWorkspaceSettingConfig;
   [SettingName.TIMEZONE]: TimezoneSettingConfig;
   [SettingName.SHOW_TAGS]: ShowTagsSettingConfig;
+  [SettingName.ASSIST_LOOKBACK_WINDOW]: AssistLookbackWindowSettingConfig;
 };
 
 export type SettingConfig = SettingsConfig[keyof SettingsConfig];
@@ -310,6 +317,13 @@ export const settingsConfig: SettingsConfig = {
       SettingContextType.LIST,
       SettingContextType.APP,
     ],
+  },
+  [SettingName.ASSIST_LOOKBACK_WINDOW]: {
+    name: SettingName.ASSIST_LOOKBACK_WINDOW,
+    control: { type: ControlType.NUMBER, min: 1, max: 1440, step: 10 },
+    group: SettingGroup.AI,
+    defaultValue: 60,
+    context: [SettingContextType.USER, SettingContextType.APP],
   },
 };
 
