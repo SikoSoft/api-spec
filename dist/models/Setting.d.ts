@@ -32,7 +32,8 @@ export declare enum SettingName {
     ENABLE_2FA = "enable2FA",
     DEFAULT_WORKSPACE = "defaultWorkspace",
     TIMEZONE = "timezone",
-    SHOW_TAGS = "showTags"
+    SHOW_TAGS = "showTags",
+    ASSIST_LOOKBACK_WINDOW = "assistLookbackWindow"
 }
 export declare enum PaginationType {
     LAZY = "lazy",
@@ -141,6 +142,10 @@ export interface ShowTagsSettingConfig extends BooleanSettingConfig {
     name: SettingName.SHOW_TAGS;
     group: SettingGroup.MISC;
 }
+export interface AssistLookbackWindowSettingConfig extends NumberSettingConfig {
+    name: SettingName.ASSIST_LOOKBACK_WINDOW;
+    group: SettingGroup.AI;
+}
 export type SettingsConfig = {
     [SettingName.PAGINATION_TYPE]: PaginationTypeSettingConfig;
     [SettingName.PAGINATION_PAGE_SIZE]: PaginationPageSizeSettingConfig;
@@ -155,6 +160,7 @@ export type SettingsConfig = {
     [SettingName.DEFAULT_WORKSPACE]: DefaultWorkspaceSettingConfig;
     [SettingName.TIMEZONE]: TimezoneSettingConfig;
     [SettingName.SHOW_TAGS]: ShowTagsSettingConfig;
+    [SettingName.ASSIST_LOOKBACK_WINDOW]: AssistLookbackWindowSettingConfig;
 };
 export type SettingConfig = SettingsConfig[keyof SettingsConfig];
 export declare const settingsConfig: SettingsConfig;

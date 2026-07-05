@@ -30,6 +30,7 @@ export var SettingName;
     SettingName["DEFAULT_WORKSPACE"] = "defaultWorkspace";
     SettingName["TIMEZONE"] = "timezone";
     SettingName["SHOW_TAGS"] = "showTags";
+    SettingName["ASSIST_LOOKBACK_WINDOW"] = "assistLookbackWindow";
 })(SettingName || (SettingName = {}));
 export var PaginationType;
 (function (PaginationType) {
@@ -166,6 +167,13 @@ export const settingsConfig = {
             SettingContextType.LIST,
             SettingContextType.APP,
         ],
+    },
+    [SettingName.ASSIST_LOOKBACK_WINDOW]: {
+        name: SettingName.ASSIST_LOOKBACK_WINDOW,
+        control: { type: ControlType.NUMBER, min: 1, max: 1440, step: 10 },
+        group: SettingGroup.AI,
+        defaultValue: 60,
+        context: [SettingContextType.USER, SettingContextType.APP],
     },
 };
 export const defaultSettings = Object.fromEntries(Object.entries(settingsConfig).map(([key, config]) => [
