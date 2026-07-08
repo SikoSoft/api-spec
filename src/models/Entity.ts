@@ -45,6 +45,7 @@ export interface CommonEntityPropertyConfig {
   hidden: boolean;
   optionsOnly: boolean;
   options: PropertyDataValue[];
+  formatters?: string[];
 }
 
 export interface BooleanDataTypedValue {
