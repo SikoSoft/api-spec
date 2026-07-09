@@ -93,6 +93,10 @@
       "types": "./dist/lib/Api.d.ts",
       "default": "./dist/lib/Api.js"
     },
+    "./lib/Formatter": {
+      "types": "./dist/lib/Formatter.d.ts",
+      "default": "./dist/lib/Formatter.js"
+    },
     "./lib/ListConfig": {
       "types": "./dist/lib/ListConfig.d.ts",
       "default": "./dist/lib/ListConfig.js"
