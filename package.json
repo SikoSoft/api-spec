@@ -1,6 +1,6 @@
 {
   "name": "api-spec",
-  "version": "1.129.1",
+  "version": "1.129.2",
   "description": "The contract between gapi and activity-logger.",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -81,6 +81,10 @@
       "types": "./dist/models/Statistic.d.ts",
       "default": "./dist/models/Statistic.js"
     },
+    "./models/Formatter": {
+      "types": "./dist/models/Formatter.d.ts",
+      "default": "./dist/models/Formatter.js"
+    },
     "./models/Workspace": {
       "types": "./dist/models/Workspace.d.ts",
       "default": "./dist/models/Workspace.js"
@@ -96,6 +100,10 @@
     "./lib/Formatter": {
       "types": "./dist/lib/Formatter.d.ts",
       "default": "./dist/lib/Formatter.js"
+    },
+    "./lib/formatters/ms-to-duration": {
+      "types": "./dist/lib/formatters/ms-to-duration.d.ts",
+      "default": "./dist/lib/formatters/ms-to-duration.js"
     },
     "./lib/ListConfig": {
       "types": "./dist/lib/ListConfig.d.ts",
