@@ -1,5 +1,7 @@
 import { registerFormatter } from '../Formatter';
 
+console.log('[Formatter] ms-to-duration module loaded');
+
 registerFormatter('ms_to_duration', {
   label: 'Milliseconds → Duration',
   description: 'Converts a millisecond count to a human-readable duration string.',
