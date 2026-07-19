@@ -1,6 +1,6 @@
 {
   "name": "api-spec",
-  "version": "1.129.2",
+  "version": "1.129.3",
   "description": "The contract between gapi and activity-logger.",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -24,6 +24,9 @@
     "rimraf": "^5.0.5",
     "typescript": "^5.4.5"
   },
+  "sideEffects": [
+    "./dist/lib/formatters/*.js"
+  ],
   "exports": {
     "./models/Access": {
       "types": "./dist/models/Access.d.ts",
