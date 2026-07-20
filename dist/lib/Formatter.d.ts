@@ -1,5 +1,6 @@
-import { FormatterEntry, FormatterMeta } from "../models/Formatter";
+import { FormatterEntry } from "../models/Formatter";
+import { registerFormatter } from "./FormatterRegistry";
 import "./formatters/ms-to-duration";
-export declare function registerFormatter(id: string, meta: FormatterMeta): void;
+export { registerFormatter };
 export declare function applyFormatters(value: unknown, ids?: string[]): string;
 export declare function listFormatters(): FormatterEntry[];

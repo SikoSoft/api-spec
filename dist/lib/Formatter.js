@@ -1,10 +1,6 @@
+import { registry, registerFormatter } from "./FormatterRegistry";
 import "./formatters/ms-to-duration";
-const registry = {};
-export function registerFormatter(id, meta) {
-    console.log(`[Formatter] registering formatter: ${id}`);
-    registry[id] = meta;
-    console.log(`[Formatter] registry now contains: ${Object.keys(registry).join(', ')}`);
-}
+export { registerFormatter };
 export function applyFormatters(value, ids) {
     const applyAll = !ids || ids.length === 0;
     const idsToApply = applyAll ? Object.keys(registry) : ids;

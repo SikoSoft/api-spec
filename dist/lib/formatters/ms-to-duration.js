@@ -1,4 +1,4 @@
-import { registerFormatter } from '../Formatter';
+import { registerFormatter } from '../FormatterRegistry';
 console.log('[Formatter] ms-to-duration module loaded');
 registerFormatter('ms_to_duration', {
     label: 'Milliseconds → Duration',
