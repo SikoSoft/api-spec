@@ -3,6 +3,7 @@ import {
   FormatterEntry,
   FormatterMeta,
 } from "../models/Formatter";
+import "./formatters/ms-to-duration";
 
 const registry: Record<string, FormatterMeta> = {};
 
