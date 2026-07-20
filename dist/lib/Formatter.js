@@ -1,3 +1,4 @@
+import "./formatters/ms-to-duration";
 const registry = {};
 export function registerFormatter(id, meta) {
     console.log(`[Formatter] registering formatter: ${id}`);
