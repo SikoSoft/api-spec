@@ -1,17 +1,8 @@
-import {
-  FormatterConfig,
-  FormatterEntry,
-  FormatterMeta,
-} from "../models/Formatter";
+import { FormatterConfig, FormatterEntry } from "../models/Formatter";
+import { registry, registerFormatter } from "./FormatterRegistry";
 import "./formatters/ms-to-duration";
 
-const registry: Record<string, FormatterMeta> = {};
-
-export function registerFormatter(id: string, meta: FormatterMeta): void {
-  console.log(`[Formatter] registering formatter: ${id}`);
-  registry[id] = meta;
-  console.log(`[Formatter] registry now contains: ${Object.keys(registry).join(', ')}`);
-}
+export { registerFormatter };
 
 export function applyFormatters(value: unknown, ids?: string[]): string {
   const applyAll = !ids || ids.length === 0;
