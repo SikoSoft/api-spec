@@ -22,13 +22,9 @@ Each formatter is a pure function `(value: unknown) => string`. It receives a va
 
 ### Side-Effect Registration
 
-Formatters register themselves as a side-effect of being imported. No named export is consumed — the import itself is enough:
+Formatters register themselves as a side-effect of being imported. `api-spec/lib/Formatter` imports all built-in formatters directly, so any consumer that imports `applyFormatters` or `listFormatters` automatically gets a fully populated registry — no additional imports required.
 
-```ts
-import 'api-spec/lib/formatters/ms-to-duration';
-```
-
-This must happen at (or before) app entry so formatters are in the registry before any rendering occurs. The `api-spec` package declares these files in its `sideEffects` field so bundlers do not tree-shake them.
+Adding a new formatter to the spec therefore only requires creating the formatter file and importing it inside `src/lib/Formatter.ts`; consumer apps need no changes.
 
 ---
 
@@ -113,11 +109,13 @@ The user selects one; the choice is saved as a `FormatterConfig` on the property
 ## Adding a New Formatter
 
 1. Create `src/lib/formatters/<name>.ts` — call `registerFormatter` with an ID, label, description, and `fn`.
-2. Add the export to `package.json` exports map:
+2. Add `import './formatters/<name>';` to `src/lib/Formatter.ts` alongside the other formatter imports.
+3. Add the entry to the `package.json` exports map:
    ```json
    "./lib/formatters/<name>": {
      "types": "./dist/lib/formatters/<name>.d.ts",
      "default": "./dist/lib/formatters/<name>.js"
    }
    ```
-3. Import it as a side-effect in the consumer's entry point.
+
+Consumer apps require no changes — the new formatter is available immediately via `listFormatters()` and `applyFormatters()`.
