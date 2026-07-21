@@ -194,10 +194,15 @@ export const defaultEntityConfig: EntityConfig = {
   allowComments: true,
 };
 
+export interface PropertyValue {
+  raw: PropertyDataValue;
+  formatted: string;
+}
+
 export interface EntityProperty {
   id: number;
   propertyConfigId: number;
-  value: PropertyDataValue;
+  value: PropertyValue;
   order: number;
 }
 
