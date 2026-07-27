@@ -1,4 +1,5 @@
-import { FormatterConfig, FormatterEntry } from "../models/Formatter";
+import { DataType } from "../models/Entity";
+import { FormatterEntry, supportedDataTypes } from "../models/Formatter";
 import { registry, registerFormatter } from "./FormatterRegistry";
 import "./formatters/ms-to-duration";
 
@@ -9,8 +10,9 @@ export function applyFormatters(value: unknown, ids?: string[]): string {
   const idsToApply = applyAll ? Object.keys(registry) : ids;
 
   console.log(
-    `[Formatter] applyFormatters called — value:`, value,
-    `| ids: ${applyAll ? '(all)' : idsToApply.join(', ')}`
+    `[Formatter] applyFormatters called — value:`,
+    value,
+    `| ids: ${applyAll ? "(all)" : idsToApply.join(", ")}`
   );
 
   const result = idsToApply.reduce<string>((current, id) => {
@@ -20,7 +22,11 @@ export function applyFormatters(value: unknown, ids?: string[]): string {
       return current;
     }
     const output = entry.fn(current);
-    console.log(`[Formatter] applied "${id}": ${JSON.stringify(current)} → ${JSON.stringify(output)}`);
+    console.log(
+      `[Formatter] applied "${id}": ${JSON.stringify(
+        current
+      )} → ${JSON.stringify(output)}`
+    );
     return output;
   }, String(value));
 
@@ -29,11 +35,20 @@ export function applyFormatters(value: unknown, ids?: string[]): string {
 }
 
 export function listFormatters(): FormatterEntry[] {
-  const entries = Object.entries(registry).map(([id, { label, description }]) => ({
-    id,
-    label,
-    description,
-  }));
-  console.log(`[Formatter] listFormatters called — ${entries.length} formatter(s):`, entries.map(e => e.id));
+  const entries = Object.entries(registry).map(
+    ([id, { label, description }]) => ({
+      id,
+      label,
+      description,
+    })
+  );
+  console.log(
+    `[Formatter] listFormatters called — ${entries.length} formatter(s):`,
+    entries.map((e) => e.id)
+  );
   return entries;
+}
+
+export function dataTypeSupportsFormatter(dataType: DataType): boolean {
+  return supportedDataTypes.includes(dataType);
 }

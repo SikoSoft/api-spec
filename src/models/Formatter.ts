@@ -1,3 +1,5 @@
+import { DataType } from "./Entity";
+
 export interface FormatterConfig {
   id: string;
 }
@@ -15,3 +17,9 @@ export interface FormatterEntry {
   label: string;
   description: string;
 }
+
+export const supportedDataTypes: DataType[] = [
+  DataType.SHORT_TEXT,
+  DataType.LONG_TEXT,
+  DataType.INT,
+];
