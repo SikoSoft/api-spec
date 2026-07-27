@@ -105,14 +105,10 @@ export interface EntityConfig {
     allowComments: boolean;
 }
 export declare const defaultEntityConfig: EntityConfig;
-export interface PropertyValue {
-    raw: PropertyDataValue;
-    formatted: string;
-}
 export interface EntityProperty {
     id: number;
     propertyConfigId: number;
-    value: PropertyValue;
+    value: PropertyDataValue;
     order: number;
 }
 export interface Entity {
