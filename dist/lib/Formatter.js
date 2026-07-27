@@ -1,10 +1,11 @@
+import { supportedDataTypes } from "../models/Formatter";
 import { registry, registerFormatter } from "./FormatterRegistry";
 import "./formatters/ms-to-duration";
 export { registerFormatter };
 export function applyFormatters(value, ids) {
     const applyAll = !ids || ids.length === 0;
     const idsToApply = applyAll ? Object.keys(registry) : ids;
-    console.log(`[Formatter] applyFormatters called — value:`, value, `| ids: ${applyAll ? '(all)' : idsToApply.join(', ')}`);
+    console.log(`[Formatter] applyFormatters called — value:`, value, `| ids: ${applyAll ? "(all)" : idsToApply.join(", ")}`);
     const result = idsToApply.reduce((current, id) => {
         const entry = registry[id];
         if (!entry) {
@@ -24,7 +25,10 @@ export function listFormatters() {
         label,
         description,
     }));
-    console.log(`[Formatter] listFormatters called — ${entries.length} formatter(s):`, entries.map(e => e.id));
+    console.log(`[Formatter] listFormatters called — ${entries.length} formatter(s):`, entries.map((e) => e.id));
     return entries;
+}
+export function dataTypeSupportsFormatter(dataType) {
+    return supportedDataTypes.includes(dataType);
 }
 //# sourceMappingURL=Formatter.js.map

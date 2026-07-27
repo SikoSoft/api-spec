@@ -1,3 +1,4 @@
+import { DataType } from "./Entity";
 export interface FormatterConfig {
     id: string;
 }
@@ -12,3 +13,4 @@ export interface FormatterEntry {
     label: string;
     description: string;
 }
+export declare const supportedDataTypes: DataType[];
