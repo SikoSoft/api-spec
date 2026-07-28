@@ -6,7 +6,7 @@ import "./formatters/ms-to-duration";
 export { registerFormatter };
 
 export function applyFormatters(
-  value: unknown,
+  value: PropertyDataValue,
   ids?: string[]
 ): PropertyDataValue {
   const applyAll = !ids || ids.length === 0;
@@ -31,7 +31,7 @@ export function applyFormatters(
       )} → ${JSON.stringify(output)}`
     );
     return output;
-  }, String(value));
+  }, value);
 
   console.log(`[Formatter] applyFormatters final result:`, result);
   return result;
