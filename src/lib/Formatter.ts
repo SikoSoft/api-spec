@@ -1,11 +1,14 @@
-import { DataType } from "../models/Entity";
+import { DataType, PropertyDataValue } from "../models/Entity";
 import { FormatterEntry, supportedDataTypes } from "../models/Formatter";
 import { registry, registerFormatter } from "./FormatterRegistry";
 import "./formatters/ms-to-duration";
 
 export { registerFormatter };
 
-export function applyFormatters(value: unknown, ids?: string[]): string {
+export function applyFormatters(
+  value: unknown,
+  ids?: string[]
+): PropertyDataValue {
   const applyAll = !ids || ids.length === 0;
   const idsToApply = applyAll ? Object.keys(registry) : ids;
 
@@ -15,7 +18,7 @@ export function applyFormatters(value: unknown, ids?: string[]): string {
     `| ids: ${applyAll ? "(all)" : idsToApply.join(", ")}`
   );
 
-  const result = idsToApply.reduce<string>((current, id) => {
+  const result = idsToApply.reduce<PropertyDataValue>((current, id) => {
     const entry = registry[id];
     if (!entry) {
       console.warn(`[Formatter] unknown formatter id: "${id}" — skipping`);

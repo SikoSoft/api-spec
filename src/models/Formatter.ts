@@ -1,10 +1,10 @@
-import { DataType } from "./Entity";
+import { DataType, PropertyDataValue } from "./Entity";
 
 export interface FormatterConfig {
   id: string;
 }
 
-export type FormatterFn = (value: unknown) => string;
+export type FormatterFn = (value: PropertyDataValue) => PropertyDataValue;
 
 export interface FormatterMeta {
   label: string;
