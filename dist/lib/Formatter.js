@@ -15,7 +15,7 @@ export function applyFormatters(value, ids) {
         const output = entry.fn(current);
         console.log(`[Formatter] applied "${id}": ${JSON.stringify(current)} → ${JSON.stringify(output)}`);
         return output;
-    }, String(value));
+    }, value);
     console.log(`[Formatter] applyFormatters final result:`, result);
     return result;
 }
