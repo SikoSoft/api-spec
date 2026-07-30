@@ -95,6 +95,7 @@ export interface Fact {
   createdAt: Date;
   updatedAt: Date;
   context: FactContext;
+  formatters?: string[];
 }
 
 export interface FactResult {
