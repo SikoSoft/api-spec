@@ -1,6 +1,6 @@
 {
   "name": "api-spec",
-  "version": "1.135.1",
+  "version": "1.135.2",
   "description": "The contract between gapi and activity-logger.",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -24,9 +24,6 @@
     "rimraf": "^5.0.5",
     "typescript": "^5.4.5"
   },
-  "sideEffects": [
-    "./dist/lib/formatters/*.js"
-  ],
   "exports": {
     "./models/Access": {
       "types": "./dist/models/Access.d.ts",
@@ -103,10 +100,6 @@
     "./lib/Formatter": {
       "types": "./dist/lib/Formatter.d.ts",
       "default": "./dist/lib/Formatter.js"
-    },
-    "./lib/formatters/ms-to-duration": {
-      "types": "./dist/lib/formatters/ms-to-duration.d.ts",
-      "default": "./dist/lib/formatters/ms-to-duration.js"
     },
     "./lib/ListConfig": {
       "types": "./dist/lib/ListConfig.d.ts",
