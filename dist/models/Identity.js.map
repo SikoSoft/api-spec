@@ -1,1 +1,1 @@
-{"version":3,"file":"Identity.js","sourceRoot":"","sources":["../../src/models/Identity.ts"],"names":[],"mappings":"AAgBA,MAAM,CAAN,IAAY,IAIX;AAJD,WAAY,IAAI;IACd,uBAAe,CAAA;IACf,2BAAmB,CAAA;IACnB,+BAAuB,CAAA;AACzB,CAAC,EAJW,IAAI,KAAJ,IAAI,QAIf"}
+{"version":3,"file":"Identity.js","sourceRoot":"","sources":["../../src/models/Identity.ts"],"names":[],"mappings":"AAgBA,MAAM,CAAN,IAAY,IAKX;AALD,WAAY,IAAI;IACd,uBAAe,CAAA;IACf,2BAAmB,CAAA;IACnB,+BAAuB,CAAA;IACvB,6BAAqB,CAAA;AACvB,CAAC,EALW,IAAI,KAAJ,IAAI,QAKf"}

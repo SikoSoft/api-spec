@@ -15,5 +15,6 @@ export interface UserGoogleAccount {
 export declare enum Role {
     AI = "orbit-ai",
     NUKE = "orbit-nuke",
-    ACCESS = "orbit-access"
+    ACCESS = "orbit-access",
+    DEBUG = "orbit-debug"
 }
