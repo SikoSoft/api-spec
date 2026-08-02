@@ -92,6 +92,7 @@ export interface ChartRequest {
 export declare const exampleChartRequest: ChartConfig;
 export interface ChartDataset {
     data: SegmentedDataPoint[];
+    label: string;
 }
 export interface ChartResponse {
     datasets: ChartDataset[];
