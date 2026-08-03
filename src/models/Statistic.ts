@@ -157,6 +157,7 @@ export const exampleChartRequest: ChartConfig = {
 export interface ChartDataset {
   data: SegmentedDataPoint[];
   label: string;
+  formatters: string[];
 }
 
 export interface ChartResponse {
