@@ -46,6 +46,9 @@ export enum SegmentationTimeUnit {
 }
 
 export type DataPointRequest = FactContext;
+export type FormattedDataPointRequest = DataPointRequest & {
+  formatters: string[];
+};
 
 export interface SegmentationTime {
   type: SegmentationType.TIME;
@@ -66,17 +69,19 @@ export type SegmentedDataPoint = {
 export enum ChartVersion {
   V1 = 1,
   V2 = 2,
+  V3 = 3,
 }
 
 export interface ChartConfigCommon {
   version: ChartVersion;
   dataWindow: DataWindow;
   segmentation: Segmentation;
-  dataPoints: DataPointRequest[];
+  dataPoints: (DataPointRequest | FormattedDataPointRequest)[];
 }
 
 export interface ChartConfigV1 extends ChartConfigCommon {
   version: ChartVersion.V1;
+  dataPoints: DataPointRequest[];
 }
 
 export enum ChartConfigType {
@@ -92,10 +97,16 @@ export enum ChartConfigType {
 
 export interface ChartConfigV2 extends ChartConfigCommon {
   version: ChartVersion.V2;
+  dataPoints: DataPointRequest[];
   type: `${ChartConfigType}`;
 }
 
-export type ChartConfig = ChartConfigV1 | ChartConfigV2;
+export interface ChartConfigV3 extends Omit<ChartConfigV2, "version"> {
+  version: ChartVersion.V3;
+  dataPoints: FormattedDataPointRequest[];
+}
+
+export type ChartConfig = ChartConfigV1 | ChartConfigV2 | ChartConfigV3;
 
 export interface Chart {
   id: number;
@@ -114,7 +125,7 @@ export interface ChartRequest {
 }
 
 export const exampleChartRequest: ChartConfig = {
-  version: ChartVersion.V2,
+  version: ChartVersion.V3,
   type: "line",
   dataWindow: {
     type: DataWindowType.CUSTOM,
@@ -138,6 +149,7 @@ export const exampleChartRequest: ChartConfig = {
         time: { type: ListFilterTimeType.ALL_TIME },
         properties: [],
       },
+      formatters: [],
     },
   ],
 };
