@@ -35,6 +35,9 @@ export declare enum SegmentationTimeUnit {
     YEAR = "year"
 }
 export type DataPointRequest = FactContext;
+export type FormattedDataPointRequest = DataPointRequest & {
+    formatters: string[];
+};
 export interface SegmentationTime {
     type: SegmentationType.TIME;
     unit: SegmentationTimeUnit;
@@ -49,16 +52,18 @@ export type SegmentedDataPoint = {
 };
 export declare enum ChartVersion {
     V1 = 1,
-    V2 = 2
+    V2 = 2,
+    V3 = 3
 }
 export interface ChartConfigCommon {
     version: ChartVersion;
     dataWindow: DataWindow;
     segmentation: Segmentation;
-    dataPoints: DataPointRequest[];
+    dataPoints: (DataPointRequest | FormattedDataPointRequest)[];
 }
 export interface ChartConfigV1 extends ChartConfigCommon {
     version: ChartVersion.V1;
+    dataPoints: DataPointRequest[];
 }
 export declare enum ChartConfigType {
     BAR = "bar",
@@ -72,9 +77,14 @@ export declare enum ChartConfigType {
 }
 export interface ChartConfigV2 extends ChartConfigCommon {
     version: ChartVersion.V2;
+    dataPoints: DataPointRequest[];
     type: `${ChartConfigType}`;
 }
-export type ChartConfig = ChartConfigV1 | ChartConfigV2;
+export interface ChartConfigV3 extends Omit<ChartConfigV2, "version"> {
+    version: ChartVersion.V3;
+    dataPoints: FormattedDataPointRequest[];
+}
+export type ChartConfig = ChartConfigV1 | ChartConfigV2 | ChartConfigV3;
 export interface Chart {
     id: number;
     name: string;
@@ -93,6 +103,7 @@ export declare const exampleChartRequest: ChartConfig;
 export interface ChartDataset {
     data: SegmentedDataPoint[];
     label: string;
+    formatters: string[];
 }
 export interface ChartResponse {
     datasets: ChartDataset[];

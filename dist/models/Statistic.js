@@ -30,6 +30,7 @@ export var ChartVersion;
 (function (ChartVersion) {
     ChartVersion[ChartVersion["V1"] = 1] = "V1";
     ChartVersion[ChartVersion["V2"] = 2] = "V2";
+    ChartVersion[ChartVersion["V3"] = 3] = "V3";
 })(ChartVersion || (ChartVersion = {}));
 export var ChartConfigType;
 (function (ChartConfigType) {
@@ -43,7 +44,7 @@ export var ChartConfigType;
     ChartConfigType["RADAR"] = "radar";
 })(ChartConfigType || (ChartConfigType = {}));
 export const exampleChartRequest = {
-    version: ChartVersion.V2,
+    version: ChartVersion.V3,
     type: "line",
     dataWindow: {
         type: DataWindowType.CUSTOM,
@@ -67,6 +68,7 @@ export const exampleChartRequest = {
                 time: { type: ListFilterTimeType.ALL_TIME },
                 properties: [],
             },
+            formatters: [],
         },
     ],
 };
