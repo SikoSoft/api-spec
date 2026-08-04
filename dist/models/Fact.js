@@ -7,6 +7,10 @@ export var FactOperation;
     FactOperation["ANALYSIS_CLASSIFICATION"] = "analysisClassification";
     FactOperation["PROPERTY_SUM"] = "propertySum";
 })(FactOperation || (FactOperation = {}));
+export var ParseStrategy;
+(function (ParseStrategy) {
+    ParseStrategy["LEADING_INTEGER"] = "leadingInteger";
+})(ParseStrategy || (ParseStrategy = {}));
 export var AnalysisClassificationType;
 (function (AnalysisClassificationType) {
     AnalysisClassificationType["MORNING_FASTING"] = "morningFasting";
