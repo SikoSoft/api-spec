@@ -11,6 +11,10 @@ export enum FactOperation {
   PROPERTY_SUM = "propertySum",
 }
 
+export enum ParseStrategy {
+  LEADING_INTEGER = "leadingInteger",
+}
+
 export enum AnalysisClassificationType {
   MORNING_FASTING = "morningFasting",
   AFTERNOON_SNACKING = "afternoonSnacking",
@@ -79,6 +83,7 @@ export type PropertySumFactContext = {
   operation: FactOperation.PROPERTY_SUM;
   filter: ListFilter;
   propertyConfigId: number;
+  parseStrategy?: ParseStrategy;
 };
 
 export type FactContext =
