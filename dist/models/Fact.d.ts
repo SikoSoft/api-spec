@@ -9,7 +9,8 @@ export declare enum FactOperation {
     PROPERTY_SUM = "propertySum"
 }
 export declare enum ParseStrategy {
-    LEADING_INTEGER = "leadingInteger"
+    LEADING_INTEGER = "leadingInteger",
+    LEADING_NUMBER = "leadingNumber"
 }
 export declare enum AnalysisClassificationType {
     MORNING_FASTING = "morningFasting",

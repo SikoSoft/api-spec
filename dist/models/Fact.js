@@ -10,6 +10,7 @@ export var FactOperation;
 export var ParseStrategy;
 (function (ParseStrategy) {
     ParseStrategy["LEADING_INTEGER"] = "leadingInteger";
+    ParseStrategy["LEADING_NUMBER"] = "leadingNumber";
 })(ParseStrategy || (ParseStrategy = {}));
 export var AnalysisClassificationType;
 (function (AnalysisClassificationType) {
