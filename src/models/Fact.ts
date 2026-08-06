@@ -13,6 +13,7 @@ export enum FactOperation {
 
 export enum ParseStrategy {
   LEADING_INTEGER = "leadingInteger",
+  LEADING_NUMBER = "leadingNumber",
 }
 
 export enum AnalysisClassificationType {
