@@ -1,13 +1,14 @@
 {
   "morningFasting": {
     "promptConfig": {
-      "description": "how well the user maintained a morning fast",
-      "scale": "0.0 = broke fast immediately or heavily (consumed caloric food before noon), 1.0 = maintained fast perfectly (no caloric food intake before noon)",
+      "description": "whether the user maintained their morning fast",
+      "scale": "boolean — true if the fast was maintained, false if the fast was broken",
       "notes": [
-        "Only consider items consumed between midnight and noon (00:00-12:00). ",
-        "Afternoon and evening eating does NOT affect this score — ignore it entirely. ",
-        "Medications never break a fast. Black coffee and plain tea are borderline; ",
-        "lean toward not breaking the fast unless clearly caloric."
+        "Only consider items consumed between midnight and noon (00:00-12:00).",
+        "Afternoon and evening eating does NOT affect this score — ignore it entirely.",
+        "Return true if no food or caloric intake occurred outside the fasting window.",
+        "Non-caloric items, medications, supplements, and antacids (e.g. Rennie, ibuprofen, water, black coffee, plain tea) do NOT break the fast — treat intake of these items as true.",
+        "Only evaluate as false if caloric intake exceeds 10 kcal or includes an actual meal or snack during the fasting window."
       ]
     }
   },
