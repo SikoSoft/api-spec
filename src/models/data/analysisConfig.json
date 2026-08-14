@@ -2,7 +2,7 @@
   "morningFasting": {
     "promptConfig": {
       "description": "whether the user maintained their morning fast",
-      "scale": "boolean — true if the fast was maintained, false if the fast was broken",
+      "scale": "boolean — true if the fast was maintained during the fasting window (midnight to noon, 00:00-12:00), false if the fast was broken during that window",
       "notes": [
         "Only consider items consumed between midnight and noon (00:00-12:00).",
         "Afternoon and evening eating does NOT affect this score — ignore it entirely.",
