@@ -2,6 +2,7 @@ export var DataType;
 (function (DataType) {
     DataType["BOOLEAN"] = "boolean";
     DataType["DATE"] = "date";
+    DataType["FLOAT"] = "float";
     DataType["IMAGE"] = "image";
     DataType["INT"] = "int";
     DataType["LONG_TEXT"] = "longText";

@@ -2,6 +2,7 @@ import { AccessPolicy } from "./Access";
 export declare enum DataType {
     BOOLEAN = "boolean",
     DATE = "date",
+    FLOAT = "float",
     IMAGE = "image",
     INT = "int",
     LONG_TEXT = "longText",
@@ -13,10 +14,11 @@ export type ImageDataValue = {
     alt: string;
 };
 export type IntDataValue = number;
+export type FloatDataValue = number;
 export type DateDataValue = Date | null;
 export type LongTextDataValue = string;
 export type ShortTextDataValue = string;
-export type PropertyDataValue = BooleanDataValue | ImageDataValue | IntDataValue | DateDataValue | LongTextDataValue | ShortTextDataValue;
+export type PropertyDataValue = BooleanDataValue | ImageDataValue | IntDataValue | FloatDataValue | DateDataValue | LongTextDataValue | ShortTextDataValue;
 export interface CommonEntityPropertyConfig {
     entityConfigId: number;
     id: number;
@@ -44,6 +46,10 @@ export interface IntDataTypedValue {
     dataType: DataType.INT;
     defaultValue: IntDataValue;
 }
+export interface FloatDataTypedValue {
+    dataType: DataType.FLOAT;
+    defaultValue: FloatDataValue;
+}
 export interface DateDataTypedValue {
     dataType: DataType.DATE;
     defaultValue: DateDataValue;
@@ -56,12 +62,14 @@ export interface ShortTextDataTypedValue {
     dataType: DataType.SHORT_TEXT;
     defaultValue: ShortTextDataValue;
 }
-export type DataTypedValue = BooleanDataTypedValue | ImageDataTypedValue | IntDataTypedValue | DateDataTypedValue | LongTextDataTypedValue | ShortTextDataTypedValue;
+export type DataTypedValue = BooleanDataTypedValue | ImageDataTypedValue | IntDataTypedValue | FloatDataTypedValue | DateDataTypedValue | LongTextDataTypedValue | ShortTextDataTypedValue;
 export interface BooleanEntityPropertyConfig extends CommonEntityPropertyConfig, BooleanDataTypedValue {
 }
 export interface ImageEntityPropertyConfig extends CommonEntityPropertyConfig, ImageDataTypedValue {
 }
 export interface IntEntityPropertyConfig extends CommonEntityPropertyConfig, IntDataTypedValue {
+}
+export interface FloatEntityPropertyConfig extends CommonEntityPropertyConfig, FloatDataTypedValue {
 }
 export interface DateEntityPropertyConfig extends CommonEntityPropertyConfig, DateDataTypedValue {
 }
@@ -69,7 +77,7 @@ export interface LongTextEntityPropertyConfig extends CommonEntityPropertyConfig
 }
 export interface ShortTextEntityPropertyConfig extends CommonEntityPropertyConfig, ShortTextDataTypedValue {
 }
-export type EntityPropertyConfig = BooleanEntityPropertyConfig | ImageEntityPropertyConfig | IntEntityPropertyConfig | DateEntityPropertyConfig | LongTextEntityPropertyConfig | ShortTextEntityPropertyConfig;
+export type EntityPropertyConfig = BooleanEntityPropertyConfig | ImageEntityPropertyConfig | IntEntityPropertyConfig | FloatEntityPropertyConfig | DateEntityPropertyConfig | LongTextEntityPropertyConfig | ShortTextEntityPropertyConfig;
 export type EntityPropertyCalculationReference = {
     propertyConfigId: number;
 };

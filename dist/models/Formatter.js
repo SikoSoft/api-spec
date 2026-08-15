@@ -7,5 +7,6 @@ export const supportedDataTypes = [
     DataType.SHORT_TEXT,
     DataType.LONG_TEXT,
     DataType.INT,
+    DataType.FLOAT,
 ];
 //# sourceMappingURL=Formatter.js.map
