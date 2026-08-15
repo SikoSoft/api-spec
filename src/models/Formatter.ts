@@ -26,4 +26,5 @@ export const supportedDataTypes: DataType[] = [
   DataType.SHORT_TEXT,
   DataType.LONG_TEXT,
   DataType.INT,
+  DataType.FLOAT,
 ];

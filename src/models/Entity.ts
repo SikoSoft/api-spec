@@ -3,6 +3,7 @@ import { AccessPolicy } from "./Access";
 export enum DataType {
   BOOLEAN = "boolean",
   DATE = "date",
+  FLOAT = "float",
   IMAGE = "image",
   INT = "int",
   LONG_TEXT = "longText",
@@ -18,6 +19,8 @@ export type ImageDataValue = {
 
 export type IntDataValue = number;
 
+export type FloatDataValue = number;
+
 export type DateDataValue = Date | null;
 
 export type LongTextDataValue = string;
@@ -28,6 +31,7 @@ export type PropertyDataValue =
   | BooleanDataValue
   | ImageDataValue
   | IntDataValue
+  | FloatDataValue
   | DateDataValue
   | LongTextDataValue
   | ShortTextDataValue;
@@ -63,6 +67,11 @@ export interface IntDataTypedValue {
   defaultValue: IntDataValue;
 }
 
+export interface FloatDataTypedValue {
+  dataType: DataType.FLOAT;
+  defaultValue: FloatDataValue;
+}
+
 export interface DateDataTypedValue {
   dataType: DataType.DATE;
   defaultValue: DateDataValue;
@@ -82,6 +91,7 @@ export type DataTypedValue =
   | BooleanDataTypedValue
   | ImageDataTypedValue
   | IntDataTypedValue
+  | FloatDataTypedValue
   | DateDataTypedValue
   | LongTextDataTypedValue
   | ShortTextDataTypedValue;
@@ -97,6 +107,10 @@ export interface ImageEntityPropertyConfig
 export interface IntEntityPropertyConfig
   extends CommonEntityPropertyConfig,
     IntDataTypedValue {}
+
+export interface FloatEntityPropertyConfig
+  extends CommonEntityPropertyConfig,
+    FloatDataTypedValue {}
 
 export interface DateEntityPropertyConfig
   extends CommonEntityPropertyConfig,
@@ -114,6 +128,7 @@ export type EntityPropertyConfig =
   | BooleanEntityPropertyConfig
   | ImageEntityPropertyConfig
   | IntEntityPropertyConfig
+  | FloatEntityPropertyConfig
   | DateEntityPropertyConfig
   | LongTextEntityPropertyConfig
   | ShortTextEntityPropertyConfig;
